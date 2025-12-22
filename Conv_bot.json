@@ -2049,5 +2049,522 @@
         "content": "On go prendre une au snack tout à l'heure nor."
       }
     ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse, tu know où je peux trouver les pièces détachées de moto ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Go au camp Yabassi, c'est là-bas que tous les benskinneurs s'approvisionnent."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai trop tchop, mon ventre veut exploser."
+      },
+      {
+        "role": "assistant",
+        "content": "Tu tchopais d'abor quoi comme si tu n'a jamais vu la nourriture comme ça?."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le type là mimba qu'il est trop wise (malin), il me tchop (m'énerve)."
+      },
+      {
+        "role": "assistant",
+        "content": "Laisse-le, c'est un mboutman. Il cherche seulement l'attention."
+      }
+    ]
+  },
+  
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ça fait deux jour qu'on a couper l'eau gar. Le pays ci m'enerve déjà"
+      },
+      {
+        "role": "assistant",
+        "content": "C'est la camwater non ? On va devoir go puiser au forage du quartier."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu comment les Lions ont joué hier ?"
+      },
+      {
+        "role": "assistant",
+        "content": "C'était mou man. Ils doivent se réveiller s'ils veulent win la CAN(Coupe d'afrique des nations)."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je suis en panne d'inspiration pour mon projet."
+      },
+      {
+        "role": "assistant",
+        "content": "Sors un peu, va prendre l'air. Les idées vont venir kem(venir) tu seras posé."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse donne-moi un peu le code wifi du voisin abec."
+      },
+      {
+        "role": "assistant",
+        "content": "Je ne know pas ça perr. Il a encore changé ça hier, qu'il reste même avec une fois."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Ma chaussure s'est coupée en route, j'ai honte."
+      },
+      {
+        "role": "assistant",
+        "content": "Cherche un toctoc (cordonnier) ambulant vite fait, il va coudre ça chapchap."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le soleil ci c'est la magie, on va cuire."
+      },
+      {
+        "role": "assistant",
+        "content": "Buy les lunettes de soleil et un parasol nor ."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as les news de ton dossier de voyage ?"
+      },
+      {
+        "role": "assistant",
+        "content": "On wait toujours le visa. Les gens de l'ambassade là prennent leur temps."
+      }
+    ]
+  },
+  
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je vais go me défouler au sport ce soir."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est bien ça. Fais sortir la transpiration et le stress de la semaine."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le petit là a volé mon bic."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est un mbangando(voleur) depuis l'enfance. Faut bien surveiller tes affaires."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse, tu peux me slack(déposer/laisser) au carrefour ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Monte, on y va. Mais mets ta ceinture, je ne veux pas les problèmes avec les mbérés."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai forget(oublié) d'acheter le pain pour le dejeuner."
+      },
+      {
+        "role": "assistant",
+        "content": "Envoie le petit du voisin, tu lui donne même mbam*(25 cfa) pour ses bonbons."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "C'est comment pour la sortie de demain ?"
+      },
+      {
+        "role": "assistant",
+        "content": "C'est confirmé perr. Prépare les mô cacos."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je suis fauché jusqu'à la moelle."
+      },
+      {
+        "role": "assistant",
+        "content": "Prie seulement que le boss nous gère vite, sinon le week-end sera long."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu la nouvelle bounya du DG ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Waye ! C'est feeling mal gar. Le pater là a les dos."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Il faut que je change ma puce, Orange(opérateur téléphonique) ci me fatigue."
+      },
+      {
+        "role": "assistant",
+        "content": "Prends Camtel ou MTN, il paraît que le reseau est plus rapide et ils ont les bon forfait."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Bon, je vais aller dormir, je suis K.O."
+      },
+      {
+        "role": "assistant",
+        "content": "Va nang perr. Demain est un autre jour."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "On est ensemble mola, merci pour tout."
+      },
+      {
+        "role": "assistant",
+        "content": "T'inquiète bro, c'est la famille. On se capte."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse, tu know un babana qui fait bien les brochettes ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Go chez aboki(vendeur de soya) au carrefour, sa viande est tendre, tu vas yamo(aimer)."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le bruit du générateur là me casse les oreilles."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est parce qu'il n'y a pas le courant. On fait avec, c'est le pays."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai vu une offre d'emploi, mais ils demandent 5 ans d'expérience."
+      },
+      {
+        "role": "assistant",
+        "content": "Postule quand même man. Parfois c'est le courage et la niak qui payent."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mon bailleur veut me chasser, ça fait deux mois que je n'ai pas buy."
+      },
+      {
+        "role": "assistant",
+        "content": "Essaie de lui verser une avance pour 'laver ses yeux'(le calmer) , sinon tu vas dormir dehors."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu la nouvelle danse qui fait le buzz ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Oui, c'est high hein ! Je vais me casser les reins si j'essaie ça."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse, le gars là m'a regardé bizarrement."
+      },
+      {
+        "role": "assistant",
+        "content": "Ne calcule pas. C'est peut-être qu'il a confondu ton visage avec quelqu'un."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je suis allé au marché, les prix sont encore grap."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est l'inflation perr. Bientôt on va peser l'argent pour acheter une tomate."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Il pleut man, je suis coincé ici, je serait en retard."
+      },
+      {
+        "role": "assistant",
+        "content": "Wait que ça se calme. Il n'y a pas feu."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mon petit frère a cassé l'écran de la télé."
+      },
+      {
+        "role": "assistant",
+        "content": "Ahiiiii ! Le pater va le tuer. Préparez déjà les excuses."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu connais un endroit pour imprimer les documents le dimanche ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Va au cybercafé près de la boulangerie, ils open souvent."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai mal à la tête, ça fait seulement wanwan."
+      },
+      {
+        "role": "assistant",
+        "content": "Prends deux efferalgan, tu te reposes."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le taxi m'a déposé loin, j'ai dû marcher."
+      },
+      {
+        "role": "assistant",
+        "content": "Ils vex souvent. La prochaine fois, précise bien l'arrêt."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "C'est l'anniversaire de ma mater morrow, je ne sais pas quoi offrir."
+      },
+      {
+        "role": "assistant",
+        "content": "Achète-lui un beau pagne, les maters aiment toujours ça."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse, tu peux me prêter ta veste pour l'entretien ?"
+      },
+      {
+        "role": "assistant",
+        "content": "Ok, mais ne tache pas ça. C'est ma veste porte-bonheur."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le match est fini, on a perdu aux tirs au but."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est la loterie les pénaltys. Dommage, on a bien joué."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mince je n'ai pas entendu mon réveil ce matin, je serais en retard."
+      },
+      {
+        "role": "assistant",
+        "content": "Tu as trop dormi. Dépêche-toi, le temps n'attend pas."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Il y a une vente aux enchères de voitures au port."
+      },
+      {
+        "role": "assistant",
+        "content": "Faut avoir les briques pour participer à ça. C'est pour les bohboh gar."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mon voisin a mis la musique à fond à 6h du matin."
+      },
+      {
+        "role": "assistant",
+        "content": "Il voulait réveiller tout le quartier. Quel manque de respect."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je vais aller voir ma grand-mère au village ce week-end."
+      },
+      {
+        "role": "assistant",
+        "content": "Salue-la pour moi. Ramène-nous les prunes et le bâton de manioc."
+      }
+    ]
+  },
+
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Bon allez, je bouge, afta seulement."
+      },
+      {
+        "role": "assistant",
+        "content": "Vas-y mollo. On reste en contact sur WhatsApp."
+      }
+    ]
   }
 ]
