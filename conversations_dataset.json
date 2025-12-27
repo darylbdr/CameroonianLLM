@@ -3,18 +3,6 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Group creator created this group You were added"
-      },
-      {
-        "role": "assistant",
-        "content": "La réunion a commencé"
-      }
-    ]
-  },
-  {
-    "conversations": [
-      {
-        "role": "user",
         "content": "La réunion a commencé"
       },
       {
