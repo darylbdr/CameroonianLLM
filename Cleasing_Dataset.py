@@ -1,87 +1,107 @@
 import re
 import json
 
-def nettoyer_message(texte):
-    # Nettoyage de base
-    texte = str(texte)
-    if "<Media omitted>" in texte or "image omitted" in texte or "video omitted" in texte:
+def clean_chat_text(chat_text):
+    # Basic cleaning
+    chat_text = str(chat_text)
+    if "<Media omitted>" in chat_text or "image omitted" in chat_text or "video omitted" in chat_text:
         return None
-    # Suppression des liens et mentions
-    texte = re.sub(r'http\S+|www\.\S+', '', texte) #retire les URLs
-    texte = re.sub(r'@[^\s@]+', '', texte) #retire les mentions (@ suivi de caractères non-espace)
-    texte = re.sub(r'(.)\1{2,}', r'\1\1', texte) # Réduction des caractères répétés (mdrrr -> mdrr)
-    texte = re.sub(r'\s+', ' ', texte).strip() # Nettoyage des espaces
-    return texte
+    # Advanced cleaning
+    chat_text = re.sub(r'http\S+|www\.\S+', '', chat_text) # URLs cleaning
+    chat_text = re.sub(r'@[^^\s@]+', '', chat_text) # removing mentions(@)
+    chat_text = re.sub(r'(.)\1{2,}', r'\1\1', chat_text) # Reducing character repetitions (mdrrr -> mdrr)
+    chat_text = re.sub(r'\s+', ' ', chat_text).strip() # Cleaning spaces
+    return chat_text
 
-def parse_ios_whatsapp(chemin_fichier):
-    # --- ETAPE 1 : Regex Spécial iOS ---
-    # Format typique iOS : [25/12/2023, 14:00:15] Nom: Message
-    # On cherche : Crochet ouvrant + Date/Heure + Crochet fermant + Espace + Nom + : + Espace + Message
+
+def load_conv_bot(conv_path):
+    """Load conv_bot.json with minimal cleanup to handle comment lines or trailing commas.
+    Returns a list (possibly empty) of conversation objects compatible with the generated dataset.
+    """
+    try:
+        with open(conv_path, 'r', encoding='utf-8') as f:
+            txt = f.read()
+        # Remove JS-style single-line comments
+        txt = re.sub(r'//.*', '', txt)
+        # In case of mal formatted JSON
+        txt = re.sub(r',\s*]', ']', txt)
+        txt = re.sub(r',\s*}', '}', txt)
+        data = json.loads(txt)
+        if isinstance(data, dict):
+            return [data]
+        if isinstance(data, list):
+            return data
+        return []
+    except FileNotFoundError:
+        print(f"Conv bot file not found: {conv_path} — continuing without merging.")
+        return []
+    except Exception as e:
+        print(f"Warning: failed to load {conv_path}: {e} — continuing without merging.")
+        return []
+
+
+def parse_ios_whatsapp(file_path):
+    # regex for iOS format : [25/12/2023, 14:00:15] Name: Message
     regex_ios = r'^\[(\d{2}/\d{2}/\d{2,4},\s+\d{2}:\d{2}:\d{2})\] ([^:]+): (.+)$'
     
-    # Liste pour stocker les messages "fusionnés" (Un bloc par personne)
-    messages_groupes = []
+    # List to store messages, one block per person
+    group_messages = []
     current_speaker = None
     current_text_buffer = []
 
-    with open(chemin_fichier, 'r', encoding='utf-8') as f:
-        # On lit ligne par ligne
-        lignes = f.readlines()
+    with open(file_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
 
-    # --- ETAPE 2 : Extraction et Fusion ---
-    for ligne in lignes:
-        # On enlève les caractères invisibles bizarres des exports iOS (LTR marks)
-        ligne = ligne.replace('\u200e', '').strip()
-        
-        match = re.match(regex_ios, ligne)
+    # Data extraction and merge
+    for line in lines:
+        # Removing unusual iOS characters (LTR marks)
+        line = line.replace('\u200e', '').strip()
+        match = re.match(regex_ios, line)
         
         if match:
-            # C'est une nouvelle ligne de message
+            # It's a new message line
             date, speaker, message = match.groups()
-            clean_msg = nettoyer_message(message)
+            clean_msg = clean_chat_text(message)
             
-            if not clean_msg: # Si le message est vide ou "media omitted", on ignore
+            if not clean_msg: # if the message is empty or contains the omitted flag
                 continue
 
-            # LOGIQUE DE FUSION :
-            # Si c'est le même parleur qu'avant, on ajoute à son texte
+            # If it's still the previous speaker we append to their text
             if speaker == current_speaker:
                 current_text_buffer.append(clean_msg)
             else:
-                # Si le parleur change, on sauvegarde le bloc précédent
+                # If it's a new speaker we save the previous conversation
                 if current_speaker and current_text_buffer:
                     full_text = " ".join(current_text_buffer)
-                    # On ne garde que si assez long (min 2 mots)
+                    # Keep the text if it's more than 2 words
                     if len(full_text.split()) >= 2:
-                        messages_groupes.append({"role": current_speaker, "content": full_text})
-                
-                # On commence le nouveau bloc
+                        group_messages.append({"role": current_speaker, "content": full_text})
+
+                # Start a new block
                 current_speaker = speaker
                 current_text_buffer = [clean_msg]
         else:
-            # Si pas de date, c'est un retour à la ligne du message précédent
+            # If there's no date, this is a newline of the previous message
             if current_speaker:
-                clean_line = nettoyer_message(ligne)
+                clean_line = clean_chat_text(line)
                 if clean_line:
                     current_text_buffer.append(clean_line)
 
-    # N'oublie pas d'ajouter le tout dernier message à la fin de la boucle
+    # Don't forget to add the last message at the end of the loop
     if current_speaker and current_text_buffer:
         full_text = " ".join(current_text_buffer)
         if len(full_text.split()) >= 2:
-            messages_groupes.append({"role": current_speaker, "content": full_text})
+            group_messages.append({"role": current_speaker, "content": full_text})
 
-    # --- ETAPE 3 : Création des Paires (Sliding Window) ---
+    # Create Pairs
     dataset_final = []
     
-    # On prend les messages 2 par 2
-    # Message i devient "User", Message i+1 devient "Assistant"
-    for i in range(len(messages_groupes) - 1):
-        msg_A = messages_groupes[i]
-        msg_B = messages_groupes[i+1]
-        
-        # On crée une conversation. 
-        # Note : On ignore le nom réel (Junior, Tonton) et on met les rôles génériques
+    # Processing messages in pair. Message i becomes 'user', message i+1 becomes 'assistant'
+    for i in range(len(group_messages) - 1):
+        msg_A = group_messages[i]
+        msg_B = group_messages[i+1]
+
+        # Create a conversation.
         dataset_final.append({
             "conversations": [
                 {"role": "user", "content": msg_A['content']},
@@ -91,19 +111,27 @@ def parse_ios_whatsapp(chemin_fichier):
 
     return dataset_final
 
-# --- EXECUTION ---
-# Remplace par ton vrai fichier (dézippé de l'archive WhatsApp)
-nom_fichier = "_chat.txt" 
+# Execution
+file_name = "_chat.txt"
+conv_path = "conv_bot.json"
 
 try:
-    data = parse_ios_whatsapp(nom_fichier)
-    print(f"Extraction réussie ! {len(data)} conversations générées.")
-    
-    # Sauvegarde
-    with open('dataset_whatsapp_ios.json', 'w', encoding='utf-8') as f:
+    data = parse_ios_whatsapp(file_name)
+    print(f"Extraction successful! {len(data)} conversations generated.")
+
+    # Load additional conversations from conv_bot.json and merge
+    conv_data = load_conv_bot(conv_path)
+    if conv_data:
+        print(f"Merging {len(conv_data)} conv_bot entries into generated dataset.")
+        # Append conv_data entries to generated data
+        data.extend(conv_data)
+
+    # Save combined dataset
+    with open('conversations_dataset', 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-        
+    print(f"Saved combined dataset to dataset_whatsapp_ios.json (total {len(data)} conversations).")
+
 except FileNotFoundError:
-    print("Erreur : Fichier non trouvé. Assure-toi d'avoir uploadé le fichier .txt")
+    print("Error: File not found. Make sure you uploaded the .txt file")
 except Exception as e:
-    print(f"Une erreur s'est produite : {e}")
+    print(f"An error occurred: {e}")
