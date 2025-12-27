@@ -5,7 +5,6 @@ def clean_chat_text(chat_text):
     # Basic cleaning
     chat_text = str(chat_text)
     ignoring_tags = [
-        "omitted",
         "<Media omitted>",
         "You deleted this message",
         "This message was deleted",
@@ -18,7 +17,10 @@ def clean_chat_text(chat_text):
         "sticker omitted",
         "image omitted",
         "GIF omitted",
+        "document omitted",
+        "video omitted",
         "//",
+        "voice call",
         "Voice call"
     ]
     for ignoring_tag in ignoring_tags:
@@ -45,7 +47,6 @@ def load_conv_bot(conv_path):
         txt = re.sub(r',\s*]', ']', txt)
         txt = re.sub(r',\s*}', '}', txt)
         # to rename pdf files
-        txt = re.sub(r'^.*(\.pdf)$', r'document\1', txt)
         data = json.loads(txt)
         if isinstance(data, dict):
             return [data]
