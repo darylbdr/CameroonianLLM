@@ -467,7 +467,7 @@
   {
     "instruction": "Réécris en français",
     "input": "Ton patron t'a finalement buy ?",
-    "output": "Waye enfin, je vais pouvoir gérer mes factures."
+    "output": "Ton patron t'a finalement payé ?"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -477,7 +477,7 @@
   {
     "instruction": "Réécris en français",
     "input": "La go là c'est une vrai mbock.",
-    "output": "Je te jure gar, tout le quartier l'a déjà fom "
+    "output": "La fille là c'est une vraie prostituée."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -486,8 +486,8 @@
   },
   {
     "instruction": "Réécris en français",
-    "input": "On va boire un pot ce soir ?",
-    "output": "Pourquoi pas ? On se capte au bar habituel vers 19h."
+    "input": "On go boire ?",
+    "output": "On va boire au bar ?"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -496,7 +496,7 @@
   },
   {
     "instruction": "Réécris en français",
-    "input": "Tu as entendu le bruit au carrefour ?",
-    "output": "Oui, c'était une bagarre entre deux benskinneurs pour un client."
+    "input": "Oui, c'était une bagarre entre deux benskinneurs pour un client.",
+    "output": "Oui, c'était une bagarre entre deux motards pour un client."
   }
 ]
