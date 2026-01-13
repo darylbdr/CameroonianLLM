@@ -382,7 +382,7 @@
   {
     "instruction": "Réécris en français",
     "input": "J'ai la dalle grave, on go tchop le pain-haricot ?",
-    "output": "Waye ! Allons chez la mater du carrefour, ses beignets sont sucrés."
+    "output": "J'ai trop faim, on va manger du pain-haricot ?"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -392,7 +392,7 @@
   {
     "instruction": "Réécris en français",
     "input": "Il a plu toute la nuit, il ya flop la boue aujourd'hui.",
-    "output": "C'est le ndem man. Alors que je voulais porter ma ngop blanche."
+    "output": "Il a plu toute la nuit, il y a beaucoup de boue aujourd'hui."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -402,17 +402,12 @@
   {
     "instruction": "Réécris en français",
     "input": "Asse, le gars là a mes dos depuis deux semaines il ne veut pa me back.",
-    "output": "Il faut le serrer perr. S'il te voit calme, il va croire que tu as oublié tes do."
+    "output": "Je dis hein, ce gars me doit de l'argent de puis deux semaines mais il ne veut pas me le rendre."
   },
   {
     "instruction": "Réécris en camfranglais léger",
     "input": "[TODO: Taduire en Français] Asse, le gars là a mes dos depuis deux semaines il ne veut pa me back.",
     "output": "Asse, le gars là a mes dos depuis deux semaines il ne veut pa me back."
-  },
-  {
-    "instruction": "Réécris en français",
-    "input": "Mon crédit est fini, je ne peux même pas biper.",
-    "output": "Fais le 'Call Me Back' nor, ou bien tu empruntes à MTN."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -421,18 +416,8 @@
   },
   {
     "instruction": "Réécris en français",
-    "input": "Je ne me sens pas bien, mon corps chauffe.",
-    "output": "C'est sûrement le palu man. Ne blague pas avec ça, go une fois à l'hosto."
-  },
-  {
-    "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je ne me sens pas bien, mon corps chauffe.",
-    "output": "Je ne me sens pas bien, mon corps chauffe."
-  },
-  {
-    "instruction": "Réécris en français",
     "input": "Les taximen exagèrent au day, les gars surchargent.",
-    "output": "C'est l'heure de pointe mola. Si tu es pressé, tu acceptes seulement d'être serré comme la sardine ou tu prends un babana c'est plus rapide."
+    "output": "Les chauffeurs de taxi exagèrent aujourd'hui, ils augmentent les prix."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -442,7 +427,7 @@
   {
     "instruction": "Réécris en français",
     "input": "La ndjoka d'hier était comment ? Je n'etais pas là.",
-    "output": "C'était le feu ! On a dansé le mbolé jusqu'au chap."
+    "output": "Comment était la soirée d'hier ? je n'étais pas là."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -450,39 +435,29 @@
     "output": "La ndjoka d'hier était comment ? Je n'etais pas là."
   },
   {
-    "instruction": "Réécris en français",
-    "input": "Tu as vu le nouveau clip de Tenor(artiste Camerounais)?",
-    "output": "Bien sûr ! Il a dosé le son, ça tourne déjà partout dans les bars."
-  },
-  {
-    "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as vu le nouveau clip de Tenor(artiste Camerounais)?",
-    "output": "Tu as vu le nouveau clip de Tenor(artiste Camerounais)?"
-  },
-  {
-    "instruction": "Réécris en français",
+    "instruction": "Réponds en français",
     "input": "Je t'attends depuis une heure, tu es où ?",
-    "output": "Je suis dans le taxi man, il y a flop(beaucoup) l'embouteillage au niveau du rond-point."
+    "output": "Je suis dans le taxi frère, il y a beaucoup d'embouteillage au niveau du rond-point."
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je t'attends depuis une heure, tu es où ?",
-    "output": "Je t'attends depuis une heure, tu es où ?"
+    "input": "Je t'attends depuis une heure, tu es où ?",
+    "output": "Je te wait depuis une heure, tu es où ?"
   },
   {
-    "instruction": "Réécris en français",
+    "instruction": "Réponds en camfranglais",
     "input": "Regarde la voiture du type là, c'est une grosse caisse.",
     "output": "C'est un scamma, il a briss avec le scam."
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Regarde la voiture du type là, c'est une grosse caisse.",
-    "output": "Regarde la voiture du type là, c'est une grosse caisse."
+    "input": "Regarde la voiture du boy là, c'est une grosse caisse.",
+    "output": "Regarde la voiture de ce gars là, c'est une grosse caisse."
   },
   {
     "instruction": "Réécris en français",
     "input": "Asse give moi un peu l'eau glacée abec.",
-    "output": "go choua dans le frigo, après tu remplace hein."
+    "output": "Je dis hein, donne un peu d'eau glacée s'il te plaît"
   },
   {
     "instruction": "Réécris en camfranglais léger",
