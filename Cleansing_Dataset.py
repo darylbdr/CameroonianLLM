@@ -1,17 +1,21 @@
 import re
 import json
+import random
 
 def clean_chat_text(chat_text):
     # Basic cleaning
     chat_text = str(chat_text)
+
+    # Tags that render the message invalid/skippable
     ignoring_tags = [
         "<Media omitted>",
         "You deleted this message",
         "This message was deleted",
         "Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",
-        "<This message was edited>",
         "created group",
+        "created this group",
         "added you",
+        "You were added",
         "removed you",
         "audio omitted",
         "sticker omitted",
@@ -23,20 +27,29 @@ def clean_chat_text(chat_text):
         "voice call",
         "Voice call"
     ]
+
     for ignoring_tag in ignoring_tags:
         if ignoring_tag in chat_text:
             return None
+
+    # Remove specific tags but keep the message
+    chat_text = chat_text.replace("<This message was edited>", "")
+
     # Advanced cleaning
     chat_text = re.sub(r'http\S+|www\.\S+', '', chat_text) # URLs cleaning
     chat_text = re.sub(r'@\s*[^\s@]+', '', chat_text) # removing mentions(@)
     chat_text = re.sub(r'(.)\1{2,}', r'\1\1', chat_text) # Reducing character repetitions (mdrrr -> mdrr)
     chat_text = re.sub(r'\s+', ' ', chat_text).strip() # Cleaning spaces
+
+    if not chat_text:
+        return None
+
     return chat_text
 
 
 def load_conv_bot(conv_path):
-    """Load conv_bot.json with minimal cleanup to handle comment lines or trailing commas.
-    Returns a list (possibly empty) of conversation objects compatible with the generated dataset.
+    """Load conv_bot.json with minimal cleanup.
+    Returns the list of 'conversations' containing [{role, content}, ...]
     """
     try:
         with open(conv_path, 'r', encoding='utf-8') as f:
@@ -46,7 +59,7 @@ def load_conv_bot(conv_path):
         # In case of mal formatted JSON
         txt = re.sub(r',\s*]', ']', txt)
         txt = re.sub(r',\s*}', '}', txt)
-        # to rename pdf files
+
         data = json.loads(txt)
         if isinstance(data, dict):
             return [data]
@@ -54,14 +67,58 @@ def load_conv_bot(conv_path):
             return data
         return []
     except FileNotFoundError:
-        print(f"Conv bot file not found: {conv_path} — continuing without merging.")
+        print(f"Conv bot file not found: {conv_path} -- continuing without merging.")
         return []
     except Exception as e:
-        print(f"Warning: failed to load {conv_path}: {e} — continuing without merging.")
+        print(f"Warning: failed to load {conv_path}: {e} -- continuing without merging.")
         return []
 
+def simulated_translation_to_french(text):
+    # Placeholder for translation.
+    # ideally you would use a library like googletrans or deep-translator here
+    # e.g., return distinct_translator.translate(text, dest='fr').text
+    return f"[TODO: Taduire en Français] {text}"
 
-def parse_ios_whatsapp(file_path):
+def create_training_sample(user_msg, assistant_msg, instruction_type=None):
+    """
+    Create a sample in the requested format.
+    Instruction type can be 'chat' or 'rewrite'.
+    """
+    if not user_msg or not assistant_msg:
+        return None
+
+    if instruction_type is None:
+        # Randomly choose between chat (respond) or rewrite (translate)
+        # Weighting can be adjusted
+        instruction_type = random.choice(['chat', 'rewrite'])
+
+    if instruction_type == 'chat':
+        # Conversational Task
+        # Logic: If input and output are identical, skip this sample
+        if user_msg.strip() == assistant_msg.strip():
+            return None
+
+        return {
+            "instruction": "Réponds normalement en français",
+            "input": user_msg,
+            "output": assistant_msg
+        }
+    else:
+        # Translation/Rewriting Task
+        # Here we assume the goal is: Input (French) -> Output (Camfranglais)
+        # We use the user message as the target (camfranglais) and a simulated translation as input
+
+        simulated_input = simulated_translation_to_french(user_msg)
+        if simulated_input.strip() == user_msg.strip():
+             return None
+
+        return {
+            "instruction": "Réécris en camfranglais léger",
+            "input": simulated_input,
+            "output": user_msg
+        }
+
+def parse_ios_whatsapp(file_path, existing_data=None):
     # regex for iOS format : [25/12/2023, 14:00:15] Name: Message
     regex_ios = r'^\[(\d{2}/\d{2}/\d{2,4},\s+\d{2}:\d{2}:\d{2})\] ([^:]+): (.+)$'
     
@@ -87,7 +144,7 @@ def parse_ios_whatsapp(file_path):
             date, speaker, message = match.groups()
             clean_msg = clean_chat_text(message)
             
-            if not clean_msg: # if the message is empty or contains the omitted flag
+            if not clean_msg:
                 continue
 
             # If it's still the previous speaker we append to their text
@@ -117,21 +174,31 @@ def parse_ios_whatsapp(file_path):
         if len(full_text.split()) >= 2:
             group_messages.append({"role": current_speaker, "content": full_text})
 
-    # Create Pairs
     dataset_final = []
     
-    # Processing messages in pair. Message i becomes 'user', message i+1 becomes 'assistant'
+    # Merge existing data from conv_bot if provided (treating them as message pairs)
+    if existing_data:
+        for item in existing_data:
+            convs = item.get("conversations", [])
+            if len(convs) >= 2:
+                # Assuming simple User -> Assistant pairs
+                user_text = convs[0].get("content", "")
+                asst_text = convs[1].get("content", "")
+                if user_text and asst_text:
+                    dataset_final.append(create_training_sample(user_text, asst_text, instruction_type='chat'))
+                    # We can also add rewrite tasks for these high quality examples
+                    dataset_final.append(create_training_sample(user_text, asst_text, instruction_type='rewrite'))
+
+
+    # Processing extracted whatsapp messages in pairs.
     for i in range(len(group_messages) - 1):
         msg_A = group_messages[i]
         msg_B = group_messages[i+1]
 
-        # Create a conversation.
-        dataset_final.append({
-            "conversations": [
-                {"role": "user", "content": msg_A['content']},
-                {"role": "assistant", "content": msg_B['content']}
-            ]
-        })
+        # Determine instruction type (randomly or mixed)
+        sample = create_training_sample(msg_A['content'], msg_B['content'])
+        if sample: # Check if sample is not None
+            dataset_final.append(sample)
 
     return dataset_final
 
@@ -140,22 +207,15 @@ file_name = "_chat.txt"
 conv_path = "conv_bot.json"
 
 try:
-    data = parse_ios_whatsapp(file_name)
-    print(f"Extraction successful! {len(data)} conversations generated.")
-
-    # Load additional conversations from conv_bot.json and merge
+    # Load additional conversations from conv_bot.json first (to merge)
     conv_data = load_conv_bot(conv_path)
-    if conv_data:
-        print(f"Merging {len(conv_data)} conv_bot entries into generated dataset.")
-        # Append conv_data entries to generated data
-        data.extend(conv_data)
 
-    # Save combined dataset
+    data = parse_ios_whatsapp(file_name, existing_data=conv_data)
+    print(f"Extraction successful! {len(data)} training samples generated.")
+
+    # Save to JSON
     with open('conversations_dataset.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-    print(f"Saved combined dataset to dataset_whatsapp_ios.json (total {len(data)} conversations).")
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
-except FileNotFoundError:
-    print("Error: File not found. Make sure you uploaded the .txt file")
 except Exception as e:
     print(f"An error occurred: {e}")
