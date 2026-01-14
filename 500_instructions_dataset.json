@@ -126,8 +126,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse fais moi un peu le transfert de kolo(1000 frscfa) abec.",
-    "output": "Asse fais moi un peu le transfert de kolo(1000 frscfa) abec."
+    "input": "Je dis hein, fais moi un peu le transfert de 1000 fcfa s'il te plaît.",
+    "output": "Asse fais moi un peu le transfert de kolo abec."
   },
   {
     "instruction": "Réponds normalement en français",
@@ -136,8 +136,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Pourquoi tu es toujours en retard comme ça ?",
-    "output": "Pourquoi tu es toujours en retard comme ça ?"
+    "input": "Pourquoi tu es toujours en retard comme ça ?",
+    "output": "Pourquoi tu comes toujours late comme ça ?"
   },
   {
     "instruction": "Réponds normalement en français",
@@ -146,7 +146,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Il ya la position le week-end ?",
+    "input": " Il ya un truc de prévu ce week-end ?",
     "output": "Il ya la position le week-end ?"
   },
   {
@@ -156,7 +156,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Fais attention hein, le sol glisse tu vas fall.",
+    "input": "Fais attention hein, le sol glisse tu vas tomber.",
     "output": "Fais attention hein, le sol glisse tu vas fall."
   },
   {
@@ -166,7 +166,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as déjà mangé l'okok de la mater là?",
+    "input": "Tu as déjà mangé l'okok de la mère là?",
     "output": "Tu as déjà mangé l'okok de la mater là?"
   },
   {
@@ -176,7 +176,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je cherche une piol à louer, tu n'as pas un way a me proposer?",
+    "input": "Je cherche une maison à louer, tu n'as pas un truc a me proposer?",
     "output": "Je cherche une piol à louer, tu n'as pas un way a me proposer?"
   },
   {
@@ -186,7 +186,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] On dit quoi ? On ferme la journée ?",
+    "input":  "On fait quoi ? On arrête pour la journée ?",
     "output": "On dit quoi ? On ferme la journée ?"
   },
   {
@@ -196,7 +196,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Le voisin là vex(dérange) trop, il a mis la musique toute la nuit.",
+    "input": "Le voisin là dérange trop, il a mis la musique toute la nuit.",
     "output": "Le voisin là vex(dérange) trop, il a mis la musique toute la nuit."
   },
   {
@@ -206,7 +206,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je suis calé au carrefour, y a pas de babana.",
+    "input": "Je suis bloqué au carrefour, y a pas de motards.",
     "output": "Je suis calé au carrefour, y a pas de babana."
   },
   {
