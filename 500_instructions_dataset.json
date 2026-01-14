@@ -7,7 +7,7 @@
   {
     "instruction": "Réécris en camfranglais léger",
     "input": "Mince alors, Eneo a encore coupé l'électricité ?",
-    "output": "Mince perr, Eneo a encore fait son travail ?"
+    "output": "Mince perr, Eneo a encore fait ses ways?"
   },
   {
     "instruction": "Réponds normalement en français",
@@ -36,7 +36,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Le piment est monté au marché, c'est grave.",
+    "input": "Le prix du piment est monté au marché, c'est grave.",
     "output": "Le piment est monté au marché, c'est grave."
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] On go prendre une nor gar, je buy.",
+    "input": "On va au bar non ? j'invite.",
     "output": "On go prendre une nor gar, je buy."
   },
   {
@@ -56,8 +56,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Ton petit frère là est trop têtu, il n'écoute rien.",
-    "output": "Ton petit frère là est trop têtu, il n'écoute rien."
+    "input": "Ton petit frère là est trop têtu, il n'écoute rien.",
+    "output": "Ton petit frère là est un mboutoukou, il n'écoute rien."
   },
   {
     "instruction": "Réponds normalement en français",
@@ -66,7 +66,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] J'ai mal à la tête depuis le matin, je suis die.",
+    "input": "J'ai mal à la tête depuis le matin, je suis mort de fatigue.",
     "output": "J'ai mal à la tête depuis le matin, je suis die."
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Regarde le babana là, il conduit comme un fou.",
+    "input": "Regarde le motard là, il conduit comme un fou.",
     "output": "Regarde le babana là, il conduit comme un fou."
   },
   {
@@ -86,7 +86,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as réussi à djoss avec le boss pour mon dossier ?",
+    "input": "Tu as réussi à parler avec le boss pour mon dossier ?",
     "output": "Tu as réussi à djoss avec le boss pour mon dossier ?"
   },
   {
@@ -96,7 +96,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] C'est comment ce soir ? On reste au kwat ?",
+    "input": "On fait quoi ce soir ? On reste au quartier ?",
     "output": "C'est comment ce soir ? On reste au kwat ?"
   },
   {
@@ -106,7 +106,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Ton nouveau son là est mô, c'est la guerre man!",
+    "input": "Ton nouveau son là est bien, c'est incroyable frère!",
     "output": "Ton nouveau son là est mô, c'est la guerre man!"
   },
   {
@@ -116,7 +116,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Les mbérés sont au carrefour, fais gaffe.",
+    "input": "Les policiers sont au carrefour, fais gaffe.",
     "output": "Les mbérés sont au carrefour, fais gaffe."
   },
   {
@@ -528,5 +528,5 @@
     "instruction": "Réécris en camfranglais léger",
     "input": "[TODO: Taduire en Français] On va boire un pot ce soir ?",
     "output": "On va boire un pot ce soir ?"
-  },
+  }
 ]
