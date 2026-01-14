@@ -2,37 +2,37 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Mince perr, Eneo a encore fait son travail ?",
-    "output": "Gars, c'est la magie. On va dormir dans le noir ce soir, Eneo nous dérange trop."
+    "output": "Laisse tombé frère, on va encore dormir sans électricité"
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Mince perr, Eneo a encore fait son travail ?",
+    "input": "Mince alors, Eneo a encore coupé l'électricité ?",
     "output": "Mince perr, Eneo a encore fait son travail ?"
   },
   {
     "instruction": "Réponds normalement en français",
     "input": "Tu as les news de la go là ? Elle a disparu des radars.",
-    "output": "Laisse la nga là, elle fait trop la star. Elle est sûrement parti avec un autre boboh."
+    "output": "Laisse la fille là. Elle a sûrement trouvé un autre gars riche."
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as les news de la go là ? Elle a disparu des radars.",
+    "input": "Tu as des nouvelles de la fille là ? On n'entend plus parler d'elle",
     "output": "Tu as les news de la go là ? Elle a disparu des radars."
   },
   {
     "instruction": "Réponds normalement en français",
     "input": "Asse bro, prête-moi un peu ta veste pour le mariage de Samedi.",
-    "output": "Il n'y a pas de problème, mais si tu gâtes, tu vas buy."
+    "output": "Il n'y a pas de problème, mais si tu gâtes, tu vas me rembourser."
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse bro, prête-moi un peu ta veste pour le mariage de Samedi.",
+    "input": "Je dis hein frère, prête ",
     "output": "Asse bro, prête-moi un peu ta veste pour le mariage de Samedi."
   },
   {
     "instruction": "Réponds normalement en français",
     "input": "Le piment est monté au marché, c'est grave.",
-    "output": "Même l'huile rouge est grap. Le pays est dure gar."
+    "output": "Même le prix de l'huile rouge a augmenté. Tout est devenu cher dans ce pays"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -42,7 +42,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "On go prendre une nor gar, je buy.",
-    "output": "J’aime quand tu parles parle bien comme ça ! J’arrive."
+    "output": "J’aime quand tu parles bien comme ça ! Je m'apprête et on va au bar."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -52,7 +52,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Ton petit frère là est trop têtu, il n'écoute rien.",
-    "output": "C'est un vrai mboutoukou, il faut que le pater le redresse un peu."
+    "output": "il faut que son père le redresse un peu."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -62,7 +62,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "J'ai mal à la tête depuis le matin, je suis die.",
-    "output": "Va à la pharmacie buy les comprimés, ne joue pas avec la santé bro."
+    "output": "Va à la pharmacie t'acheter des comprimés, ne néglige pas ta santé frère."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -72,7 +72,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Regarde le babana là, il conduit comme un fou.",
-    "output": "Ils sont tous pareils, est ce que babana a encore peur de la mort ?"
+    "output": "Ils sont tous pareils, est ce que le motard a encore peur de la mort ?"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -82,7 +82,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Tu as réussi à djoss avec le boss pour mon dossier ?",
-    "output": "Pas encore mola, il est trop occupé. Je vais le relancer demain le chap."
+    "output": "Pas encore frère, il est trop occupé. Je vais le relancer demain matin."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -92,7 +92,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "C'est comment ce soir ? On reste au kwat ?",
-    "output": "Non man ! Il y a une ndjoka en ville on doit go voir ça."
+    "output": "Non frère ! Il y a une soirée en ville on doit y faire un tour."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -102,7 +102,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Ton nouveau son là est mô, c'est la guerre man!",
-    "output": "Merci le sang ! On a cook ça au studio toute la nuit."
+    "output": "Merci mon frère ! On y a beaucoup travailler au studio durant toute la nuit."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -112,7 +112,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Les mbérés sont au carrefour, fais gaffe.",
-    "output": "Merde, je n'ai pas ma CNI sur moi. Je vais contourner par le kwatt."
+    "output": "Merde, je n'ai pas ma CNI sur moi. Je vais me cacher dans le quartier."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -121,8 +121,8 @@
   },
   {
     "instruction": "Réponds normalement en français",
-    "input": "Asse fais moi un peu le transfert de kolo(1000 frscfa) abec.",
-    "output": "C'est ton OM ici?."
+    "input": "Asse fais moi un peu le transfert de kolo abec.",
+    "output": "C'est ton compte Orange Money ici?."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -132,7 +132,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Pourquoi tu es toujours en retard comme ça ?",
-    "output": "C'est l'heure camerounaise perr, tu connais non ?"
+    "output": "C'est l'heure camerounaise frère, tu connais non ?"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -142,7 +142,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Il ya la position le week-end ?",
-    "output": "Moi je vais go manger la vie a Kribi."
+    "output": "Moi je vais aller profiter à Kribi."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -152,7 +152,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Fais attention hein, le sol glisse tu vas fall.",
-    "output": "T'inquiète, l'homme a d'abord les appuies, je ne peux pas tomber."
+    "output": "T'inquiète, l'homme a d'abord les appuis, je ne peux pas tomber."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -162,7 +162,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Tu as déjà mangé l'okok de la mater là?",
-    "output": "Waye ! C'est mô jusqu'àààà...."
+    "output": "Oui ! C'est Tellemment bonnnnnnnnnnnn...."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -172,7 +172,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Je cherche une piol à louer, tu n'as pas un way a me proposer?",
-    "output": "C'est high hein. Mais je know un pater qui avait une bindi(petit(e)) chambre qu'il voulait louer là, je vais lui ask."
+    "output": "C'est compliqué hein. Mais je connais un monsieur qui avait une petite chambre qu'il voulait louer là, je vais lui demander."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -182,7 +182,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "On dit quoi ? On ferme la journée ?",
-    "output": "On ferme man. Je suis cass, moi je back nan(dormir)."
+    "output": "On ferme frère. Je suis fatigué, moi je m'en vais chez moi dormir."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -192,7 +192,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Le voisin là vex(dérange) trop, il a mis la musique toute la nuit.",
-    "output": "Laisse le perr, il avait sûrement la ndjoka chez lui."
+    "output": "Laisse le frère, il avait sûrement organisé une soirée chez lui."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -212,7 +212,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Asse, tu as vu la nouvelle go du quartier ?",
-    "output": "Waye ! Elle est bien zouk, mais il paraît qu'elle ne give pas l'heure aux gars foiré."
+    "output": "Oui! Elle est tellement fraîche, mais il paraît qu'elle ne soucis de pas ceux qui n'ont pas d'argent."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -222,7 +222,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Mon phone est fall, l'écran est gâté.",
-    "output": "Mince ! Go arranger ça a Kennedy nor."
+    "output": "Mince ! Il faut aller le réparer à Kennedy non ?."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -232,7 +232,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Les mbérés m'ont pris hier soir quand je backais.",
-    "output": "Tu n'avais pas tes pièces ? Il fallait leur give même kolo(1000francs CFA) pour rincer leurs yeux nor."
+    "output": "Tu n'avais pas tes pièces d'identité? Il fallait leur donner même 1000 francsCFA pour qu'ils te laissent non ?."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -242,7 +242,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "J'ai une de ces dalles man, on go tchop un way ?",
-    "output": "Allons buy le soya chez aboki ici derrière, son soya est mô grave."
+    "output": "Allons acheter du soya chez aboki ici derrière, son soya est trop bon."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -252,7 +252,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Ton grand frère est revenu du mbeng ?",
-    "output": "Oui perr, il est back avec chocolats et les parfums man."
+    "output": "Oui frère, il est revenu avec des chocolats et des parfums frère."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -262,7 +262,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Asse prête-moi deux kolo abec, je te remets ça demain.",
-    "output": "Gar, je suis à sec. Si j'avais je t'aurais give sans problème."
+    "output": "Frère, je suis à sec. Si j'avais je t'aurais donner sans problème."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -292,7 +292,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Il paraît qu'il y a une veillée ce soir au bloc 5.",
-    "output": "Oui, c'est la mater de Paul qui est die. On va go jouer le mbolé."
+    "output": "Oui, c'est la mère de Paul qui est décedée. On va aller jouer du mbolé."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -301,8 +301,8 @@
   },
   {
     "instruction": "Réponds normalement en français",
-    "input": "Tes nouveaux cacos(habits) sont free hein ! Tu a pris ça où",
-    "output": "Merci bro, j'ai fouillé ça à la friperie, là bas a mokolo (marché au cameroun)."
+    "input": "Tes nouveaux cacos sont free hein ! Tu a pris ça où",
+    "output": "Merci bro, j'ai fouillé ça à la friperie, là bas à mokolo."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -312,7 +312,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Je vais déménager man, le loyer de la piol ci est trop cher.",
-    "output": "Tu as déjà trouver une autre piol moins cher?."
+    "output": "Tu as déjà trouvé une autre maison moins chère?."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -332,7 +332,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Tu as vu comment il pleut ? Je suis trempé.",
-    "output": "Fallait wait que ça baisse un peu, tu es pressé pour aller où ?"
+    "output": "Fallait attendre que ça baisse un peu, tu es pressé pour aller où ?"
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -352,7 +352,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "J'ai perdu mes clés, je suis dans le ndem.",
-    "output": "Falla bien dans tes poches ou dans ton sac, ça doit être là."
+    "output": "Fouille bien dans tes poches ou dans ton sac, ça doit être là."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -362,7 +362,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Tu bouge déjà ? Reste encore un peu nor.",
-    "output": "Non perr, demain je work tôt, je dois go me reposer."
+    "output": "Non frère, demain je travailler tôt, je dois aller me reposer."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -382,7 +382,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Asse passe-moi la télécommande abec.",
-    "output": "Choa, mets un peu la musique on écoute les nouveautés."
+    "output": "Tiens, mets un peu la musique on écoute les nouveautés."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -392,7 +392,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "J'ai la dalle grave, on go tchop le pain-haricot ?",
-    "output": "Waye ! Allons chez la mater du carrefour, ses beignets sont sucrés."
+    "output": "Oui ! Allons chez la mère qui est au carrefour, ses beignets sont sucrés."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -402,7 +402,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Il a plu toute la nuit, il ya flop la boue aujourd'hui.",
-    "output": "C'est le ndem man. Alors que je voulais porter ma ngop blanche."
+    "output": "C'est la merde frère. Alors que je voulais porter ma pointinini blanche."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -412,7 +412,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Asse, le gars là a mes dos depuis deux semaines il ne veut pa me back.",
-    "output": "Il faut le serrer perr. S'il te voit calme, il va croire que tu as oublié tes do."
+    "output": "Il faut lui mettre la pression frère. S'il te voit calme, il va croire que tu as oublié ton argent."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -432,7 +432,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Je ne me sens pas bien, mon corps chauffe.",
-    "output": "C'est sûrement le palu man. Ne blague pas avec ça, go une fois à l'hosto."
+    "output": "C'est sûrement le palu frère. Ne blague pas avec ça, va directement à l'hosto."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -442,7 +442,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Les taximen exagèrent au day, les gars surchargent.",
-    "output": "C'est l'heure de pointe mola. Si tu es pressé, tu acceptes seulement d'être serré comme la sardine ou tu prends un babana c'est plus rapide."
+    "output": "C'est l'heure de pointe frère. Si tu es pressé, tu acceptes seulement d'être serré comme la sardine ou tu prends un motard c'est plus rapide."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -452,7 +452,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "La ndjoka d'hier était comment ? Je n'etais pas là.",
-    "output": "C'était le feu ! On a dansé le mbolé jusqu'au chap."
+    "output": "C'était le feu ! On a dansé le mbolé jusqu'au matin."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -462,7 +462,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Tu as vu le nouveau clip de Tenor(artiste Camerounais)?",
-    "output": "Bien sûr ! Il a dosé le son, ça tourne déjà partout dans les bars."
+    "output": "Bien sûr ! Il a mis des bons sons , ça fait déjà le tour des bars."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -472,7 +472,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Je t'attends depuis une heure, tu es où ?",
-    "output": "Je suis dans le taxi man, il y a flop(beaucoup) l'embouteillage au niveau du rond-point."
+    "output": "Je suis dans le taxi frère, il y a beaucoup d'embouteillage au niveau du rond-point."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -482,7 +482,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Regarde la voiture du type là, c'est une grosse caisse.",
-    "output": "C'est un scamma, il a briss avec le scam."
+    "output": "C'est un arnaqueur, il a atteint un autre niveau d'arnaque."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -492,7 +492,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Asse give moi un peu l'eau glacée abec.",
-    "output": "go choua dans le frigo, après tu remplace hein."
+    "output": "sers toi dans le frigo, après tu remplaces hein."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -502,7 +502,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "Ton patron t'a finalement buy ?",
-    "output": "Waye enfin, je vais pouvoir gérer mes factures."
+    "output": "Oui enfin, je vais pouvoir gérer mes factures."
   },
   {
     "instruction": "Réécris en camfranglais léger",
@@ -512,7 +512,7 @@
   {
     "instruction": "Réponds normalement en français",
     "input": "La go là c'est une vrai mbock.",
-    "output": "Je te jure gar, tout le quartier l'a déjà fom "
+    "output": "Je te jure gar, tout le quartier l'a déjà baisé "
   },
   {
     "instruction": "Réécris en camfranglais léger",
