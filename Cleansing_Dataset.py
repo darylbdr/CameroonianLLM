@@ -214,7 +214,7 @@ try:
     print(f"Extraction successful! {len(data)} training samples generated.")
 
     # Save to JSON
-    with open('conversations_dataset.json', 'w', encoding='utf-8') as f:
+    with open('500_intructions_dataset.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 except Exception as e:
