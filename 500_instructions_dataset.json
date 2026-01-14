@@ -216,7 +216,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse, tu as vu la nouvelle go du quartier ?",
+    "input": "Je dis hein, tu as vu la nouvelle fille du quartier ?",
     "output": "Asse, tu as vu la nouvelle go du quartier ?"
   },
   {
@@ -226,7 +226,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Mon phone est fall, l'écran est gâté.",
+    "input": "Mon téléphone est tombé, l'écran est cassé.",
     "output": "Mon phone est fall, l'écran est gâté."
   },
   {
@@ -236,7 +236,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Les mbérés m'ont pris hier soir quand je backais.",
+    "input": "Les mbérés m'ont attrapé hier soir quand je rentrais.",
     "output": "Les mbérés m'ont pris hier soir quand je backais."
   },
   {
@@ -246,7 +246,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] J'ai une de ces dalles man, on go tchop un way ?",
+    "input": "J'ai une de ces dalles frère, on go manger quelque chose ?",
     "output": "J'ai une de ces dalles man, on go tchop un way ?"
   },
   {
@@ -256,7 +256,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Ton grand frère est revenu du mbeng ?",
+    "input": "Ton grand frère est revenu de l'étranger ?",
     "output": "Ton grand frère est revenu du mbeng ?"
   },
   {
@@ -266,7 +266,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse prête-moi deux kolo abec, je te remets ça demain.",
+    "input": "Je dis hein prête-moi deux mille francs s'il te plaît, je te remets ça demain.",
     "output": "Asse prête-moi deux kolo abec, je te remets ça demain."
   },
   {
@@ -276,7 +276,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as validé ta matière ?",
+    "input": " Tu as eu la moyenne à l'évaluation sur la matière ?",
     "output": "Tu as validé ta matière ?"
   },
   {
@@ -286,7 +286,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je wanda sur toi, comment tu as fait pour soulever le sac de riz là seul ?",
+    "input": "Tu me choques hein, comment tu as fait pour soulever le sac de riz là seul ?",
     "output": "Je wanda sur toi, comment tu as fait pour soulever le sac de riz là seul ?"
   },
   {
@@ -296,7 +296,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Il paraît qu'il y a une veillée ce soir au bloc 5.",
+    "input": "Il paraît qu'il y a une veillée de deuil ce soir au bloc 5.",
     "output": "Il paraît qu'il y a une veillée ce soir au bloc 5."
   },
   {
@@ -306,8 +306,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tes nouveaux cacos(habits) sont free hein ! Tu a pris ça où",
-    "output": "Tes nouveaux cacos(habits) sont free hein ! Tu a pris ça où"
+    "input": "Tes nouveaux habits sont cool hein ! Tu les as trouvé où ?",
+    "output": "Tes nouveaux cacos sont free hein ! Tu as pris ça où"
   },
   {
     "instruction": "Réponds normalement en français",
@@ -316,7 +316,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je vais déménager man, le loyer de la piol ci est trop cher.",
+    "input": "Je vais déménager frère, le loyer de cette maison est trop cher.",
     "output": "Je vais déménager man, le loyer de la piol ci est trop cher."
   },
   {
@@ -326,7 +326,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] On se capte pour le match ce soir ?",
+    "input": "On se donne rendez-vous où pour le match ce soir ?",
     "output": "On se capte pour le match ce soir ?"
   },
   {
@@ -336,8 +336,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as vu comment il pleut ? Je suis trempé.",
-    "output": "Tu as vu comment il pleut ? Je suis trempé."
+    "input": "Tu as vu à quel point il pleut ? Je suis trempé.",
+    "output": "Tu as vu comment il pleut ? Je suis mouillé."
   },
   {
     "instruction": "Réponds normalement en français",
@@ -346,7 +346,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Le gars là raconte n'importe quoi, c'est un menteur.",
+    "input": "Ce gars raconte n'importe quoi, c'est un menteur.",
     "output": "Le gars là raconte n'importe quoi, c'est un menteur."
   },
   {
@@ -356,7 +356,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] J'ai perdu mes clés, je suis dans le ndem.",
+    "input": "J'ai perdu mes clés, je suis dans la merde.",
     "output": "J'ai perdu mes clés, je suis dans le ndem."
   },
   {
@@ -366,7 +366,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu bouge déjà ? Reste encore un peu nor.",
+    "input": "Tu t'en vas déjà ? Reste encore un peu non ?",
     "output": "Tu bouge déjà ? Reste encore un peu nor."
   },
   {
@@ -376,7 +376,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] C'est qui la nga qui était avec toi hier ?",
+    "input": "C'est qui la fille qui était avec toi hier ?",
     "output": "C'est qui la nga qui était avec toi hier ?"
   },
   {
@@ -386,7 +386,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse passe-moi la télécommande abec.",
+    "input": "Je dis hein passe-moi la télécommande S'il te plaît.",
     "output": "Asse passe-moi la télécommande abec."
   },
   {
@@ -396,7 +396,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] J'ai la dalle grave, on go tchop le pain-haricot ?",
+    "input": "J'ai la dalle grave, on va manger le pain-haricot ?",
     "output": "J'ai la dalle grave, on go tchop le pain-haricot ?"
   },
   {
@@ -406,7 +406,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Il a plu toute la nuit, il ya flop la boue aujourd'hui.",
+    "input": "Il a plu toute la nuit, il ya énormément de boue aujourd'hui.",
     "output": "Il a plu toute la nuit, il ya flop la boue aujourd'hui."
   },
   {
@@ -416,8 +416,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse, le gars là a mes dos depuis deux semaines il ne veut pa me back.",
-    "output": "Asse, le gars là a mes dos depuis deux semaines il ne veut pa me back."
+    "input": "Je dis hein, le gars là me doit de l'argent depuis deux semaines il ne veut pas me rembourser.",
+    "output": "Asse, le gars là a mes dos depuis deux semaines il ne veut pas me back."
   },
   {
     "instruction": "Réponds normalement en français",
@@ -426,8 +426,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Mon crédit est fini, je ne peux même pas biper.",
-    "output": "Mon crédit est fini, je ne peux même pas biper."
+    "input": "Mon crédit est fini, je ne peux même pas biper.",
+    "output": "Mon crédit est bolè, je ne peux même pas biper."
   },
   {
     "instruction": "Réponds normalement en français",
@@ -436,8 +436,8 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je ne me sens pas bien, mon corps chauffe.",
-    "output": "Je ne me sens pas bien, mon corps chauffe."
+    "input": "Je ne me sens pas bien, mon corps chauffe.",
+    "output": "Je ne me sens pas mo, mon corps chauffe."
   },
   {
     "instruction": "Réponds normalement en français",
@@ -446,7 +446,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Les taximen exagèrent au day, les gars surchargent.",
+    "input": "Les chauffeurs de taxi exagèrent aujourd'hui , ils surtaxent.",
     "output": "Les taximen exagèrent au day, les gars surchargent."
   },
   {
@@ -456,7 +456,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] La ndjoka d'hier était comment ? Je n'etais pas là.",
+    "input": "La soirée d'hier était comment ? Je n'etais pas là.",
     "output": "La ndjoka d'hier était comment ? Je n'etais pas là."
   },
   {
@@ -465,19 +465,14 @@
     "output": "Bien sûr ! Il a mis des bons sons , ça fait déjà le tour des bars."
   },
   {
-    "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Tu as vu le nouveau clip de Tenor(artiste Camerounais)?",
-    "output": "Tu as vu le nouveau clip de Tenor(artiste Camerounais)?"
-  },
-  {
     "instruction": "Réponds normalement en français",
-    "input": "Je t'attends depuis une heure, tu es où ?",
+    "input": "Je te wait depuis une heure, tu es où ?",
     "output": "Je suis dans le taxi frère, il y a beaucoup d'embouteillage au niveau du rond-point."
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Je t'attends depuis une heure, tu es où ?",
-    "output": "Je t'attends depuis une heure, tu es où ?"
+    "input": "Je t'attends depuis une heure, tu es où ?",
+    "output": "Je te wait depuis une heure, tu es où ?"
   },
   {
     "instruction": "Réponds normalement en français",
@@ -486,7 +481,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Regarde la voiture du type là, c'est une grosse caisse.",
+    "input": "Regarde la voiture du monsieur là, c'est une grosse caisse.",
     "output": "Regarde la voiture du type là, c'est une grosse caisse."
   },
   {
@@ -496,7 +491,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Asse give moi un peu l'eau glacée abec.",
+    "input": "Je dis hein donne moi un peu d'eau glacée s'il te plaît.",
     "output": "Asse give moi un peu l'eau glacée abec."
   },
   {
@@ -506,7 +501,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] Ton patron t'a finalement buy ?",
+    "input": "Ton patron t'a finalement payé ton salaire?",
     "output": "Ton patron t'a finalement buy ?"
   },
   {
@@ -516,7 +511,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] La go là c'est une vrai mbock.",
+    "input": "La fille là c'est une vraie pute.",
     "output": "La go là c'est une vrai mbock."
   },
   {
@@ -526,7 +521,7 @@
   },
   {
     "instruction": "Réécris en camfranglais léger",
-    "input": "[TODO: Taduire en Français] On va boire un pot ce soir ?",
-    "output": "On va boire un pot ce soir ?"
+    "input": "On va boire un pot ce soir ?",
+    "output": "On va jung un way ce soir ?"
   }
 ]
