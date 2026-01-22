@@ -1,0 +1,128 @@
+Evaluation set 
+
+Tâche 1: Transformation Français vers Camfranglais et inversement 
+
+Sous-tâche A : Français Standard -- Camfranglais
+
+1. Le Traducteur Standard
+	Traduis la phrase suivante en Camfranglais courant. Remplace les termes français par leurs équivalents locaux lorsque c'est naturel, sans changer le sens du message.
+	Entrée: Texte a traduire
+
+
+2. Le Style Chat de Kwat (WhatsApp)
+	Réécris ce texte comme si tu l'envoyais à ton meilleur ami sur WhatsApp. Utilise un ton très familier, des abréviations et le vocabulaire typique de la rue au Cameroun.
+	Entrée : Texte
+
+
+3. L'Intensification (Argot Lourd)
+ 	Ce Entrée est trop formel. Transforme-le en utilisant un argot camerounais profond ('Camfranglais lourd') pour qu'il sonne comme une discussion animée au quartier.
+ 	Entrée : Texte
+
+
+4. L'Adaptation Contextuelle
+ 	Tu es un Camerounais qui raconte une histoire. Reformule le Entrée ci-dessous en adoptant la syntaxe et les expressions idiomatiques propres au Cameroun (ex: utilisation de 'wanda', 'ndem', 'djo').
+ 	Entrée : Texte
+
+
+5. Le Correcteur de Style
+ 	Voici une phrase écrite en français de France. 'Camerounise'-la pour qu'elle passe inaperçue dans une conversation à Douala ou Yaoundé.
+ 	Entrée : Texte
+
+
+
+---
+
+Sous-tâche B : Camfranglais -- Français Standard
+
+
+6. La Normalisation Directe
+ 	Traduis le Entrée suivant, qui contient de l'argot camerounais, en français standard grammaticalement correct.
+ 	Entrée : Texte
+
+
+7. Le Filtre Professionnel
+ 	Reformule ce message informel pour le rendre acceptable dans un conEntrée professionnel (par exemple, un email à un collègue). Supprime tout l'argot et utilise un registre soutenu.
+ 	Entrée : Texte
+
+
+8. L'Explication Culturelle
+ 	Ne te contente pas de traduire. Lis la phrase en Camfranglais ci-dessous et réécris-la en français en expliquant clairement l'intention de l'auteur pour quelqu'un qui ne connaît pas la culture camerounaise.
+ 	Entrée : Texte
+
+
+9. L'Internationalisation
+ 	Réécris cette phrase pour qu'elle soit parfaitement compréhensible par un francophone vivant à Paris, Montréal ou Bruxelles, en supprimant toutes les références locales obscures.
+ 	Entrée : Texte
+
+
+10. Le Décodage Synthétique
+ 	Voici une phrase complexe en Camfranglais. Résume son sens principal en une seule phrase simple et claire en français courant.
+ 	Entrée : Texte
+
+
+
+---
+
+Tâche2: Explication & Raisonnement.
+
+
+
+Sous-tâche A : Vulgarisation (Expliquer un concept complexe en Camfranglais)
+
+1. Le Professeur du Quartier
+ 	Explique le concept suivant comme si tu parlais à un 'petit du quartier' qui n'a pas fait de longues études. Utilise des comparaisons locales et du Camfranglais pour rendre ça simple et compréhensible.
+ Concept à expliquer : "Concept"
+
+
+2. Le Guide Pratique (Tuto)
+ 	Détaille étape par étape comment fonctionne "Sujet à expliqué". Ta réponse doit être en Camfranglais et donner l'impression que tu donnes un conseil pratique à un ami."
+ Sujet : "Sujet à expliqué"
+
+
+3. L'Analogie Culturelle
+ 	Je ne comprends pas ce que signifie "Concept à expliqué". Peux-tu m'expliquer ça en utilisant une métaphore liée à la vie quotidienne au Cameroun (la nourriture, le football, le transport, etc.) ?
+ Concept : "Concept à expliqué"
+
+
+4. La Logique Sociale (Le "Pourquoi")
+ "Pourquoi est-ce que `{INPUT_SITUATION}` se passe comme ça ? Donne-moi une explication raisonnée en utilisant le langage et la mentalité camerounaise."
+ Situation : `{INPUT_SITUATION}`
+
+
+5. La Résolution de Problème
+ 	Mon ami a un problème avec "Problème a résoudre". Explique-lui en Camfranglais quelle est la cause probable et comment il peut gérer ça (la 'magie' pour arranger ça).
+ Problème : "Problème a résoudre"
+
+
+
+---
+
+Sous-tâche B : Analyse Sémantique (Expliquer le Camfranglais)
+
+6. Le Définisseur de Nuance
+ 	Quelle est la différence subtile entre "Mot A" et "Mot B" dans l'argot camerounais ? Explique dans quel contexte on utilise l'un plutôt que l'autre.
+ Mots : "Mot A" et "Mot B"
+
+
+7. L'Analyse de Sentiment
+ 	Si quelqu'un me dit "Phrase", comment dois-je le prendre ? Est-ce une insulte, un compliment ou une blague ? Explique ton raisonnement.
+ Phrase : "Phrase"
+
+
+8. L'Origine (Étymologie de rue)
+ 	Explique le sens profond de l'expression "Expression".
+ Expression : "Expression"
+
+
+9. Le Décodeur de Sous-entendus
+ "Analyse la phrase suivante : "Phrase". Qu'est-ce que la personne essaie vraiment de dire sans le dire ouvertement ? (Le 'message caché')."
+ Texte : "Phrase"
+
+
+10. Le Contexte Culturel
+ "Dans quelle situation précise est-il approprié d'utiliser le mot "Mot" ? Donne-moi un exemple de mise en situation et explique pourquoi ce mot convient ici."
+ Mot : "Mot"
+
+
+
+---
