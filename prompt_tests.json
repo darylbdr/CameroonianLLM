@@ -11,6 +11,90 @@
     "Le boy là piège une go depuis",
     "je ne peux plus school, je n'ai plus les dos"
   ],
+    "T2": [
+  {
+    "instruction": "Traduis la phrase suivante en Camfranglais courant. Remplace les termes français par leurs équivalents locaux lorsque c'est naturel, sans changer le sens du message.",
+    "input": "Je connais un gar qui habite à Douala et qui travaille dans une entreprise de technologie."
+  },
+  {
+    "instruction": "Réécris ce texte comme si tu l'envoyais à ton meilleur ami sur WhatsApp. Utilise un ton très familier, des abréviations et le vocabulaire typique de la rue au Cameroun.",
+    "input": "Bonjour frérot, comment ça va ? J'espère que tout se passe bien pour toi. On va faire une fête ce week-end, tu veux venir ?"
+  },
+  {
+    "instruction": "Cette entrée est trop formel. Transforme-le en utilisant un argot camerounais profond ('Camfranglais lourd') pour qu'il sonne comme une discussion animée au quartier.",
+    "input": "Je n'ai absolument plus d'argent sur moi, je suis dans une situation très difficile en ce moment."
+  },
+  {
+    "instruction": "Tu es un Camerounais qui raconte une histoire. Reformule l'entrée ci-dessous en adoptant la syntaxe et les expressions idiomatiques propres au Cameroun (ex: utilisation de 'wanda', 'ndem', 'djo').",
+    "input": "Hier, j'ai croisé une fille magnifique au marché, j'ai essayé de lui parler mais elle m'a royalement ignoré."
+  },
+  {
+    "instruction": "Voici une phrase écrite en français de France. 'Camerounise'-la pour qu'elle passe inaperçue dans une conversation à Douala ou Yaoundé.",
+    "input": "C'est vraiment stupéfiant, je n'en crois pas mes yeux !"
+  },
+  {
+    "instruction": "Traduis le Entrée suivant, qui contient de l'argot camerounais, en français standard grammaticalement correct.",
+    "input": "Le pater là m'a djoss hier de ne plus kem chez lui."
+  },
+  {
+    "instruction": "Reformule ce message informel pour le rendre acceptable dans une conversation professionnelle (par exemple, un email à un collègue). Supprime tout l'argot et utilise un registre soutenu.",
+    "input": "Yo bro, je voulais te djoss à propos du projet, il faut vraiment qu'on work sur ça sinon on sera dans le ndem."
+  },
+  {
+    "instruction": "Ne te contente pas de traduire. Lis la phrase en Camfranglais ci-dessous et réécris-la en français en expliquant clairement l'intention de l'auteur pour quelqu'un qui ne connaît pas la culture camerounaise.",
+    "input": "Texte"
+  },
+  {
+    "instruction": "Réécris cette phrase pour qu'elle soit parfaitement compréhensible par un francophone vivant à Paris, Montréal ou Bruxelles, en supprimant toutes les références locales obscures.",
+    "input": "Asse mola, talk un peu avec le boss gar, je ne peux pas kem au work auday, je suis comme ça à l'hosto, je suis sick per."
+  },
+  {
+    "instruction": "Voici une phrase complexe en Camfranglais. Résume son sens principal en une seule phrase simple et claire en français courant.",
+    "input": "Asse la go là m'a djoss hier qu'elle me yamo mais entre temps moi j'ai déjà un autre dossier, je ne know pas comment je vais do."
+  }
+  ],
+  "T3": [
+  {
+    "instruction": "Explique le concept suivant comme si tu parlais à un 'petit du quartier' qui n'a pas fait de longues études. Utilise des comparaisons locales et du Camfranglais pour rendre ça simple et compréhensible.",
+    "input": "L'intélligence artificielle"
+  },
+  {
+    "instruction": "Détaille étape par étape comment fonctionne \"Sujet à expliqué\". Ta réponse doit être en Camfranglais et donner l'impression que tu donnes un conseil pratique à un ami, sans toute fois avoir une réponse trop longue.",
+    "input": "les algorithmes de tri."
+  },
+  {
+    "instruction": "Je ne comprends pas ce que signifie \"Concept à expliqué\". Peux-tu m'expliquer ça en utilisant une métaphore liée à la vie quotidienne au Cameroun (la nourriture, le football, le transport, etc.) ?",
+    "input": "le cloud computing"
+  },
+  {
+    "instruction": "Pourquoi est-ce que `{INPUT_SITUATION}` ? Donne-moi une explication raisonnée en utilisant le langage et la mentalité camerounaise.",
+    "input": "les gens arrivent toujours en retard aux Cameroun"
+  },
+  {
+    "instruction": "Mon ami a un problème avec \"Problème a résoudre\". Explique-lui en Camfranglais quelle est la cause probable et comment il peut gérer ça (la 'magie' pour arranger ça).",
+    "input": "son aordinateur qui refuse de démarrer"
+  },
+  {
+    "instruction": "Quelle est la différence subtile entre \"Mot A\" et \"Mot B\" dans l'argot camerounais ? Explique dans quel contexte on utilise l'un plutôt que l'autre.",
+    "input": "\"Ndem\" et \"Wanda\""
+  },
+  {
+    "instruction": "Si quelqu'un me dit \"Phrase\", comment dois-je le prendre ? Est-ce une insulte, un compliment ou une blague ? Explique ton raisonnement.",
+    "input": "Tu es un fiaman"
+  },
+  {
+    "instruction": "Explique le sens profond de l'expression \"Expression\".",
+    "input": "C'est la magie"
+  },
+  {
+    "instruction": "Analyse la phrase suivante : \"Phrase\". Qu'est-ce que la personne essaie vraiment de dire sans le dire ouvertement ? (Le 'message caché').",
+    "input": "On est ensemble."
+  },
+  {
+    "instruction": "Dans quelle situation précise est-il approprié d'utiliser le mot \"Mot\" ? Donne-moi un exemple de mise en situation et explique pourquoi ce mot convient ici.",
+    "input": "tchop"
+  }
+],
   "T4": [
     "Explique ce qu’est un algorithme et donne un exemple simple.",
     "Quelle est la différence entre une variable et une constante en programmation ?",
