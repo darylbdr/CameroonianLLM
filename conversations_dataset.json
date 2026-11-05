@@ -31,7 +31,7 @@
       },
       {
         "role": "assistant",
-        "content": "Copie tu me send avec Mon calendrier ne guif pas Gar dis lui de m’inviter à la réunion"
+        "content": "Copie tu me send abec Mon calendrier ne guif pas Gar dis lui de m’inviter à la réunion"
       }
     ]
   },
@@ -39,7 +39,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Copie tu me send avec Mon calendrier ne guif pas Gar dis lui de m’inviter à la réunion"
+        "content": "Copie tu me send abec Mon calendrier ne guif pas Gar dis lui de m’inviter à la réunion"
       },
       {
         "role": "assistant",

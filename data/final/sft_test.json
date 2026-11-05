@@ -1,0 +1,230 @@
+[
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu le nouveau clip de Tenor(artiste Camerounais)?"
+      },
+      {
+        "role": "assistant",
+        "content": "Bien sûr ! Il a dosé le son, ça tourne déjà partout dans les bars."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le taxi m'a déposé loin, j'ai dû marcher."
+      },
+      {
+        "role": "assistant",
+        "content": "Ils vex souvent. La prochaine fois, précise bien l'arrêt."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mon patron me stress trop, j'ai envie de quitter le job ci."
+      },
+      {
+        "role": "assistant",
+        "content": "Calme-toi perr. Le dehors est dur, garde ton gombo pour l'instant."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu comment les Lions ont joué hier ?"
+      },
+      {
+        "role": "assistant",
+        "content": "C'était mou man. Ils doivent se réveiller s'ils veulent win la CAN(Coupe d'afrique des nations)."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai mal aux dents, je ne peux même pas tchop."
+      },
+      {
+        "role": "assistant",
+        "content": "Va chez le dentiste avant que ça ne gonfle. Le mal de dents ne donne pas le pas le lait."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je suis calé au carrefour, y a pas de babana."
+      },
+      {
+        "role": "assistant",
+        "content": "Pourtant ils sont pleins là-bas d'habitude. Marche un peu vers le rond-point."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le soleil ci c'est la magie, on va cuire."
+      },
+      {
+        "role": "assistant",
+        "content": "Buy les lunettes de soleil et un parasol nor ."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Il paraît que le Tiako sera en concert ici."
+      },
+      {
+        "role": "assistant",
+        "content": "J'espère que ce n'est pas une rumeur. Je vais buy mon ticket direct."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mon c(phone) est die, je n'ai plus de batterie."
+      },
+      {
+        "role": "assistant",
+        "content": "Go charger ça au secrétariat du coin, mais surveille bien."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Le prof d'anglais a chassé tout le monde ce matin."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est normal, vous faites trop de bruit. Le père là ne blague pas avec la discipline."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai vu ta nga avec un autre gar hier soir."
+      },
+      {
+        "role": "assistant",
+        "content": "Laisse ça, c'est sûrement son cousin. Arrête de mettre le doute dans ma tête."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu comment il a jonglé le ballon ? C'est un futur Eto'o."
+      },
+      {
+        "role": "assistant",
+        "content": "Il a le talent, c'est sûr. S'il trouve un bon manager, il va aller loin."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Asse donne-moi un peu le code wifi du voisin abec."
+      },
+      {
+        "role": "assistant",
+        "content": "Je ne know pas ça perr. Il a encore changé ça hier, qu'il reste même avec une fois."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Je suis en retard pour le work, le patron là va encore crier sur moi."
+      },
+      {
+        "role": "assistant",
+        "content": "Prends un babana pour aller vite, ne perds pas de temps avec le taxi."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Il paraît que le carburant va encore augmenter."
+      },
+      {
+        "role": "assistant",
+        "content": "On va finir par acheter les vélos si ça continue. Le pays ci est dur."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Tu as vu comment il conduisait ? Il a failli cogner le poteau."
+      },
+      {
+        "role": "assistant",
+        "content": "C'est sûr qu'il était vibré. C'est comme ça qu'on va entendre qu'il est go finir dans le ravin."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "J'ai perdu mes clés, je suis dans le ndem."
+      },
+      {
+        "role": "assistant",
+        "content": "Falla bien dans tes poches ou dans ton sac, ça doit être là."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Mon petit frère a cassé l'écran de la télé."
+      },
+      {
+        "role": "assistant",
+        "content": "Ahiiiii ! Le pater va le tuer. Préparez déjà les excuses."
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "role": "user",
+        "content": "Les mbérés sont au carrefour, fais gaffe."
+      },
+      {
+        "role": "assistant",
+        "content": "Merde, je n'ai pas ma CNI sur moi. Je vais contourner par le kwatt."
+      }
+    ]
+  }
+]
