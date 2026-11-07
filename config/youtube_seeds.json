@@ -1,5 +1,7 @@
 {
   "_comment": "Liste de requêtes et d'IDs de vidéos YouTube camerounaises à scraper",
+  "max_videos_per_query": 25,
+  "max_pages_per_video": 15,
   "search_queries": [
     "mbole officiel cameroun clip",
     "web serie camerounaise episode",

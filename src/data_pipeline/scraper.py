@@ -45,21 +45,35 @@ def mark_video_as_scraped(video_id: str, checkpoint_path: Path) -> None:
         f.write(f"{video_id}\n")
 
 
-def search_youtube_videos(youtube_client, query: str, max_results: int = 10) -> List[Dict[str, str]]:
-    request = youtube_client.search().list(
-        part="snippet",
-        q=query,
-        type="video",
-        maxResults=max_results,
-        relevanceLanguage="fr"
-    )
-    response = request.execute()
+def search_youtube_videos(youtube_client, query: str, max_results: int = 25) -> List[Dict[str, str]]:
+    """
+    Recherche des vidéos YouTube à partir d'une requête (ex: 'Ulrich takam')
+    avec gestion de la pagination si max_results > 50.
+    """
     videos = []
-    for item in response.get("items", []):
-        vid = item.get("id", {}).get("videoId")
-        title = item.get("snippet", {}).get("title", "")
-        if vid:
-            videos.append({"video_id": vid, "title": title})
+    next_page_token = None
+
+    while len(videos) < max_results:
+        batch_size = min(50, max_results - len(videos))
+        request = youtube_client.search().list(
+            part="snippet",
+            q=query,
+            type="video",
+            maxResults=batch_size,
+            pageToken=next_page_token,
+            relevanceLanguage="fr"
+        )
+        response = request.execute()
+        for item in response.get("items", []):
+            vid = item.get("id", {}).get("videoId")
+            title = item.get("snippet", {}).get("title", "")
+            if vid:
+                videos.append({"video_id": vid, "title": title})
+
+        next_page_token = response.get("nextPageToken")
+        if not next_page_token:
+            break
+
     return videos
 
 
