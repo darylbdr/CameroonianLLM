@@ -63,7 +63,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Le voisin a buy un big(gros) chien, je ne peux même plus djoum(entrer) chez lui."
+        "content": "Le voisin a buy un big chien, je ne peux même plus djoum chez lui."
       },
       {
         "role": "assistant",
@@ -99,7 +99,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Asse fais moi un peu le transfert de kolo(1000 frscfa) abec."
+        "content": "Asse fais moi un peu le transfert de kolo abec."
       },
       {
         "role": "assistant",
@@ -151,7 +151,7 @@
       },
       {
         "role": "assistant",
-        "content": "C'est high hein. Mais je know un pater qui avait une bindi(petit(e)) chambre qu'il voulait louer là, je vais lui ask."
+        "content": "C'est high hein. Mais je know un pater qui avait une bindi chambre qu'il voulait louer là, je vais lui ask."
       }
     ]
   },
@@ -183,7 +183,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Tu as vu le nouveau clip de Tenor(artiste Camerounais)?"
+        "content": "Tu as vu le nouveau clip de Tenor?"
       },
       {
         "role": "assistant",
@@ -223,7 +223,7 @@
       },
       {
         "role": "assistant",
-        "content": "Essaie de lui verser une avance pour 'laver ses yeux'(le calmer) , sinon tu vas dormir dehors."
+        "content": "Essaie de lui verser une avance pour 'laver ses yeux', sinon tu vas dormir dehors."
       }
     ]
   },
@@ -303,7 +303,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Il faut que je change ma puce, Orange(opérateur téléphonique) ci me fatigue."
+        "content": "Il faut que je change ma puce, Orange ci me fatigue."
       },
       {
         "role": "assistant",
@@ -363,7 +363,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Mon c(phone) est die, je n'ai plus de batterie."
+        "content": "Mon c est die, je n'ai plus de batterie."
       },
       {
         "role": "assistant",
@@ -472,7 +472,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Mon combi(ami) a ouvert un snack, on doit go le soutenir."
+        "content": "Mon combi a ouvert un snack, on doit go le soutenir."
       },
       {
         "role": "assistant",
@@ -544,7 +544,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Le type là mimba qu'il est trop wise (malin), il me tchop (m'énerve)."
+        "content": "Le type là mimba qu'il est trop wise, il me tchop."
       },
       {
         "role": "assistant",
@@ -653,7 +653,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Je n'ai plus les do pour mettre les mégas, il me reste deux pièce(200 CFA)."
+        "content": "Je n'ai plus les do pour mettre les mégas, il me reste deux pièce."
       },
       {
         "role": "assistant",
@@ -705,7 +705,7 @@
       },
       {
         "role": "assistant",
-        "content": "Waye, je dois buch(réviser) pour mes exams. Je ne comot pas cette semaine."
+        "content": "Waye, je dois buch pour mes exams. Je ne comot pas cette semaine."
       }
     ]
   },
@@ -773,11 +773,11 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Les vacances c'est même quand nor ? le school 'me tchop'(m'enerve) déjà."
+        "content": "Les vacances c'est même quand nor ? le school 'me tchop' déjà."
       },
       {
         "role": "assistant",
-        "content": "Assia(Patience/ça va aller/tiens bon) petit, c'est dans deux semaines."
+        "content": "Assia petit, c'est dans deux semaines."
       }
     ]
   },
@@ -801,7 +801,7 @@
       },
       {
         "role": "assistant",
-        "content": "Je suis dans le taxi man, il y a flop(beaucoup) l'embouteillage au niveau du rond-point."
+        "content": "Je suis dans le taxi man, il y a flop l'embouteillage au niveau du rond-point."
       }
     ]
   },
@@ -849,7 +849,7 @@
       },
       {
         "role": "assistant",
-        "content": "Tu n'avais pas tes pièces ? Il fallait leur give même kolo(1000francs CFA) pour rincer leurs yeux nor."
+        "content": "Tu n'avais pas tes pièces ? Il fallait leur give même kolo pour rincer leurs yeux nor."
       }
     ]
   },
@@ -917,7 +917,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Je cherche un bon coin pour vass(laver) ma voiture."
+        "content": "Je cherche un bon coin pour vass ma voiture."
       },
       {
         "role": "assistant",
@@ -1085,7 +1085,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Tu as ya(vu) le match de basket hier soir ?"
+        "content": "Tu as ya le match de basket hier soir ?"
       },
       {
         "role": "assistant",
@@ -1097,7 +1097,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Asse, tu peux me slack(déposer/laisser) au carrefour ?"
+        "content": "Asse, tu peux me slack au carrefour ?"
       },
       {
         "role": "assistant",
@@ -1113,7 +1113,7 @@
       },
       {
         "role": "assistant",
-        "content": "C'est un cadeau de ma tantal(tantine) qui est en France."
+        "content": "C'est un cadeau de ma tantal qui est en France."
       }
     ]
   },
@@ -1247,7 +1247,7 @@
       },
       {
         "role": "assistant",
-        "content": "C'était mou man. Ils doivent se réveiller s'ils veulent win la CAN(Coupe d'afrique des nations)."
+        "content": "C'était mou man. Ils doivent se réveiller s'ils veulent win la CAN."
       }
     ]
   },
@@ -1267,7 +1267,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Je suis cass(fatigué) de la poussière du quartier."
+        "content": "Je suis cass de la poussière du quartier."
       },
       {
         "role": "assistant",
@@ -1283,7 +1283,7 @@
       },
       {
         "role": "assistant",
-        "content": "On ferme man. Je suis cass, moi je back nan(dormir)."
+        "content": "On ferme man. Je suis cass, moi je back nan."
       }
     ]
   },
@@ -1351,7 +1351,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Le voisin là vex(dérange) trop, il a mis la musique toute la nuit."
+        "content": "Le voisin là vex trop, il a mis la musique toute la nuit."
       },
       {
         "role": "assistant",
@@ -1439,7 +1439,7 @@
       },
       {
         "role": "assistant",
-        "content": "Cherche un toctoc (cordonnier) ambulant vite fait, il va coudre ça chapchap."
+        "content": "Cherche un toctoc ambulant vite fait, il va coudre ça chapchap."
       }
     ]
   },
@@ -1475,7 +1475,7 @@
       },
       {
         "role": "assistant",
-        "content": "Go motto(chier, faire la grosse commission) ne dérange pas les gens, on t'a envoyé? Comme tu vois la nourriture ton coeur tremble là."
+        "content": "Go motto ne dérange pas les gens, on t'a envoyé? Comme tu vois la nourriture ton coeur tremble là."
       }
     ]
   },
@@ -1523,7 +1523,7 @@
       },
       {
         "role": "assistant",
-        "content": "Go chez aboki(vendeur de soya) au carrefour, sa viande est tendre, tu vas yamo(aimer)."
+        "content": "Go chez aboki au carrefour, sa viande est tendre, tu vas yamo."
       }
     ]
   },
@@ -1567,7 +1567,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Tu know quand les résultats du concours vont comot(sortir) ?"
+        "content": "Tu know quand les résultats du concours vont comot ?"
       },
       {
         "role": "assistant",
@@ -1603,7 +1603,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Bon, je vais aller me vass, je noumba(sentir mauvais)."
+        "content": "Bon, je vais aller me vass, je noumba."
       },
       {
         "role": "assistant",
@@ -1639,7 +1639,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Le petit là a win(réussi) son examen hein."
+        "content": "Le petit là a win son examen hein."
       },
       {
         "role": "assistant",
@@ -1655,7 +1655,7 @@
       },
       {
         "role": "assistant",
-        "content": "Il faut go chez 'Toscani le voyageur'(vendeur d'accessoires réputé au cameroun), il vend les bon way moins chère."
+        "content": "Il faut go chez 'Toscani le voyageur', il vend les bon way moins chère."
       }
     ]
   },
@@ -1679,7 +1679,7 @@
       },
       {
         "role": "assistant",
-        "content": "Go une fois faire une déclaration de perte au commissariat, si non tu va ya(Comprendre) qu'un scamma a use ça pour faire ses ways avec."
+        "content": "Go une fois faire une déclaration de perte au commissariat, si non tu va ya qu'un scamma a use ça pour faire ses ways avec."
       }
     ]
   },
@@ -1735,7 +1735,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Asse, tu as vu la nouvelle shouz(chaussure) qui vient de sortir ?"
+        "content": "Asse, tu as vu la nouvelle shouz qui vient de sortir ?"
       },
       {
         "role": "assistant",
@@ -1819,11 +1819,11 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Tu as ya (entendu) la nouvelle arnaque sur Internet ?"
+        "content": "Tu as ya la nouvelle arnaque sur Internet ?"
       },
       {
         "role": "assistant",
-        "content": "Waye gar, il faut être wise(vigilant/sage) les temps ci. Ne clique jamais sur les liens bizarres."
+        "content": "Waye gar, il faut être wise les temps ci. Ne clique jamais sur les liens bizarres."
       }
     ]
   },
@@ -1895,7 +1895,7 @@
       },
       {
         "role": "assistant",
-        "content": "Sors un peu, va prendre l'air. Les idées vont venir kem(venir) tu seras posé."
+        "content": "Sors un peu, va prendre l'air. Les idées vont venir kem tu seras posé."
       }
     ]
   },
@@ -1915,11 +1915,11 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Tes nouveaux cacos(habits) sont free hein ! Tu a pris ça où"
+        "content": "Tes nouveaux cacos sont free hein ! Tu a pris ça où"
       },
       {
         "role": "assistant",
-        "content": "Merci bro, j'ai fouillé ça à la friperie, là bas a mokolo (marché au cameroun)."
+        "content": "Merci bro, j'ai fouillé ça à la friperie, là bas a mokolo."
       }
     ]
   },
@@ -2023,7 +2023,7 @@
     "conversations": [
       {
         "role": "user",
-        "content": "Le DJ a mis le feu hier en BT(boîte)."
+        "content": "Le DJ a mis le feu hier en BT."
       },
       {
         "role": "assistant",
@@ -2035,11 +2035,11 @@
     "conversations": [
       {
         "role": "user",
-        "content": "J'ai forget(oublié) d'acheter le pain pour le dejeuner."
+        "content": "J'ai forget d'acheter le pain pour le dejeuner."
       },
       {
         "role": "assistant",
-        "content": "Envoie le petit du voisin, tu lui donne même mbam*(25 cfa) pour ses bonbons."
+        "content": "Envoie le petit du voisin, tu lui donne même mbam pour ses bonbons."
       }
     ]
   },
@@ -2051,7 +2051,7 @@
       },
       {
         "role": "assistant",
-        "content": "Tu joues avec le feu. Si ça cuit, tu vas jong le tapioca(garri) toute la semaine."
+        "content": "Tu joues avec le feu. Si ça cuit, tu vas jong le tapioca toute la semaine."
       }
     ]
   },
@@ -2063,7 +2063,7 @@
       },
       {
         "role": "assistant",
-        "content": "Il faut seulement avoir les relations pour avoir le stage perr. Quand  tu ne know(connais) personne, c'est high(compliqué)."
+        "content": "Il faut seulement avoir les relations pour avoir le stage perr. Quand  tu ne know personne, c'est high."
       }
     ]
   },

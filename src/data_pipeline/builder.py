@@ -1,8 +1,6 @@
 """
 Module 3 : Construction des Datasets (CPT & SFT), Rétro-Instruction & Push Hugging Face
 =======================================================================================
-Module Python natif complet correspondant au notebook :
-`03_dataset_builder/03_Dataset_Builder_and_HF_Push.ipynb`
 """
 
 import re
@@ -19,16 +17,11 @@ def is_good_sft_dialogue_pair(
     user_text: str,
     assistant_text: str,
     assistant_score: float,
-    min_score: float = 0.15,
+    min_score: float = 0.06,
     min_assistant_words: int = 6
 ) -> bool:
-    """
-    Vérifie si une paire (user_text, assistant_text) est pertinente pour le SFT :
-    - L'assistant a un score Camfranglais >= min_score et une longueur >= min_assistant_words.
-    - L'utilisateur pose une question ('?' ou mot interrogatif) ou écrit au moins 5 mots.
-    """
-    user_words = re.findall(r"[a-zA-ZÀ-ÿ']+", user_text.lower())
-    assistant_words = re.findall(r"[a-zA-ZÀ-ÿ']+", assistant_text.lower())
+    user_words = re.findall(r"[a-zA-ZÀ-ÿ0-9']+", user_text.lower())
+    assistant_words = re.findall(r"[a-zA-ZÀ-ÿ0-9']+", assistant_text.lower())
 
     if assistant_score < min_score or len(assistant_words) < min_assistant_words:
         return False
@@ -40,9 +33,6 @@ def is_good_sft_dialogue_pair(
 
 
 def build_backtranslation_prompt(camfranglais_response: str) -> str:
-    """
-    Construit le prompt de Rétro-Instruction pour générer la question associée à un long commentaire CPT.
-    """
     return (
         "Voici une réponse écrite en camfranglais par un jeune Camerounais :\n"
         f"\"{camfranglais_response.strip()}\"\n\n"
@@ -52,9 +42,6 @@ def build_backtranslation_prompt(camfranglais_response: str) -> str:
 
 
 def create_sft_entry(user_message: str, assistant_response: str, source: str = "synthetic_backtranslation") -> Dict:
-    """
-    Formate une paire au format {"conversations": [{"role": "user", ...}, {"role": "assistant", ...}]}.
-    """
     return {
         "conversations": [
             {"role": "user", "content": user_message.strip()},
@@ -69,9 +56,6 @@ def deduplicate_and_split_sft(
     test_ratio: float = 0.1,
     seed: int = 3407
 ) -> Tuple[List[Dict], List[Dict]]:
-    """
-    Supprime les doublons sur les réponses de l'assistant et sépare en (sft_train, sft_test).
-    """
     unique_entries = []
     seen_responses = set()
 
@@ -102,9 +86,6 @@ def build_hf_dataset_dict(
     sft_train_list: List[Dict],
     sft_test_list: List[Dict]
 ) -> Dict[str, Any]:
-    """
-    Construit le dictionnaire de Datasets Hugging Face ('cpt_train', 'sft_train', 'sft_test').
-    """
     from datasets import Dataset
 
     cpt_rows = [{"text": t} if isinstance(t, str) else t for t in cpt_texts]

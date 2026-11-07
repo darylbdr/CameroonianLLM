@@ -29,9 +29,6 @@ def evaluate_camfranglais_adherence(
     model_scores: List[float],
     human_scores: List[float]
 ) -> Dict[str, float]:
-    """
-    Compare la moyenne et l'écart-type des scores S du modèle avec ceux des humains.
-    """
     m_arr = np.array(model_scores, dtype=float)
     h_arr = np.array(human_scores, dtype=float)
 
@@ -57,9 +54,6 @@ def compute_semantic_similarity(
     reference_responses: List[str],
     model_name: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 ) -> Dict[str, float]:
-    """
-    Calcule la similarité cosinus moyenne entre les réponses générées et les vraies réponses humaines.
-    """
     from sentence_transformers import SentenceTransformer
 
     embedder = SentenceTransformer(model_name, device="cpu")

@@ -19,12 +19,6 @@ from typing import List, Dict, Optional, Tuple, Set
 
 
 def clean_social_text(text: str) -> Optional[str]:
-    """
-    Nettoyage rapide d'un commentaire issu de YouTube ou TikTok :
-    - Supprime les URLs et les mentions (@user)
-    - Réduit les répétitions excessives de lettres ou d'émojis (mdrrrr -> mdrr)
-    - Normalise les espaces
-    """
     if not text:
         return None
     cleaned = str(text)
@@ -36,7 +30,6 @@ def clean_social_text(text: str) -> Optional[str]:
 
 
 def load_scraped_video_ids(checkpoint_path: Path) -> Set[str]:
-    """Charge la liste des video_id déjà scrapés pour éviter les doublons en cas de coupure."""
     if not checkpoint_path.exists():
         return set()
     return {
@@ -47,17 +40,12 @@ def load_scraped_video_ids(checkpoint_path: Path) -> Set[str]:
 
 
 def mark_video_as_scraped(video_id: str, checkpoint_path: Path) -> None:
-    """Ajoute un video_id au fichier de checkpoint après son extraction."""
     checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
     with open(checkpoint_path, "a", encoding="utf-8") as f:
         f.write(f"{video_id}\n")
 
 
 def search_youtube_videos(youtube_client, query: str, max_results: int = 10) -> List[Dict[str, str]]:
-    """
-    Recherche des vidéos YouTube à partir d'une requête (ex: 'mbole officiel cameroun')
-    et retourne une liste de dicts [{'video_id': ..., 'title': ...}].
-    """
     request = youtube_client.search().list(
         part="snippet",
         q=query,
@@ -76,10 +64,6 @@ def search_youtube_videos(youtube_client, query: str, max_results: int = 10) -> 
 
 
 def parse_youtube_thread_item(item: Dict, video_title: str) -> List[Dict]:
-    """
-    Extrait le commentaire parent (parent_id=None) et ses réponses (parent_id=top_id)
-    depuis un item commentThreads.list de YouTube Data API v3.
-    """
     extracted = []
 
     top_comment = item["snippet"]["topLevelComment"]
@@ -122,10 +106,6 @@ def fetch_youtube_video_comments(
     checkpoint_path: Optional[Path] = None,
     max_pages: int = 5
 ) -> int:
-    """
-    Récupère les pages de commentaires d'une vidéo YouTube et les sauvegarde en mode append
-    dans output_jsonl_path. Met à jour checkpoint_path si fourni.
-    """
     output_path = Path(output_jsonl_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -165,11 +145,6 @@ def fetch_youtube_video_comments(
 
 
 def split_trees_and_isolated(records: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
-    """
-    Sépare les enregistrements bruts en :
-      - `sft_pairs` (dialogues Parent -> Enfant)
-      - `isolated_comments` (commentaires isolés pour le CPT)
-    """
     by_id = {r["comment_id"]: r for r in records if "comment_id" in r}
     parents_with_replies = set()
     sft_pairs = []

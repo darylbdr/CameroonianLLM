@@ -65,13 +65,16 @@ def run_youtube_scraping_if_configured(project_root: Path, raw_yt_jsonl: Path) -
         return
 
     seeds = json.loads(seeds_path.read_text(encoding="utf-8"))
+    max_videos_per_query = int(seeds.get("max_videos_per_query", 15))
+    max_pages_per_video = int(seeds.get("max_pages_per_video", 10))
+
     youtube = build("youtube", "v3", developerKey=yt_key)
     checkpoint_path = project_root / "data" / "raw" / "scraped_videos.txt"
 
     videos_to_scrape = [{"video_id": vid, "title": f"Video {vid}"} for vid in seeds.get("video_ids", [])]
     for query in seeds.get("search_queries", []):
         try:
-            found = search_youtube_videos(youtube, query=query, max_results=5)
+            found = search_youtube_videos(youtube, query=query, max_results=max_videos_per_query)
             videos_to_scrape.extend(found)
         except Exception as e:
             print(f"⚠️ Erreur lors de la recherche YouTube '{query}' : {e}")
@@ -85,7 +88,7 @@ def run_youtube_scraping_if_configured(project_root: Path, raw_yt_jsonl: Path) -
                 video_title=v["title"],
                 output_jsonl_path=raw_yt_jsonl,
                 checkpoint_path=checkpoint_path,
-                max_pages=3
+                max_pages=max_pages_per_video
             )
             new_comments += c
         except Exception as e:
@@ -123,12 +126,12 @@ def main():
     sft_candidate_pairs, isolated_records = split_trees_and_isolated(all_raw_records)
     print(f"   -> {len(sft_candidate_pairs)} paires Parent->Enfant | {len(isolated_records)} commentaires isolés.")
 
-    # 3. Filtrage & Scoring via la formule S = I(N >= 6) * D_cam * P_matrice
+    # 3. Filtrage & Scoring via la formule S = I(N >= 6) * D_cam * P_matrice (seuil high >= 0.06)
     cpt_texts = []
     seen_cpt = set()
 
-    for rec in isolated_records:
-        res = score_camfranglais(rec["text"], lexicon)
+    for rec in all_raw_records:
+        res = score_camfranglais(rec["text"], lexicon, high_threshold=0.06)
         if res["zone"] == "high":
             key = res["cleaned_text"].lower()
             if key not in seen_cpt:
@@ -142,8 +145,8 @@ def main():
 
     # 3.b Filtrage des paires Parent -> Enfant (Règle d'Or SFT + Filtre Dialogique)
     for pair in sft_candidate_pairs:
-        res_assistant = score_camfranglais(pair["assistant"], lexicon)
-        if is_good_sft_dialogue_pair(pair["user"], res_assistant["cleaned_text"], res_assistant["score"]):
+        res_assistant = score_camfranglais(pair["assistant"], lexicon, high_threshold=0.06)
+        if is_good_sft_dialogue_pair(pair["user"], res_assistant["cleaned_text"], res_assistant["score"], min_score=0.06):
             sft_entries.append(
                 create_sft_entry(pair["user"], res_assistant["cleaned_text"], source=pair.get("source", "youtube"))
             )

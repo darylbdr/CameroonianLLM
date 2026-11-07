@@ -1,11 +1,13 @@
 """
 Module 2 : Filtrage Linguistique & Formule Mathématique de Scoring (S)
 ======================================================================
-Module Python natif complet correspondant au notebook :
-`02_filtering_scoring/02_Filtering_and_Scoring.ipynb`
-
 Formule implémentée :
     S = I(N >= 6) * D_cam * P_matrice
+
+Seuils de routage calibrés pour ne pas pénaliser les phrases longues :
+  - Zone Haute ('high') : S >= 0.06 (au moins 1 marqueur fort sur 30 mots ou 1 marqueur moyen sur 16 mots)
+  - Zone Grise ('grey') : 0.03 <= S < 0.06
+  - Zone Basse ('low')  : S < 0.03
 """
 
 import re
@@ -16,15 +18,11 @@ from typing import List, Dict, Tuple
 
 
 def load_lexicon(lexicon_path: Path) -> Dict:
-    """Charge le fichier config/lexicon.json."""
     with open(lexicon_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def normalize_and_tokenize(text: str) -> Tuple[str, List[str]]:
-    """
-    Nettoie le texte brut et retourne (cleaned_text, words_alphabetiques_minuscules).
-    """
     if not text:
         return "", []
     cleaned = str(text)
@@ -34,12 +32,11 @@ def normalize_and_tokenize(text: str) -> Tuple[str, List[str]]:
     cleaned = re.sub(r'(.)\1{2,}', r'\1\1', cleaned)
     cleaned = re.sub(r'\s+', ' ', cleaned).strip()
 
-    words = re.findall(r"[a-zA-ZÀ-ÿ']+", cleaned.lower())
+    words = re.findall(r"[a-zA-ZÀ-ÿ0-9']+", cleaned.lower())
     return cleaned, words
 
 
 def get_word_camfranglais_weight(word: str, lexicon: Dict) -> float:
-    """Retourne le poids Camfranglais d'un mot (2.0 fort, 1.0 moyen, 0.0 sinon) avec tolérance phonétique."""
     w_strong = lexicon.get("strong_markers_weight", 2.0)
     w_medium = lexicon.get("medium_markers_weight", 1.0)
     strong_set = set(m.strip().lower() for m in lexicon["strong_markers"])
@@ -64,9 +61,6 @@ def get_word_camfranglais_weight(word: str, lexicon: Dict) -> float:
 
 
 def compute_d_cam(words: List[str], lexicon: Dict) -> float:
-    """
-    Calcule la densité lexicale pondérée D_cam = (somme des w_i) / N.
-    """
     if not words:
         return 0.0
     total_weight = sum(get_word_camfranglais_weight(w, lexicon) for w in words)
@@ -74,9 +68,6 @@ def compute_d_cam(words: List[str], lexicon: Dict) -> float:
 
 
 def compute_p_matrice(words: List[str], lexicon: Dict, epsilon: float = 1e-5) -> float:
-    """
-    Calcule P_matrice = C_fr / (C_fr + C_en_pid + epsilon).
-    """
     fr_anchors = set(a.strip().lower() for a in lexicon["french_anchors"])
     en_pid_anchors = set(a.strip().lower() for a in lexicon["pidgin_english_anchors"])
 
@@ -86,10 +77,13 @@ def compute_p_matrice(words: List[str], lexicon: Dict, epsilon: float = 1e-5) ->
     return c_fr / (c_fr + c_en_pid + epsilon)
 
 
-def score_camfranglais(text: str, lexicon: Dict, min_words: int = 6) -> Dict:
-    """
-    Calcule S = I(N >= min_words) * D_cam * P_matrice et route dans ('high', 'grey', 'low').
-    """
+def score_camfranglais(
+    text: str,
+    lexicon: Dict,
+    min_words: int = 6,
+    high_threshold: float = 0.06,
+    grey_threshold: float = 0.03
+) -> Dict:
     cleaned_text, words = normalize_and_tokenize(text)
     n_words = len(words)
     d_cam = compute_d_cam(words, lexicon)
@@ -97,9 +91,9 @@ def score_camfranglais(text: str, lexicon: Dict, min_words: int = 6) -> Dict:
     length_indicator = 1.0 if n_words >= min_words else 0.0
     score = length_indicator * d_cam * p_matrice
 
-    if score >= 0.15:
+    if score >= high_threshold:
         zone = "high"
-    elif score >= 0.05:
+    elif score >= grey_threshold:
         zone = "grey"
     else:
         zone = "low"
@@ -114,10 +108,7 @@ def score_camfranglais(text: str, lexicon: Dict, min_words: int = 6) -> Dict:
     }
 
 
-def filter_sft_conversations(conversations_list: List[Dict], lexicon: Dict, threshold: float = 0.15) -> List[Dict]:
-    """
-    Applique la Règle d'Or SFT (seul l'assistant doit avoir un score >= threshold).
-    """
+def filter_sft_conversations(conversations_list: List[Dict], lexicon: Dict, threshold: float = 0.06) -> List[Dict]:
     valid_conversations = []
 
     for item in conversations_list:
@@ -128,7 +119,7 @@ def filter_sft_conversations(conversations_list: List[Dict], lexicon: Dict, thre
         assistant_msg = conv[1].get("content", "")
 
         clean_user, user_words = normalize_and_tokenize(user_msg)
-        res_assistant = score_camfranglais(assistant_msg, lexicon)
+        res_assistant = score_camfranglais(assistant_msg, lexicon, high_threshold=threshold)
 
         if len(user_words) >= 3 and res_assistant["score"] >= threshold:
             valid_conversations.append({

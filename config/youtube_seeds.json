@@ -1,11 +1,18 @@
 {
-  "_comment": "Liste de requêtes et d'IDs de vidéos YouTube camerounaises à scraper (clips Mbolé, rap 237, sketchs, web-séries, podcasts urbains)",
+  "_comment": "Liste de requêtes et d'IDs de vidéos YouTube camerounaises à scraper",
   "search_queries": [
     "mbole officiel cameroun clip",
     "web serie camerounaise episode",
     "sketch comedie cameroun 237",
-    "rap 237 cameroun officiel",
-    "micro trottoir douala yaounde"
+    "micro trottoir douala yaounde",
+    "BOP Dylan",
+    "Celeste Victorien",
+    "MK michellle",
+    "Ulrich takam",
+    "Tik dengue",
+    "Bovann",
+    "Clips de Tenor",
+    "Clips de maahlox le vibeur"
   ],
   "video_ids": []
 }
