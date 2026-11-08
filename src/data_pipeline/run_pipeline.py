@@ -4,6 +4,7 @@ Orchestrateur de toute la Pipeline Locale
 
 import os
 import sys
+from tqdm import tqdm
 import re
 import json
 from pathlib import Path
@@ -22,7 +23,7 @@ from src.data_pipeline.builder import (is_good_sft_dialogue_pair, create_sft_ent
 
 
 def load_clean_conv_bot(conv_path: Path):
-    """Charge conv_bot.json en retirant les commentaires éventuels."""
+    """Charge conv_bot.json en retirant les commentaires éventuels et en normalisant le champ 'source'."""
     if not conv_path.exists():
         return []
     txt = conv_path.read_text(encoding="utf-8")
@@ -30,7 +31,11 @@ def load_clean_conv_bot(conv_path: Path):
     txt = re.sub(r",\s*]", "]", txt)
     txt = re.sub(r",\s*}", "}", txt)
     data = json.loads(txt)
-    return [data] if isinstance(data, dict) else data
+    items = [data] if isinstance(data, dict) else data
+    for item in items:
+        if "source" not in item:
+            item["source"] = "conv_bot_manual"
+    return items
 
 
 def run_youtube_scraping_if_configured(project_root: Path, raw_yt_jsonl: Path) -> None:
@@ -115,7 +120,7 @@ def main():
     cpt_texts = []
     seen_cpt = set()
 
-    for rec in all_raw_records:
+    for rec in tqdm(all_raw_records):
         res = score_camfranglais(rec["text"], lexicon, high_threshold=0.06)
         if res["zone"] == "high":
             key = res["cleaned_text"].lower()
@@ -150,7 +155,7 @@ def main():
     print(f"[4/4] Datasets finaux générés dans {final_dir} :")
     print(f"   - cpt_train.json : {len(cpt_texts)} textes bruts Camfranglais")
     print(f"   - sft_train.json : {len(sft_train)} conversations d'entraînement")
-    print(f"   - sft_test.json  : {len(sft_test)} conversations de test (pour l'Étape 5)")
+    print(f"   - sft_test.json  : {len(sft_test)} conversations de test")
 
     # Push automatique sur Hugging Face Hub si HF_TOKEN est configuré dans .env
     hf_token = os.getenv("HF_TOKEN")

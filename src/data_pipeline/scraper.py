@@ -10,6 +10,7 @@ Collecte & Extraction en Arbres YouTube Data API v3
 
 import re
 import json
+from tqdm import tqdm
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple, Set
 
@@ -155,7 +156,7 @@ def split_trees_and_isolated(records: List[Dict]) -> Tuple[List[Dict], List[Dict
     parents_with_replies = set()
     sft_pairs = []
 
-    for r in records:
+    for r in tqdm(records):
         pid = r.get("parent_id")
         if pid is not None and pid in by_id:
             parent_rec = by_id[pid]

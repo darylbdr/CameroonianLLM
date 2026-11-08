@@ -4,6 +4,7 @@ Construction des Datasets (CPT & SFT), Rétro-Instruction & Push Hugging Face
 
 import re
 import random
+from tqdm import tqdm
 from typing import List, Dict, Tuple, Any
 
 INTERROGATIVE_MARKERS = {
@@ -58,7 +59,7 @@ def deduplicate_and_split_sft(
     unique_entries = []
     seen_responses = set()
 
-    for entry in sft_entries:
+    for entry in tqdm(sft_entries):
         conv = entry.get("conversations", [])
         if len(conv) < 2:
             continue
@@ -88,8 +89,10 @@ def build_hf_dataset_dict(
     from datasets import Dataset
 
     cpt_rows = [{"text": t} if isinstance(t, str) else t for t in cpt_texts]
+    norm_train = [{"conversations": x["conversations"], "source": x.get("source", "manual")} for x in sft_train_list]
+    norm_test = [{"conversations": x["conversations"], "source": x.get("source", "manual")} for x in sft_test_list]
     return {
         "cpt_train": Dataset.from_list(cpt_rows),
-        "sft_train": Dataset.from_list(sft_train_list),
-        "sft_test": Dataset.from_list(sft_test_list)
+        "sft_train": Dataset.from_list(norm_train),
+        "sft_test": Dataset.from_list(norm_test)
     }
