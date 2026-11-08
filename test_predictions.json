@@ -1,0 +1,606 @@
+{
+  "eval_loss": 3.1847331523895264,
+  "perplexity": 24.160840283053712,
+  "predictions": [
+    {
+      "user": "Asse comme si je me suis perdu hein.",
+      "human_reference": "Demande à un benskinneur, ils connaissent tous les recoins de la ville.",
+      "model_response": "Tu es où ? Je viens te chercher."
+    },
+    {
+      "user": "Vous ne mettez pas épisode comment on sait que c'est la suite",
+      "human_reference": "En faite chaque épisode est indépendant. Chaque épisode parle d'un sujet précis du coup pas besoin de suivre par ordre",
+      "model_response": "Vous n'avez pas compris le titre ? 😅😅"
+    },
+    {
+      "user": "Il faut que je change ma puce, Orange(opérateur téléphonique) ci me fatigue.",
+      "human_reference": "Prends Camtel ou MTN, il paraît que le reseau est plus rapide et ils ont les bon forfait.",
+      "model_response": "Go avec Airtel, c'est plus stable et moins cher."
+    },
+    {
+      "user": "Cèst qui ce idiot sans t-shirt dans tout les clip de Maahlox, maahlox stp achete lui un t-shirt mem si cèst la fripperie",
+      "human_reference": "Nikita Tchana kan tu ne comprends pas le système tu stay cool!on le yamo coe ça,la preuve il n'est pas dans le dernier clip et tt le monde a bavardé!qu'il soit idiot ou pas c'est ton pb",
+      "model_response": "​ c'est un congolais qui vit au Cameroun il n'a pas les moyens d'acheter les t-shirt"
+    },
+    {
+      "user": "Courage a vous les bros",
+      "human_reference": "Merci bro n’oublie les likes",
+      "model_response": "La famille. On est ensemble. 💪🏾💪🏾💪🏾"
+    },
+    {
+      "user": "Locko et Francko en guest! La musique au K-mer évolue déjà vraiment, les artistes ne sont plus obligés de chanter dans tous les clips dans lesquels ils passent. Ca c'est cool",
+      "human_reference": "Edgar Kameny le Camer prend le contrôle c'est tout.",
+      "model_response": "​ félicitation les gars c'est propre et bien chanté courage pour la suite"
+    },
+    {
+      "user": "Quand je lis vos commentaires, vos messages et tous ces mots que vous m’adressez, j’ai véritablement la joie de vivre. ❤️ Sachez une chose : derrière chaque sourire que vous me donnez, il y a un cœur qui vous remercie profondément. Je vous aime au plus profond de mon cœur. ❤️ Merci d’être là, merci pour votre amour, votre soutien et votre bienveillance. Vous comptez énormément pour moi. 🙏🏽❤️",
+      "human_reference": "C'est Normal bro car on es ensemble virtuellement il ya fort longtemps donc un grand amitié e fraternité s'es installer..Le problème seulement est que tu m'a pas accordé du crédit quand jtai écrit depuis ma position au Burkina Faso.. Bigup et force à toi 👍👊👊",
+      "model_response": "Moi même je suis au sol de lap😂😂. Les Camerounais sont trop forts."
+    },
+    {
+      "user": "Le gospel a pris le deçu 😅😅 ko-c a donné le coup d'envoi. 😂😂",
+      "human_reference": "Tu connais combien de temps il faut pour sortir une chanson ? Koc a quoi a y voir vu qu'il vient de sortir pour lui et c'est lui qui a amené le gospel au camer?",
+      "model_response": "Le son si est grave mdrr"
+    },
+    {
+      "user": "l'eton de takam de la fin c'est la magie 😂😂",
+      "human_reference": "Tu es belle je peut avoir ton numero je suis par loin de paris",
+      "model_response": "Vraiment la fin c'est la magie ! \" C'est le nguémé\" 😂😂"
+    },
+    {
+      "user": "Il ya la position le week-end ?",
+      "human_reference": "Moi je vais go manger la vie a Kribi.",
+      "model_response": "Pas le week-end, mais peut-être le mardi soir si tu es dispo."
+    },
+    {
+      "user": "IL MÉRITE PLUS DE VUES!",
+      "human_reference": "oui tu as raison. mais que niveau national. car je me dit que c'est juste camer.",
+      "model_response": "Je suis camerounais et je confirme c'est un bon artiste"
+    },
+    {
+      "user": "Les camers sont Dingue et c'est ce que je kiff chez eux . Le song met de l'ambiance . Bravo 👌🚨👏",
+      "human_reference": "Cool moi je suis camers et ça me fait tellement plaisir et toi t'es d'où frère ou soeurette",
+      "model_response": "Tu as tout compris. Ils sont dingue mais on y peut rien 😂😂"
+    },
+    {
+      "user": "Ton ventre là sort déjà hein joy's 😁😁.ki vois coe moi?",
+      "human_reference": "Je voulais parler depuis mais je ne voulais pas être celle qui ndem. Maintenant que quelqu'un a osé, je peux aussi continuer",
+      "model_response": "C'est l'enfant là qui sort comme ça. 😁😁"
+    },
+    {
+      "user": "On se prend demain soir ?",
+      "human_reference": "Pas de souci, fait moi seulement signe. afta bro.",
+      "model_response": "Si Dieu le veut. Le soir, on ne sait jamais ce qui peut arriver à Lagos."
+    },
+    {
+      "user": "Des psychopathes en puissance dans cette famille. La pauvre mater.",
+      "human_reference": "🤣🤣 Elle doit vraiment souffrir la pauvre mater",
+      "model_response": "La mater là a un problème de communication, elle devrait se faire soigner."
+    },
+    {
+      "user": "qui se retrouve ici pour la 7e fois comme moi ??",
+      "human_reference": "merci d'avance pour votre réponse je vous remercie par contre j'ai une autre personne de mon côté de moi pour les modérateurs",
+      "model_response": "La 7ème fois ? Non gar tu es déjà à la 10ème. La 7ème c'était quand on a fait le tour du quartier en allant au cybercafé pour copier le son de \"Mami Loko\"."
+    },
+    {
+      "user": "Orh on m'a devancée lol le clip est propre",
+      "human_reference": "+kuitata labeyonce Ma co'o lep sement :)",
+      "model_response": "Je Wanda aussi c'est propre"
+    },
+    {
+      "user": "Non je suis congolais mais je kiff trop tenor à la peau d’un congolais il a du talent et je valider aussi le dj😂😂",
+      "human_reference": "En vérité j'adore la langue congolaise",
+      "model_response": "Tu es congolais de la RDCongo ou de la RDCongo-Kinshasa ?"
+    },
+    {
+      "user": "Ténor chante quoi même 😁😁 c'est eunice seule qui t'a donné nom sinon là 😂😂 mon ventre même 😁😁",
+      "human_reference": "bois jalouxine 100mg CA soigne la jalousie de haut niveau",
+      "model_response": "C'est la sonnerie de mon téléphone. Tu as tout cassé."
+    },
+    {
+      "user": "Depuis il n'a pas le million de vue comment ? 😢 Alors que tous le monde écoute ça ❤❤",
+      "human_reference": "C'est déjà au million 😊❤🎉 Continuons à pousser",
+      "model_response": "+MOHAMED SAAD YOUSSEF il faut le supporté en faisant un effort de partage"
+    },
+    {
+      "user": "Voici ton egal himra qui fait des millions de vues avec du pur RAP toi tu es là tu sature les gens avec le Mbolè",
+      "human_reference": "​ parle avec les preuves .. les chiffres et les stats de himra prouvent.. quand on est fort c'est pas au Quartier qu'on est fort",
+      "model_response": "tu parles de quoi man? Mbolé c'est le style de Zouk, c'est un rythme musical, donc si tu n'aimes pas le Mbolé, tu n'aimes pas le Zouk, donc tu n'aimes pas le Rythme de mon pays."
+    },
+    {
+      "user": "Il vient de loin Bob dilan C est encourageant ❤",
+      "human_reference": "Il a roulé sa bosse comme on dit Bravo 👏",
+      "model_response": "C'est le Cameroun même qui est encourageant. C'est le pays le plus ouvert de la planète."
+    },
+    {
+      "user": "Que veut dire ‘Mollah’ ?",
+      "human_reference": "eel Mish non c'est une espèce de français de la rue on appelle sa le camfrananglais vue que le Cameroun est bilingue. En gros le mélange du français +l'anglais\"pidgin \"et certains mot des langues locale",
+      "model_response": "mollah est un terme utilisé au Cameroun pour désigner un homme ou une femme qui est toujours bien habillé et qui fait attention à son apparence. Il peut aussi être utilisé pour décrire quelqu'un qui est très soigné et qui prend soin de son corps."
+    },
+    {
+      "user": "Blacky star je n'ai rien compris de ton dialecte mais mes oreilles ont été remplis de douceur et de melodie🥺🥺",
+      "human_reference": "La langue maternelle du très haut",
+      "model_response": "Je te jure. Les camerounais vous faites trop la morale. Les kmer sont tous des voleurs. C'est une bande de sauvages."
+    },
+    {
+      "user": "C'est comment pour la sortie de demain ?",
+      "human_reference": "C'est confirmé perr. Prépare les mô cacos.",
+      "model_response": "On va go à la plage, si Dieu le veut. Il faut se lever tôt pour ne pas rater l'heure de la marée basse."
+    },
+    {
+      "user": "C'est un faux texte point barre lol,la biere c'est combien ici kiakiakiakiakiakiakiakiakia,Yannick tu m'attaques??",
+      "human_reference": "LOOL missvan1989 ce sont des bétises qu'il raconte meme s'ils parlent de la Biere,le texte est trop facile cest dans ce sens que je parle.Me sortir ton Doctorat en kongossa rien à foutre ok??La Biere coute combien ici kiakiakiakiakiakiakiakiakia",
+      "model_response": "lol c'est le high level man"
+    },
+    {
+      "user": "si comme moi tu imagine deja l'épisode 16 avec lydol et moustik place juste un like.(un matin tu vas te réveiller que tu seras deja morte takam tu dérange🤣🤣)",
+      "human_reference": "Massaa ? Ça sera la bagarre 🤣🤣. Lydol va le malaxer et cacher le corps vrai vrai",
+      "model_response": "Je suis camerounais mais j'aime trop cette série. Bravo à toute l'équipe"
+    },
+    {
+      "user": "Asse, tu peux me slack(déposer/laisser) au carrefour ?",
+      "human_reference": "Monte, on y va. Mais mets ta ceinture, je ne veux pas les problèmes avec les mbérés.",
+      "model_response": "Oui, mais ne m'habitue pas hein."
+    },
+    {
+      "user": "IL MÉRITE PLUS DE VUES!",
+      "human_reference": "+Lionel Daryl Bassolé han bon ? en tout cas le cameroun et la cote d'ivoir sons des cousins",
+      "model_response": "Les gars allez le partager un peu partout sur YouTube pour qu'il puisse atteindre plus de vues"
+    },
+    {
+      "user": "Vous mettez dedans sans preso et quand l'enfant s'installe vous disparaissez hein",
+      "human_reference": "Tu me ask mbom!! En tout ka chacun se reconnaitra lool!!",
+      "model_response": "Dédolé de te dérange, mais c'est ton problème et pas le mien."
+    },
+    {
+      "user": "Je suis ivoirien 🇨🇮. Qui écoute encore en 2025? J'ai trop d'amour pour la musique Camerounaise 🇨🇲.",
+      "human_reference": "Depuis Toronto au Canada on se balance..trop de kiffe, le meilleur feat du pays de tous les temps..respect les artistes 👮‍♂️",
+      "model_response": "Moi aussi je suis ivoirienne et j'aime beaucoup la musique camerounaise"
+    },
+    {
+      "user": "C'est qui la nga qui était avec toi hier ?",
+      "human_reference": "C'est ma cousine, calme toi.",
+      "model_response": "C'est ma cousine, elle est venue passer les vacances chez nous."
+    },
+    {
+      "user": "Je suis congolais mais MAAHLOX /me tue 😂😂 a chaque fois que j'écoute son nouveau morceau. force à toi l'Afrique est derrière toi🎉.",
+      "human_reference": "je parle de la chorégraphie dans ce clip et le style fu clip c’est clairement du plagiat 🤣mais bon si vous voulez être hypocrite bonne chance",
+      "model_response": "Le Cameroun est un pays multi culturel et nous sommes fière de vous congolais . Nous sommes tous des frères"
+    },
+    {
+      "user": "En vraii de vraii, oui il y a eu un temps où le Cameroun etait en tête dans toutes les charts, avec locko, tenor, Salatiel et autres. Clasher himra te donne en visibilités, augmente tes streams consequement ton argent, et oui le petit a depasser les devanciers, le SNEP et Jen passe. T'as pas faire sa broo, loin de moi l'idee de t'insulter mais tu joues sur un terrain glissant, himra va plus repondre, c'est Les underground de Civ qui vont te faient ta sauce, regarde un peu à quel niveau tu te rabaisses, t'as pas honte vieux 😂😂?? Regarde M.O.R, il a été recuperer par Christ Onixx et Mr Christ 😂😂Marless le garçon manqué qui rejoint la partie, et Himra qui continue de tourner partout, étendre ces horizons en collaborant avec les grosse têtes du game 😂😂et vous autres a compter Vos streams, *Les gens soyez honnêtes, c'est à cause de Himra, qu'on les a Tous écoutes😂😂, Et maintenant voici le doyen de la Classe qui a son nom sur la liste des barvards 😂😂 CIV>> Afrique Central😂😂",
+      "human_reference": "​ wanda 😂..Il nous gave de ces émojis bêtes bêtes là pour ne rien dire de bon même mdr",
+      "model_response": "Je Wanda sur quoi hein ? 😂😂"
+    },
+    {
+      "user": "Je ne me sens pas bien, mon corps chauffe.",
+      "human_reference": "C'est sûrement le palu man. Ne blague pas avec ça, go une fois à l'hosto.",
+      "model_response": "Il faut aller te reposer, ça doit être la tension."
+    },
+    {
+      "user": "Le taxi m'a déposé loin, j'ai dû marcher.",
+      "human_reference": "Ils vex souvent. La prochaine fois, précise bien l'arrêt.",
+      "model_response": "C'est le problème avec ces taximen, ils ne veulent pas faire les kilomètres."
+    },
+    {
+      "user": "Pas de SNEP pas de distrack ⚔️🇨🇮",
+      "human_reference": "​ répète pas de SNEP pas de distrack ⚔️🇨🇮 si le SNEP est trop pour ton Merconier de Ténor qu'il se fasse nominé à là pas le prochain Afrima ⚔️😂🇨🇮",
+      "model_response": "Oui mais le song ci est déjà bien dans son genre"
+    },
+    {
+      "user": "Pardon #MAAHLOX je demande yein, le gars aux lunettes noires qui ne porte jamais chemise là, il ne sent pas le froid?😄😄",
+      "human_reference": "Salif Mamati c7 Arafat du kmer😂😂",
+      "model_response": "C'est un congolais, pour nous c'est le Cameroun qui est froid"
+    },
+    {
+      "user": "Avec 1100 tu pouvais acheter plusieurs jus😅😅😂😂",
+      "human_reference": "Il voulait stresser et marmailler le petit. 😂",
+      "model_response": "C'est le casse-croûte des lycéens"
+    },
+    {
+      "user": "Une sale chose qui parler su les camerounais n'importe quoi va faire tes partouzes c'est mieux pour toi",
+      "human_reference": "Elle parle sur les Camerounais parce que certains Camerounais lui ont donné le pouvoir de le faire. Pourquoi ça énerve les \"nés avant la honte\" ?",
+      "model_response": "​ voici une personne qui a des problèmes mentaux et qui se permet de juger les autres 😂😂il est pitoyable et pathétique"
+    },
+    {
+      "user": "Le \"Kim jong il\" a la fin il m à tué. J adore quand ils disent quelque chose sans contexte (ici les u à la place des i) et que 5 minutes plus tard ils te ressortent une blague et tu comprend pourquoi il t as dit le truc au début. Excellent",
+      "human_reference": "Au cas si t'es encore sur YouTube, kim jong il, a réellement existé et il est mort en 2011 c'était de le père de kim jong un",
+      "model_response": "Il n'y a pas de quoi, c'est un plaisir de faire plaisir, lol"
+    },
+    {
+      "user": "Impossible n' est pas camerounais❤❤ bravoo à ce soutien que vs faites à à Prince Aimé ❤❤ pas la tricherie de DL😂😂",
+      "human_reference": "Tu n aimes pas la paix bro😂",
+      "model_response": "Lol, je suis au sol. Les camerounais ne sont pas faciles hein."
+    },
+    {
+      "user": "Mon bailleur veut me chasser, ça fait deux mois que je n'ai pas buy.",
+      "human_reference": "Essaie de lui verser une avance pour 'laver ses yeux'(le calmer) , sinon tu vas dormir dehors.",
+      "model_response": "Mince, tu dois négocier avec lui, peut-être qu'il ne knows pas que tu es en galère."
+    },
+    {
+      "user": ".. Tout ça pas que je les ai vue faire la skcellerie en plein jour , j'ai parlé.. Propre",
+      "human_reference": ".. c'est là où je réponds souvent \"MOUF TA MAMAN \" ..",
+      "model_response": "Gar tu es un vrai mbombog"
+    },
+    {
+      "user": "bravo Maahlox Le Vibeur !! CHAPO!! un feat avec franko sera pas mauvais!! pensez-y",
+      "human_reference": "pourquoi tu veux qu'il baisse son niveau en chantant avc franco?",
+      "model_response": "+Mickael KOUADIO moi même je yamo le song"
+    },
+    {
+      "user": "Vous êtes formidables et riches de talent !! Vous ne cesserez de me remplir de bonheur",
+      "human_reference": "La mère de nama a fini avec 1ère avec 18 de moyenne😅😅 .trop naturelle mm. Bravo l équipe",
+      "model_response": "C'est le Cameroun qui gagne. Les meilleurs artistes du rap au monde."
+    },
+    {
+      "user": "je suis ivoirien mais j'adore le style musical du Cameroun très original viva africa",
+      "human_reference": "Camerounais chante quoi de bon ? ils s'inspirent toujours de la grande République de Côte d'Ivoire, c'est Maloxx qui s'est démarqué c'est tout",
+      "model_response": "Vive le Cameroun et Vive la Côte d'Ivoire. Nous sommes tous frères. Les différences sont là pour s'enrichir mutuellement."
+    },
+    {
+      "user": "Joyce et Lydol se ressemblent bcp, qui a fait le constat comme moi? 😌😌",
+      "human_reference": "I was looking for that comment.. Yes both look alike",
+      "model_response": "Elles sont soeurs dans la vie real"
+    },
+    {
+      "user": "donc comme ca tu veux emmener notre Brisco en chine.. pour aller faire test de fidelité labas, jspr qu'il se battre en kung-fu 😂😂",
+      "human_reference": "BRISCO tu es un mal gar😂😂🇨🇮🇨🇮",
+      "model_response": "Donc c'est vrai hein que les chinois font ça ?"
+    },
+    {
+      "user": "non gars tu devrais mettre interdit au moins de 12 molar.tu as qu'à même déranger.c'est pas parce que rihanna,beyonce ou les rappeurs americains font ce genre de clip qu'on est obligé de copier tout ce mauvaise chose",
+      "human_reference": "demande a ta petite soeur de 11ans si elle ne MBINDA pas encore. Il ne copie pas, il fais juste",
+      "model_response": "+Mimie Choua je suis congolais et je t'assure que nos artistes ne sont pas mieux que vos artistes congolais. Je vous assure"
+    },
+    {
+      "user": "Dschang est devenu Hollywood super, asch mon village passe déja à la tele 🤩🤩",
+      "human_reference": "j'ai parlé du film qui est tourné à Dschang. Dschang Hollywood",
+      "model_response": "Asha le son si c’est la magie. Mais il fallait aussi mettre un peu d’accent béti sur le song"
+    },
+    {
+      "user": "Raïssa m'a vex ici grave mincee,on peut mentir comme ça?? ça prouve quand même qu'elle joue bien son rôle.🤣🤣",
+      "human_reference": "Héee🤣🤣😂😂 Raïssa dans ts les capsules de takam elle ment jusqu'à aah et mamie toctoc 🤭🤭 yeuche son rôle là kon lui a donné hein xa reflète certains go ici dehors donc je ne veux pas citer le nom🤗🤗",
+      "model_response": "Mouf ta mère !! Elle joue bien son rôle hein ?? 🤣🤣😂"
+    },
+    {
+      "user": "N'hésitez pas à nous proposer de nouveaux sujets pour les prochaines Micros trottoirs.",
+      "human_reference": "Les routes du Cameroun sont comment actuellement",
+      "model_response": "On veut une émission sur les histoires d'amour au Togo"
+    },
+    {
+      "user": "Une chanson très touchante 😭😭 similaire à mon histoire mon fiancé qui m'a quitté brutalement par accident. Bb o tu me manques oo😭💔😭 Maintenant que tu es parti ce n'est pas ce qu'on s'est dit💔💔😭😭",
+      "human_reference": "J'ai déjà écouté ce son 106fois.. Une vraie dinguerie",
+      "model_response": "C'est ce que je ressens aussi. Je t'assure. Que le seigneur te console et te guérisse. ❤"
+    },
+    {
+      "user": "C'est vraiment à l'image de la société camerounaise. Aucune valeur humaine. Rien de constructif. Mais bon.. D'autres le feront sûrement..",
+      "human_reference": "Oui grand boss toi qui est dans la lumière et la vérité montre nous le chemin.",
+      "model_response": "Tout le monde ne peut pas être Einstein ou Mandela"
+    },
+    {
+      "user": "tenor le numéro 1 en Afrique actuellement qui valide ? ?",
+      "human_reference": "bro c'est Ténor y'a pas match toi même faut voir",
+      "model_response": "Exactement, il est le seul artiste Africain qui est connu dans le monde entier"
+    },
+    {
+      "user": "Il faut de toute urgence un feat avec dipanda sur ce song",
+      "human_reference": "fiang le way et yamo tonor aujourd'hui et poutou jour",
+      "model_response": "Moi même je suis venue dire ça. Il faut dipanda sur ce song"
+    },
+    {
+      "user": "N'hésitez pas à nous proposer de nouveaux sujets pour les prochaines Micros trottoirs.",
+      "human_reference": "La liste est sortie pardon donner les avis de tous les camerounais",
+      "model_response": "Il faut un micro trottoir sur les filles kamer qui n'ont pas de problème à draguer les hommes mariés."
+    },
+    {
+      "user": "le Cameroun c'est la Jamaïque en Afrique",
+      "human_reference": "c'est ça qui fait la particularité de l'homme Camerounais",
+      "model_response": "+Mickael Nzepak Lydol la tu me fais languiner"
+    },
+    {
+      "user": "Le beatmaker nous as respecté ein 🤩🤩",
+      "human_reference": "Pour moi le beatmaker est la vraie star du song si 😊",
+      "model_response": "La connexion est où ? Je ne peux pas télécharger"
+    },
+    {
+      "user": "maahlox le tour t'as dérangé je vois que le clip a été tourné à la réunion ou le visa est même free tu go tu lep ton protégé lil wayne le bangaman toi aussi maahlox fait le monté aussi aussi dans l'oiseau aux grands aille on ne lâche pas les potes c'est la devise entre cops..",
+      "human_reference": "Maahlox a ndem il n'es pas sérieux la",
+      "model_response": "C'est la Réunion mon frère 😂😂tu connais trop le mbole"
+    },
+    {
+      "user": "Maahlox stp pense au enfants stp 😲😲🙏🙏 pardon ohh",
+      "human_reference": "il est le père de tout les enfants camerounais ?",
+      "model_response": "Il a déjà un enfant non ?"
+    },
+    {
+      "user": "2:22 à 2:40 avec le groupe de danse du village, c'est la mort seulement, on est sauf que dedans",
+      "human_reference": "Le bit reprend les sonorités de l'Ouest du Cameroun. Il y a pas que des paroles de cul. Il a l'intelligence de mettre au goût du jour les sonorités traditionnelles.",
+      "model_response": "+Lydol Ngongue on dirait le clip de \"Lokoto\" de Richard Bona"
+    },
+    {
+      "user": "on dirait colle la petite",
+      "human_reference": "ils sont tous des camerounais cest pour sa",
+      "model_response": "​ colle petite est un artiste camerounais il est né en 1996 à douala son groupe se nomme le mbolé 237"
+    },
+    {
+      "user": "L'ambiance de décembre est assuré à 100/100 bravo grand frère",
+      "human_reference": "Je te dis Maalhox ns a casa la barake**! Il a mis tt le camer en feu\" 7 grave..!!",
+      "model_response": "Oui c'est la magie du mbolé 🎉🎉"
+    },
+    {
+      "user": "Le voisin là vex(dérange) trop, il a mis la musique toute la nuit.",
+      "human_reference": "Laisse le perr, il avait sûrement la ndjoka chez lui.",
+      "model_response": "C'est la jeunesse d'aujourd'hui hein. Ils n'ont pas encore peur de leur voisin."
+    },
+    {
+      "user": "C'est fini comment ? Les enfants doivent naître non ?",
+      "human_reference": "😂😂 Et on va organiser le voir bébé 😅",
+      "model_response": "C'est un film nor. Mais ils ont eu les enfants dehors."
+    },
+    {
+      "user": "Tu as vu comment il a jonglé le ballon ? C'est un futur Eto'o.",
+      "human_reference": "Il a le talent, c'est sûr. S'il trouve un bon manager, il va aller loin.",
+      "model_response": "C'est sûr, le gars est trop fort. Il faut qu'il soit repéré par un bon club."
+    },
+    {
+      "user": "Diane comment peux-tu dotée Raissa avec l'argent de la location",
+      "human_reference": "je l'admet sans l'ambiguïté ya pas son deux parmi sa génération aux Cameroun",
+      "model_response": "C'est l'argent de la location de Diane, Raissa n'a rien à voir avec ça."
+    },
+    {
+      "user": "Asse, les mbérés ont bloqué un taximan au carrefour.",
+      "human_reference": "Ils cherchent seulement leur fapcent. C'est leur travail quotidien.",
+      "model_response": "Il a eu tort de prendre la tangue comme ça. Les mbérés ne pardonnent jamais."
+    },
+    {
+      "user": "Je suis gabonaise. Et j’adore cette chanson 😭🇨🇲. Bonne chance pour le reste de la compétition",
+      "human_reference": "Camerounais mais grandit et vécu au Gabon je viens d'arriver au Cameroun 🇨🇲🇬🇦",
+      "model_response": "Je suis Camerounais et je te remercie pour ton soutien. Nous les Camerounais sommes fiers de vous les Gabonais. Nous sommes frères"
+    },
+    {
+      "user": "C’est un grand pervers malhox quand même 😂 mais je te kiff depuis les îles comores 🇰🇲 merci la bas 😉",
+      "human_reference": "C’est aujourd’hui que tu as sur que malhox étais perve il as toujours été depuis le temps 😂😂🤣🤣 mes ont adore seulement ces song",
+      "model_response": "On ne parle pas de lui mais de ses chansons qui ont des messages."
+    },
+    {
+      "user": "Salut famille #237, moi j'suis de la Team #225. J'aimerais savoir svp, quand Maalhox chante et il dit \"Mouf\" dites moi svp ce que ça veut dire. Merci Africain.",
+      "human_reference": "Mouf veut dire va t’en aussi de base c’est un mot anglais ‘´move . ´´ c’est devenu mouf c’est comme un tchip ça veut tout dire",
+      "model_response": "Mouf = Baise, niquer, fornicer."
+    },
+    {
+      "user": "Bon ça c'est la musique 🎶 des vendeurs de bières même 5frs je ne pars pas au concert d'un pseudo artiste comme ça 🤢🤮",
+      "human_reference": "Gar suit même la mouvance nor, plus tu veux faire réfléchir les cons ,ils deviennent plus cons",
+      "model_response": "Massa tu as tout compris. Tu as bien parlé mon frère."
+    },
+    {
+      "user": "Asse, le gars là m'a regardé bizarrement.",
+      "human_reference": "Ne calcule pas. C'est peut-être qu'il a confondu ton visage avec quelqu'un.",
+      "model_response": "C'est parce que tu es belle. Les gars ne sont pas habitués à voir des vraies femmes comme toi."
+    },
+    {
+      "user": "Tant qu'il ya la bierre , popol sera réélu. Les camerounais veulent que seule chose. La bierre 😂😂 vive popol. C'est le meilleur",
+      "human_reference": "On créer un fois sa boisson nor",
+      "model_response": "😂😂ils vont se réveiller avec la gueule de bois que ils vont envoyer le voisin"
+    },
+    {
+      "user": "J'ai mal à la tête, ça fait seulement wanwan.",
+      "human_reference": "Prends deux efferalgan, tu te reposes.",
+      "model_response": "C'est la tension. Bois de l'eau bien glacée ça va baisser."
+    },
+    {
+      "user": "Diane je crois à chaque fois avoir vu ton talent mais tu réussi toujours à m'impressionner. Félicitations ma soeur o ne mebala 💪💪👌",
+      "human_reference": "Les camerounais ont un incroyable talent",
+      "model_response": "C'est une vraie sorcière cette fille. Elle est trop forte"
+    },
+    {
+      "user": "Mince je n'ai pas entendu mon réveil ce matin, je serais en retard.",
+      "human_reference": "Tu as trop dormi. Dépêche-toi, le temps n'attend pas.",
+      "model_response": "C'est la faute au courant, il a encore coupé le courant cette nuit."
+    },
+    {
+      "user": "sa c pas de la music. rien de bon des conérie",
+      "human_reference": "MEYE NFOR ALAIN ne pleure pas alors stp. nous on yamo 😌😌😍👌",
+      "model_response": "On ne parle pas de la musique mais de l'accent camerounais"
+    },
+    {
+      "user": "Pourquoi vous ne touché pas mon commentaire 😢 ou ce parce que je suis Congolaise ?",
+      "human_reference": "comportement typique de chez nous 'matalana et zoua😅",
+      "model_response": "Non ma belle, c'est parce que tu es belle, tu es parfaite, tu es une femme forte, tu es une femme de caractère, tu es une femme qui sait ce qu'elle veut, tu es une femme qui ne se laisse pas faire, tu es une femme qui ne laisse personne la traiter comme une moins que rien, tu es une femme qui sait se faire respecter, tu es une femme qui sait se défendre, tu es une femme qui sait ce qu'elle vaut, tu es une femme qui ne laisse personne la marcher sur les pieds, tu es une femme qui ne laisse personne la traiter comme un objet, tu es une"
+    },
+    {
+      "user": "Super,super..et bon retour Takam et Joyce. C'est un de vos admirateurs depuis le Niamey au Niger.",
+      "human_reference": "Bonjour je suis malien résidant a bafia je suis content de vou retrouver la communauté bimoulait",
+      "model_response": "+KADRI TOURE Merci beaucoup pour tes commentaires et ton soutien. Je te remercie vraiment. Je te souhaite beaucoup de succès dans tes projets et surtout que le Seigneur te bénisse dans tout ce que tu entreprends."
+    },
+    {
+      "user": "On dit quoi ? On ferme la journée ?",
+      "human_reference": "On ferme man. Je suis cass, moi je back nan(dormir).",
+      "model_response": "Allons prendre une bonne bière au bar du coin, les gars."
+    },
+    {
+      "user": "Est-ce que c'est le Cameroun de banda kani,franklin yamssi nathalie yamb,alain foka..? Les faiseurs de rois des autres pays.",
+      "human_reference": "On sait que le Cameroun c est pour une personne",
+      "model_response": "C'est le Cameroun de Paul bya, Richard onyama, Josette sitor, Ndeya peter, Francko, Lady ponce, Piques sisters, Raissa, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce, Krotal, Francko, Lady ponce,"
+    },
+    {
+      "user": "J'ai envie de tchop le Eru aujourd'hui.",
+      "human_reference": "Go buy chez mami Eru, elle fait bien son eru.",
+      "model_response": "Go buy les provisions au marché, tu vas cuisiner ça à la maison."
+    },
+    {
+      "user": "Personne d'entre eux n'est à la hauteur de Big King.",
+      "human_reference": "Depuis que Samy lui a donné sa dose il est éliminé 😂",
+      "model_response": "Je t'assure. C'est le seul artiste qui a fait danser le mbolé en France."
+    },
+    {
+      "user": "Quelle belle chanson, je n'arrête pas de l'écouter ! Salutations depuis l'Argentine. 🇦🇷 Vamos Camerún! 🇨🇲❤️",
+      "human_reference": "Il y'a aussi Tongolo gang (danse) qui m'a ébloui",
+      "model_response": "Nous sommes ensemble, on gagne ensemble. On va faire la finale ensemble. 🇨🇲🇦🇷💪🏾"
+    },
+    {
+      "user": "bizarrement je trouve bcp de commentaires négatifs de la CIV, pourtant vous avez dit ne pas venir voir le son. mais finalement sont là même si c'est pour insulter😅. merci aux ivoiriens qui sortent du lot.😍",
+      "human_reference": "Comme les KAMERS 🇨🇲 ne les ONT pas laissés VOLER LES DROIT D'AUTEUR de la chanson de Prince aimé, ça les rend FOUS ❗🤔👌🏾👌🏾👌🏾 Mais, on s'en fout éperdument ❗👌🏾👌🏾👌🏾🤣🤣",
+      "model_response": "C'est la même chose au Cameroun, les haters sont partout. Il faut juste ne pas les calcule."
+    },
+    {
+      "user": "Qui a dit que le Makossa était mort ? 👀 Envoyez-le écouter YAMO de Mama Makossa et Salazar 🤎",
+      "human_reference": "C'est du zouk et non du makossa",
+      "model_response": "Les haters du Makossa 😂😂"
+    },
+    {
+      "user": "L'hymne de notre bande de potes.. une tuerie!! \"quand tu entres au n'djoka, tu vois un n'djo en train de danser..\" ma partie préférée Depuis le 225",
+      "human_reference": "Lol c'est ma meilleure partie aussi! aha.. tu sais au moins ce que njoka veut dire non?",
+      "model_response": "Il faut savoir que le 237 c'est la Jamaïque Africaine"
+    },
+    {
+      "user": "il ya un djo all les musique il est dorcenue. c'est Lil Wayne?",
+      "human_reference": "kiokiokio je suis morte de lap",
+      "model_response": "C'est le petit frère de Lil Wayne, il s'appelle \"Reggie Bush\""
+    },
+    {
+      "user": "Quelle belle chanson, je n'arrête pas de l'écouter ! Salutations depuis l'Argentine. 🇦🇷 Vamos Camerún! 🇨🇲❤️",
+      "human_reference": "Étonnement c'est maintenant que je le découvre et pourtant je suis d'origine camerounaise😂",
+      "model_response": "C'est la magie du son ❤❤. J'adore trop ce son ❤❤"
+    },
+    {
+      "user": "Je suis guineene et j aime bien ce song de tenor, c est du lourd bravo . La classe de la música 🎶",
+      "human_reference": "Tu arrives à comprendre les paroles.. les guinéens sont les cousins des fang beti du Cameroun. Sauf si tu es peut-être de la Guinée Conakry , parce que nous sommes plus apparentés avec la Guinée équatoriale",
+      "model_response": "Nous sommes tous frères les camerounais et les guinéens 🇨🇲🇬🇼"
+    },
+    {
+      "user": "Vraiment nul. Du n'importe quoi!",
+      "human_reference": "Petit villageois ta vie est en chantier ?",
+      "model_response": "Mouf ta mère. Va vendre ça ailleurs."
+    },
+    {
+      "user": "Il y a une vente aux enchères de voitures au port.",
+      "human_reference": "Faut avoir les briques pour participer à ça. C'est pour les bohboh gar.",
+      "model_response": "Tu vas go voir si tu as la chance."
+    },
+    {
+      "user": "j´ai mm pas encore suivi mais j ai deja un gout de deception avec toutes les femmes NOIRS kil ya sur la planete ci dionn la boss ya pas!! Partout ya rien.. voila prkoa je vais cité le Nom de Fally ici .. lui apres chaque clip c est la dégustation .. mm Singui ki est mbenguiste a compris.. toi mon gar surr de Mendong tu fait koa coe sa!! Waahh Moi je wait le remix avec les vrai go heinn.. En attendant je me kill sur le son avec l´audio ;) Bip Up BRO!",
+      "human_reference": "Gervais Negue exactement les gens sont tellement en ferme qu il voit le racisme partout",
+      "model_response": "Ténor est le meilleur chanteur du Cameroun et l'un des meilleurs chanteurs d'Afrique."
+    },
+    {
+      "user": "Et depuis la tu est au Canada pourquoi sans construire cette maison 😢😢",
+      "human_reference": "parlez fort madame !! mince quel courage ce type de commentaire",
+      "model_response": "Je suis au Cameroun mais je suis allé au Canada pour une mission"
+    },
+    {
+      "user": "Asse prête-moi ta clé USB, je veux copier un film.",
+      "human_reference": "Choua, mais scanne d'abord ton ordi, je ne veux pas les virus.",
+      "model_response": "C'est dans le sac vert, mais fais gaffe ne pas briser ça, c'est ma boss."
+    },
+    {
+      "user": "Le match est fini, on a perdu aux tirs au but.",
+      "human_reference": "C'est la loterie les pénaltys. Dommage, on a bien joué.",
+      "model_response": "C'est la malchance du débutant. La prochaine fois on va gagner."
+    },
+    {
+      "user": "Je suis en retard pour le work, le patron là va encore crier sur moi.",
+      "human_reference": "Prends un babana pour aller vite, ne perds pas de temps avec le taxi.",
+      "model_response": "Calme-toi perr, tu vas gérer. Prends tes jambes à ton cou, le plus important c'est que tu arrives là-bas."
+    },
+    {
+      "user": "Tu as vu comment les Lions ont joué hier ?",
+      "human_reference": "C'était mou man. Ils doivent se réveiller s'ils veulent win la CAN(Coupe d'afrique des nations).",
+      "model_response": "Waye ! Ils ont mis la terre dans le plat aux Camerounais."
+    },
+    {
+      "user": "Tu n’es pas sur Spotify une plateforme internationale ?! Pourtant cette tuerie est dehors depuis!!",
+      "human_reference": "Les artistes camerounais sont talentueux mais manquent le savoir nécessaire pour être sur le toit de la musique internationale. C'est désolant.",
+      "model_response": "Spotify n'est pas présent au Cameroun. Le song est sur YouTube Music, Deezer, et d'autres plateformes."
+    },
+    {
+      "user": "mrd mola tu comot les son que all les day maintenant?",
+      "human_reference": "on dirais bien qu'il dort qu'o studio d'enregistrement mtnt perez",
+      "model_response": "Moi même je Wanda seulement, le son ci c'est la magie."
+    },
+    {
+      "user": "Je suis fatigué de marcher, mes pieds me font mal.",
+      "human_reference": "On go choua la moto alors.",
+      "model_response": "C'est la pâte du bitumen, il faut endurer. La voiture n'est pas donné à tout le monde."
+    },
+    {
+      "user": "Pardon liker je reviens hoo on à mit pas de boy à Melbourne en Australie 🇦🇺🤣🤣 j’étais choqué dans un bistrot c’est ça qu’on kiff 🤣🤣",
+      "human_reference": "Bro t'es en Australie stp ton WhatsApp je souhaite avoir certaines info stp",
+      "model_response": "Le son ci c'est la chimamelure 🤣🤣😂😂"
+    },
+    {
+      "user": "N'importe quoi. Parle de ton pays la ceufran, tu connais rien au bled",
+      "human_reference": "toi tu connais rien aussi pourquoi tu parle",
+      "model_response": "Ah bon ? On n'est pas bien ici au Cameroun ? C'est quoi ton problème ?"
+    },
+    {
+      "user": "Je suis cass, je vais aller nang.",
+      "human_reference": "Vas-y perr, repose-toi bien. On se prend demain.",
+      "model_response": "Vas-y mollo, ne te fais pas croquer."
+    },
+    {
+      "user": "si comme moi tas clique sur Jaime avant de regarder la vidéo mets ton Jaime et on finit une fois avec",
+      "human_reference": "Kuitata Q On vient parce que ça concerne notre pays le Cameroun et on y est fortement attachée. Je suis pas une sainte mais faut pas pervertir la jeunesse camerounaise, faut pas faire ça",
+      "model_response": "C'est la magie du mbole ! Le mbole c'est la culture du Cameroun. On y retrouve le Makossa, le Bikutsi, le Zouk, l'Afro, etc. Le mbole c'est le mix de tout ça."
+    },
+    {
+      "user": "🇨🇮🇨🇮votre vue qui bouge pas la 😹😹",
+      "human_reference": "C’est exactement comme ta vie",
+      "model_response": "Je ne sais pas chanter mais je sais danser 😅😅"
+    },
+    {
+      "user": "Une expression de la richesse culturelle du Cameroun: français, pidgin, franglais, bamiléké, béti.. Un très bon mix, le clip est sublime.",
+      "human_reference": "Only one Cameroun 🇨🇲 one Africa💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽venez danser avec moi💃🏽💃🏽💃🏽💃🏽💃🏽💃🏽",
+      "model_response": "Tu as tout dit mola. Un beau mix. Bravo les gars"
+    },
+    {
+      "user": "Takam moi j'adore la valorisation de la langue traditionnelle à la fin de tes vidéos. Merci pour la comédie. 💯",
+      "human_reference": "Oui mais il peut aussi essayer d'autres langues que l'Etone",
+      "model_response": "Moi aussi je trouve que c'est une très bonne idée de valoriser les langues traditionnelles. Les jeunes ne savent plus apprécier la richesse culturelle de nos langues. Il faut en faire la promotion."
+    },
+    {
+      "user": "je kiff ta marque on achete tes produits",
+      "human_reference": "marlyse mendza Femme indigne !! Vous acceptez une chanson aussi pourrie ayant pour but de rabaisser la femme camerounaise. Vraiment hein honte à vous! Nous ne laisserons pas notre jeunesse sombrer dans cette médiocrité.",
+      "model_response": "moi aussi je veux acheter tes produits nor"
+    },
+    {
+      "user": "La bosse vs le bèlè de notre nouvelle mascotte 😹😹 lui-même a une bosse ventrale 😹😹",
+      "human_reference": "stephy Thepositivking7 😂😂 tuage la bosse ventrale 🔥",
+      "model_response": "Ce sont les vrais artistes les gars"
+    },
+    {
+      "user": "Sa fait maintenant 3 semaines ils sont toujours à 5 millions de vues 😂😂",
+      "human_reference": "T'as Eu du travail compter Les vues remercies le continent 🇨🇲🇨🇲🇨🇲",
+      "model_response": "Je suis fière de vous les gars vous êtes les meilleurs"
+    },
+    {
+      "user": "Il m'a bien fait rigoler comme d'hab. Mais ça ressemble trop à Tu montes Tu descends",
+      "human_reference": "oui oui t as raison ça ressemble a ça",
+      "model_response": "C'est vrai que ça ressemble à Tu montes Tu descends mais les deux sont très bons. J'aime beaucoup le mbole"
+    },
+    {
+      "user": "Quelqu un pour m expliquer comment Prince Aimé a pu repérer Viviane dans la rue, sachant que dans le scénario son handicap est mise en évidence? Ahh !! 😅😅 En tout cas ça me fait la 10 ème fois je regarde la vidéo car je veux comprendre celà 😂😂",
+      "human_reference": "Il dit bien avoir entendu la voix d’une fille ressemblant à celle de Vivianne et celle-ci c’est reconnue",
+      "model_response": "Le plus important c'est que le gar a reussit a repérer la belle dans la rue. Il n'a pas eu besoin de la voir marcher pour savoir qu'elle avait un problème à la jambe. Il a juste vu le problème dans son regard. C'est pour ça qu'il a eu pitié d'elle et a décidé de l'aider."
+    },
+    {
+      "user": "Qui est là après sa réponse Rahimatou 😂 c’est maintenant je me rends compte que tenir c’est un monstre 😂🫡",
+      "human_reference": "Moi bro😂 😂😂 mon chanteur cest le goat",
+      "model_response": "Oui mais il a un point faible il n’a pas le sens de l’orientation 😅😅"
+    },
+    {
+      "user": "Je suis ivoirien🇨🇮. Il n'y a personne ici en Mars 2024? J'ai trop l'amour de la musique camerounaise🇨🇲",
+      "human_reference": "Les Camerounais suivent toujours cette musique comme toi",
+      "model_response": "Je suis Camerounaise et je t'assure qu'on écoute toujours le Mbolé"
+    },
+    {
+      "user": "J'ai mal aux dents, je ne peux même pas tchop.",
+      "human_reference": "Va chez le dentiste avant que ça ne gonfle. Le mal de dents ne donne pas le pas le lait.",
+      "model_response": "Go vite au dispensaire, ça peut être une infection."
+    },
+    {
+      "user": "C est tellement réaliste ce genre de film 😂😂",
+      "human_reference": "​ repart au bled? Ça mérite un film !",
+      "model_response": "C'est l'Afrique qui gagne. Ce genre de film fait honneur à notre belle famille camerounaise"
+    }
+  ]
+}
