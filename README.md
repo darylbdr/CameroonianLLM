@@ -1,4 +1,4 @@
-# CameroonianAI — Fine-Tuning d'un LLM en Camfranglais
+# CameroonianLLM — Fine-Tuning d'un LLM en Camfranglais
 
 Ce projet adapte le modèle **`Mistral-Nemo-Instruct-2407`** (12B) au **Camfranglais** à travers une approche hybride en deux temps : **Continued Pre-Training (CPT)** suivi d'un **Supervised Fine-Tuning (SFT)** avec **QLoRA**.
 
