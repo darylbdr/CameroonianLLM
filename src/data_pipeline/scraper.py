@@ -1,10 +1,6 @@
 """
-Module 1 : Collecte & Extraction en Arbres (YouTube Data API v3 & Réseaux Sociaux)
-==================================================================================
-Module Python natif complet correspondant au notebook :
-`01_data_collection/01_Data_Collection_Scraping.ipynb`
+Collecte & Extraction en Arbres YouTube Data API v3
 
-Fonctionnalités :
   - Nettoyage de base du bruit des réseaux sociaux (`clean_social_text`).
   - Recherche de vidéos ciblées (`search_youtube_videos`) et suivi des vidéos déjà scrapées
     (`load_scraped_video_ids` / `mark_video_as_scraped`) pour la reprise sur erreur.
@@ -46,10 +42,6 @@ def mark_video_as_scraped(video_id: str, checkpoint_path: Path) -> None:
 
 
 def search_youtube_videos(youtube_client, query: str, max_results: int = 25) -> List[Dict[str, str]]:
-    """
-    Recherche des vidéos YouTube à partir d'une requête (ex: 'Ulrich takam')
-    avec gestion de la pagination si max_results > 50.
-    """
     videos = []
     next_page_token = None
 

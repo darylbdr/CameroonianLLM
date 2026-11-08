@@ -1,12 +1,9 @@
 """
-Module 5 : Évaluation Rigoureuse (Le Triptyque de Métriques) en Local (CPU)
-===========================================================================
-Module Python natif complet correspondant au notebook :
-`05_evaluation_and_deployment/05_Evaluation_and_GGUF_Export.ipynb`
+Evaluation à partir des métriques
 
 Il regroupe les 3 métriques complémentaires :
   1. Perplexité : PPL = exp(eval_loss)
-  2. Camfranglais Adherence Score : comparaison des distributions (mu, sigma) du score S
+  2. Camfranglais Adherence Score : comparaison des distributions du score S
   3. Pertinence Sémantique : Similarité Cosinus des embeddings multilingues
 """
 
@@ -70,11 +67,11 @@ def compute_semantic_similarity(
 
 def plot_adherence_distributions(model_scores: List[float], human_scores: List[float]):
     """
-    Trace l'histogramme comparatif de la densité de Camfranglais (Score S)
+    Trace l'histogramme comparatif de la densité de Camfranglais
     entre les vraies réponses humaines et les réponses générées par le modèle.
     """
     plt.figure(figsize=(8, 4))
-    plt.hist(human_scores, bins=15, alpha=0.6, label="Humains (Référence)", color="#2b8cbe")
+    plt.hist(human_scores, bins=15, alpha=0.6, label="Humains", color="#2b8cbe")
     plt.hist(model_scores, bins=15, alpha=0.6, label="Modèle Fine-Tuné", color="#e34a33")
     if human_scores:
         plt.axvline(float(np.mean(human_scores)), color="#045a8d", linestyle="--", label="Moyenne Humaine")

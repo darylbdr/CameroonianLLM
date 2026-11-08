@@ -1,10 +1,10 @@
 """
-Module 2 : Filtrage Linguistique & Formule Mathématique de Scoring (S)
+Filtrage Linguistique & Formule Mathématique de Scoring
 ======================================================================
 Formule implémentée :
     S = I(N >= 6) * D_cam * P_matrice
 
-Seuils de routage calibrés pour ne pas pénaliser les phrases longues :
+Seuils définis pour ne pas pénaliser les phrases longues :
   - Zone Haute ('high') : S >= 0.06 (au moins 1 marqueur fort sur 30 mots ou 1 marqueur moyen sur 16 mots)
   - Zone Grise ('grey') : 0.03 <= S < 0.06
   - Zone Basse ('low')  : S < 0.03

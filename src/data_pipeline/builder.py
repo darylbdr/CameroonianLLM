@@ -1,6 +1,5 @@
 """
-Module 3 : Construction des Datasets (CPT & SFT), Rétro-Instruction & Push Hugging Face
-=======================================================================================
+Construction des Datasets (CPT & SFT), Rétro-Instruction & Push Hugging Face
 """
 
 import re
