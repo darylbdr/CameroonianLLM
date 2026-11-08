@@ -2,7 +2,11 @@
 
 Ce projet adapte le modèle **`Mistral-Nemo-Instruct-2407`** (12B) au **Camfranglais** à travers une approche hybride en deux temps : **Continued Pre-Training (CPT)** suivi d'un **Supervised Fine-Tuning (SFT)** avec **QLoRA**.
 
-La préparation des données et l'évaluation tournent en local sur CPU via les scripts de [`src/data_pipeline/`](src/data_pipeline/). Seul l'entraînement QLoRA s'exécute sur GPU NVIDIA L4 depuis le notebook [`Hybrid_Training_CPT_and_SFT.ipynb`](Hybrid_Training_CPT_and_SFT.ipynb), en s'appuyant sur Hugging Face Hub pour synchroniser les datasets.
+La préparation des données et l'évaluation tournent en local sur CPU via les scripts de [`src/data_pipeline/`](src/data_pipeline/). Seul l'entraînement QLoRA s'exécute sur GPU NVIDIA L4 depuis le notebook [`Hybrid_Training_CPT_and_SFT.ipynb`](Hybrid_Training_CPT_and_SFT.ipynb), en s'appuyant sur Hugging Face Hub pour synchroniser les datasets et héberger les poids finaux :
+
+- **Modèle (Adaptateurs LoRA & GGUF `Q4_K_M`)** : [`Cmr237/Camfranglais`](https://huggingface.co/Cmr237/Camfranglais)
+- **Corpus CPT (14 302 textes)** : [`Cmr237/camfranglais-corpus-cpt`](https://huggingface.co/datasets/Cmr237/camfranglais-corpus-cpt)
+- **Corpus SFT (1 200 dialogues)** : [`Cmr237/camfranglais-corpus-sft`](https://huggingface.co/datasets/Cmr237/camfranglais-corpus-sft)
 
 ---
 
@@ -19,6 +23,7 @@ flowchart LR
     subgraph ColabGPU ["Google Colab — GPU NVIDIA L4"]
         HF -->|"load_dataset"| D["4. Entraînement Hybride QLoRA<br/>Hybrid_Training_CPT_and_SFT.ipynb<br/>Phase 1 CPT -> Phase 2 SFT"]
     end
+    D -->|"push_to_hub / GGUF"| HFM[("Modèle Hugging Face<br/>Cmr237/Camfranglais")]
     D -->|"test_predictions.json"| E
 ```
 
@@ -86,7 +91,7 @@ Pour construire le dataset SFT à partir des fils `Parent -> Enfant`, seule la r
 
 ## Résultats et Évaluation
 
-L'entraînement a été réalisé sur un GPU **NVIDIA L4 (22.5 Go VRAM)** en `bfloat16` avec `r = 32`, `lora_alpha = 32` et `use_rslora = True`, soit 114M de paramètres entraînables (0.92 % du modèle).
+L'entraînement a été réalisé sur un GPU **NVIDIA L4 (22.5 Go VRAM)** en `bfloat16` avec `r = 32`, `lora_alpha = 32` et `use_rslora = True`, soit 114M de paramètres entraînables (0.92 % du modèle). Les adaptateurs LoRA et le modèle quantifié au format GGUF `Q4_K_M` sont disponibles sur Hugging Face dans le dépôt [`Cmr237/Camfranglais`](https://huggingface.co/Cmr237/Camfranglais).
 
 ### Métriques sur le jeu de test (`sft_test` — 120 dialogues)
 
