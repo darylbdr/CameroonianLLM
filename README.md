@@ -1,4 +1,4 @@
-# CameroonianLLM — Fine-Tuning d'un LLM en Camfranglais
+# CameroonianLLM : Fine-Tuning d'un LLM en Camfranglais
 
 Projet réalisé par :
 - [Daryl B.](https://github.com/darylbdr)
