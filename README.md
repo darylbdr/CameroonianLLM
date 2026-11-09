@@ -1,5 +1,12 @@
 # CameroonianLLM — Fine-Tuning d'un LLM en Camfranglais
 
+Projet réalisé par :
+- [Daryl B.](https://github.com/darylbdr)
+- [Schadrac](https://github.com/Schadrac237)
+- [William Pancha](https://github.com/Williampancha)
+
+---
+
 Ce projet adapte le modèle **`Mistral-Nemo-Instruct-2407`** (12B) au **Camfranglais** à travers une approche hybride en deux temps : **Continued Pre-Training (CPT)** suivi d'un **Supervised Fine-Tuning (SFT)** avec **QLoRA**.
 
 La préparation des données et l'évaluation tournent en local sur CPU via les scripts de [`src/data_pipeline/`](src/data_pipeline/). Seul l'entraînement QLoRA s'exécute sur GPU NVIDIA L4 depuis le notebook [`Hybrid_Training_CPT_and_SFT.ipynb`](Hybrid_Training_CPT_and_SFT.ipynb), en s'appuyant sur Hugging Face Hub pour synchroniser les datasets et héberger les poids finaux :
