@@ -129,12 +129,15 @@ def main():
                 cpt_texts.append(res["cleaned_text"])
 
     sft_entries = []
-    # 3.a Ajout des paires de référence de conv_bot.json
+    # 3.a Ajout des paires de référence de conv_bot.json et conv.json
     conv_bot_entries = load_clean_conv_bot(project_root / "conv_bot.json")
     sft_entries.extend(conv_bot_entries)
+    if (project_root / "conv.json").exists():
+        conv_entries = load_clean_conv_bot(project_root / "conv.json")
+        sft_entries.extend(conv_entries)
 
     # 3.b Filtrage des paires Parent -> Enfant
-    for pair in sft_candidate_pairs:
+    for pair in tqdm(sft_candidate_pairs):
         res_assistant = score_camfranglais(pair["assistant"], lexicon, high_threshold=0.06)
         if is_good_sft_dialogue_pair(pair["user"], res_assistant["cleaned_text"], res_assistant["score"], min_score=0.06):
             sft_entries.append(
