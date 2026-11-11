@@ -120,7 +120,7 @@ class ModelInference:
         self,
         messages: list,
         max_tokens: int = 2048,
-        temperature: float = 0.7,
+        temperature: float = 0.75,
         repeat_penalty: float = 1.08,
     ):
         SYSTEM_PROMPT = "Tu réponds comme un camerounais"
