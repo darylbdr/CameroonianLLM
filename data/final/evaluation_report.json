@@ -1,0 +1,27 @@
+{
+  "num_test_dialogues": 163,
+  "1_perplexity": {
+    "eval_loss": 3.2559,
+    "perplexity": 25.94
+  },
+  "2_camfranglais_adherence": {
+    "model_mean": 0.1411,
+    "model_std": 0.1464,
+    "human_mean": 0.169,
+    "human_std": 0.1042,
+    "mean_abs_gap": 0.0279,
+    "active_camfranglais_rate": 0.6564
+  },
+  "3_semantic_relevance": {
+    "model_vs_human_reference": {
+      "mean_cosine_similarity": 0.3532,
+      "min_similarity": -0.0282,
+      "max_similarity": 0.7811
+    },
+    "model_vs_user_prompt": {
+      "mean_cosine_similarity": 0.3806,
+      "min_similarity": 0.0004,
+      "max_similarity": 0.7694
+    }
+  }
+}

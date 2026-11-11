@@ -1,120 +1,107 @@
 """
-Module 1 : Collecte & Extraction Multi-Sources (WhatsApp & YouTube Data API v3)
-===============================================================================
-Ce fichier est le module Python natif correspondant au notebook :
-`01_data_collection/01_Data_Collection_Scraping.ipynb`
+Collecte & Extraction en Arbres YouTube Data API v3
 
-Une fois que tes fonctions ont passé tous les `assert` dans le notebook de l'Étape 1,
-copie tes implémentations des TODO 1 à 4 ici pour pouvoir les importer dans le reste
-de la pipeline (`from src.data_pipeline.scraper import ...`).
+  - Nettoyage de base du bruit des réseaux sociaux (`clean_social_text`).
+  - Recherche de vidéos ciblées (`search_youtube_videos`) et suivi des vidéos déjà scrapées
+    (`load_scraped_video_ids` / `mark_video_as_scraped`) pour la reprise sur erreur.
+  - Extraction des commentaires en arbres `Parent -> Enfant` (`parse_youtube_thread_item`, `fetch_youtube_video_comments`).
+  - Séparation en paires de dialogue SFT (`Parent -> Enfant`) et commentaires isolés CPT (`split_trees_and_isolated`).
 """
 
 import re
 import json
+from tqdm import tqdm
 from pathlib import Path
-from datetime import datetime
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Set
 
 
-def clean_chat_text(chat_text: str) -> Optional[str]:
-    """Nettoyage de base repris et amélioré depuis Cleansing_Dataset.py."""
-    chat_text = str(chat_text)
-    ignoring_tags = [
-        "<Media omitted>", "You deleted this message", "This message was deleted",
-        "Messages and calls are end-to-end encrypted", "<This message was edited>",
-        "created group", "added you", "removed you", "audio omitted",
-        "sticker omitted", "image omitted", "GIF omitted", "document omitted",
-        "video omitted", "//", "voice call", "Voice call"
-    ]
-    for ignoring_tag in ignoring_tags:
-        if ignoring_tag in chat_text:
-            return None
-
-    chat_text = re.sub(r'http\S+|www\.\S+', '', chat_text)
-    chat_text = re.sub(r'@\s*[^\s@]+', '', chat_text)
-    chat_text = re.sub(r'(.)\1{2,}', r'\1\1', chat_text)
-    chat_text = re.sub(r'\s+', ' ', chat_text).strip()
-    return chat_text if chat_text else None
+def clean_social_text(text: str) -> Optional[str]:
+    if not text:
+        return None
+    cleaned = str(text)
+    cleaned = re.sub(r'http\S+|www\.\S+', '', cleaned)
+    cleaned = re.sub(r'@\s*[^\s@]+', '', cleaned)
+    cleaned = re.sub(r'(.)\1{2,}', r'\1\1', cleaned)
+    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+    return cleaned if cleaned else None
 
 
-def parse_whatsapp_to_records(lines: List[str], max_reply_delay_minutes: float = 30.0) -> List[Dict]:
-    """
-    TODO 1 (depuis le Notebook 01) :
-    Transforme les lignes d'un export WhatsApp iOS (_chat.txt) en enregistrements
-    avec 'comment_id' et 'parent_id' basés sur la proximité temporelle (<= max_reply_delay_minutes).
-    """
-    regex_ios = r'^\[(\d{2}/\d{2}/\d{2,4},\s+\d{2}:\d{2}:\d{2})\] ([^:]+): (.+)$'
-    grouped_turns = []
-    current_speaker = None
-    current_time = None
-    current_buffer = []
+def load_scraped_video_ids(checkpoint_path: Path) -> Set[str]:
+    if not checkpoint_path.exists():
+        return set()
+    return {
+        line.strip()
+        for line in checkpoint_path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    }
 
-    for line in lines:
-        line = line.replace('\u200e', '').replace('\u2069', '').strip()
-        match = re.match(regex_ios, line)
-        if match:
-            date_str, speaker, message = match.groups()
-            clean_msg = clean_chat_text(message)
-            if not clean_msg:
-                continue
-            date_clean = re.sub(r'\s+', ' ', date_str)
-            fmt = "%d/%m/%Y, %H:%M:%S" if len(date_clean.split(',')[0].split('/')[-1]) == 4 else "%d/%m/%y, %H:%M:%S"
-            msg_time = datetime.strptime(date_clean, fmt)
 
-            if speaker == current_speaker:
-                current_buffer.append(clean_msg)
-                current_time = msg_time
-            else:
-                if current_speaker and current_buffer:
-                    full_text = " ".join(current_buffer)
-                    if len(full_text.split()) >= 2:
-                        grouped_turns.append({
-                            "speaker": current_speaker,
-                            "timestamp": current_time,
-                            "text": full_text
-                        })
-                current_speaker = speaker
-                current_time = msg_time
-                current_buffer = [clean_msg]
-        else:
-            if current_speaker:
-                clean_line = clean_chat_text(line)
-                if clean_line:
-                    current_buffer.append(clean_line)
+def mark_video_as_scraped(video_id: str, checkpoint_path: Path) -> None:
+    checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(checkpoint_path, "a", encoding="utf-8") as f:
+        f.write(f"{video_id}\n")
 
-    if current_speaker and current_buffer:
-        full_text = " ".join(current_buffer)
-        if len(full_text.split()) >= 2:
-            grouped_turns.append({
-                "speaker": current_speaker,
-                "timestamp": current_time,
-                "text": full_text
-            })
 
-    records = []
-    for i, turn in enumerate(grouped_turns):
-        comment_id = f"wa_{i}"
-        parent_id = None
-        # TODO 1 : Reporter ici ton calcul de delta_minutes depuis le Notebook 01
-        records.append({
-            "comment_id": comment_id,
-            "parent_id": parent_id,
-            "text": turn["text"],
-            "like_count": 0,
-            "source_video_title": "WhatsApp Chat",
-            "source_platform": "whatsapp"
-        })
-    return records
+def search_youtube_videos(youtube_client, query: str, max_results: int = 25) -> List[Dict[str, str]]:
+    videos = []
+    next_page_token = None
+
+    while len(videos) < max_results:
+        batch_size = min(50, max_results - len(videos))
+        request = youtube_client.search().list(
+            part="snippet",
+            q=query,
+            type="video",
+            maxResults=batch_size,
+            pageToken=next_page_token,
+            relevanceLanguage="fr"
+        )
+        response = request.execute()
+        for item in response.get("items", []):
+            vid = item.get("id", {}).get("videoId")
+            title = item.get("snippet", {}).get("title", "")
+            if vid:
+                videos.append({"video_id": vid, "title": title})
+
+        next_page_token = response.get("nextPageToken")
+        if not next_page_token:
+            break
+
+    return videos
 
 
 def parse_youtube_thread_item(item: Dict, video_title: str) -> List[Dict]:
-    """
-    TODO 2 (depuis le Notebook 01) :
-    Extrait le commentaire parent (parent_id=None) et ses réponses (parent_id=top_id)
-    depuis un item commentThreads.list de YouTube Data API v3.
-    """
     extracted = []
-    # TODO 2 : Reporter ton code validé dans le Notebook 01
+
+    top_comment = item["snippet"]["topLevelComment"]
+    parent_id = top_comment["id"]
+    top_snippet = top_comment["snippet"]
+    parent_text = clean_social_text(top_snippet.get("textOriginal", ""))
+
+    if parent_text:
+        extracted.append({
+            "comment_id": parent_id,
+            "parent_id": None,
+            "text": parent_text,
+            "like_count": int(top_snippet.get("likeCount", 0)),
+            "source_video_title": video_title,
+            "source_platform": "youtube"
+        })
+
+    replies = item.get("replies", {}).get("comments", [])
+    for reply in replies:
+        reply_snippet = reply.get("snippet", {})
+        reply_text = clean_social_text(reply_snippet.get("textOriginal", ""))
+        if reply_text:
+            extracted.append({
+                "comment_id": reply["id"],
+                "parent_id": parent_id,
+                "text": reply_text,
+                "like_count": int(reply_snippet.get("likeCount", 0)),
+                "source_video_title": video_title,
+                "source_platform": "youtube"
+            })
+
     return extracted
 
 
@@ -123,25 +110,68 @@ def fetch_youtube_video_comments(
     video_id: str,
     video_title: str,
     output_jsonl_path: Path,
+    checkpoint_path: Optional[Path] = None,
     max_pages: int = 5
 ) -> int:
-    """
-    TODO 3 (depuis le Notebook 01) :
-    Récupère les pages de commentaires d'une vidéo YouTube et les sauvegarde en mode append dans output_jsonl_path.
-    """
+    output_path = Path(output_jsonl_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if checkpoint_path is not None:
+        already_done = load_scraped_video_ids(Path(checkpoint_path))
+        if video_id in already_done:
+            return 0
+
     saved_count = 0
-    # TODO 3 : Reporter ton code validé dans le Notebook 01
+    next_page_token = None
+
+    for _ in range(max_pages):
+        request = youtube_client.commentThreads().list(
+            part="snippet,replies",
+            videoId=video_id,
+            maxResults=100,
+            pageToken=next_page_token,
+            textFormat="plainText"
+        )
+        response = request.execute()
+
+        with open(output_path, "a", encoding="utf-8") as f:
+            for item in response.get("items", []):
+                comments = parse_youtube_thread_item(item, video_title)
+                for comment in comments:
+                    f.write(json.dumps(comment, ensure_ascii=False) + "\n")
+                    saved_count += 1
+
+        next_page_token = response.get("nextPageToken")
+        if not next_page_token:
+            break
+
+    if checkpoint_path is not None:
+        mark_video_as_scraped(video_id, Path(checkpoint_path))
+
     return saved_count
 
 
 def split_trees_and_isolated(records: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
-    """
-    TODO 4 (depuis le Notebook 01) :
-    Sépare les enregistrements bruts en :
-      - `sft_pairs` (dialogues Parent -> Enfant)
-      - `isolated_comments` (commentaires isolés pour le CPT)
-    """
+    by_id = {r["comment_id"]: r for r in records if "comment_id" in r}
+    parents_with_replies = set()
     sft_pairs = []
-    isolated_comments = []
-    # TODO 4 : Reporter ton code validé dans le Notebook 01
+
+    for r in tqdm(records):
+        pid = r.get("parent_id")
+        if pid is not None and pid in by_id:
+            parent_rec = by_id[pid]
+            parents_with_replies.add(pid)
+            sft_pairs.append({
+                "parent_id": pid,
+                "child_id": r["comment_id"],
+                "user": parent_rec["text"],
+                "assistant": r["text"],
+                "source": r.get("source_platform", parent_rec.get("source_video_title", "youtube"))
+            })
+
+    isolated_comments = [
+        r for r in records
+        if r.get("parent_id") is None and r.get("comment_id") not in parents_with_replies
+    ]
+
     return sft_pairs, isolated_comments
