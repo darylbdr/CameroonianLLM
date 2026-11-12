@@ -1,9 +1,9 @@
 # CameroonianLLM : Fine-Tuning d'un LLM en Camfranglais
 
 Projet réalisé par :
-- [Daryl B.](https://github.com/darylbdr)
-- [Schadrac](https://github.com/Schadrac237)
-- [William Pancha](https://github.com/Williampancha)
+- [Daryl B.](https://www.linkedin.com/in/daryl-boulou-77ba8b253/)
+- [Schadrac](https://www.linkedin.com/in/schadrac-apoupoh-005820252/)
+- [William Pancha](https://www.linkedin.com/in/william-pancha-8626ba335/)
 
 ---
 
