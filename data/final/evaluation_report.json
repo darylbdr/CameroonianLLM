@@ -1,27 +1,27 @@
 {
-  "num_test_dialogues": 163,
+  "num_test_dialogues": 267,
   "1_perplexity": {
-    "eval_loss": 3.2559,
-    "perplexity": 25.94
+    "eval_loss": 3.7362,
+    "perplexity": 41.94
   },
   "2_camfranglais_adherence": {
-    "model_mean": 0.1411,
-    "model_std": 0.1464,
-    "human_mean": 0.169,
-    "human_std": 0.1042,
-    "mean_abs_gap": 0.0279,
-    "active_camfranglais_rate": 0.6564
+    "model_mean": 0.1789,
+    "model_std": 0.1486,
+    "human_mean": 0.1551,
+    "human_std": 0.0863,
+    "mean_abs_gap": 0.0237,
+    "active_camfranglais_rate": 0.8127
   },
   "3_semantic_relevance": {
     "model_vs_human_reference": {
-      "mean_cosine_similarity": 0.3532,
-      "min_similarity": -0.0282,
-      "max_similarity": 0.7811
+      "mean_cosine_similarity": 0.3309,
+      "min_similarity": -0.0647,
+      "max_similarity": 0.7615
     },
     "model_vs_user_prompt": {
-      "mean_cosine_similarity": 0.3806,
-      "min_similarity": 0.0004,
-      "max_similarity": 0.7694
+      "mean_cosine_similarity": 0.3891,
+      "min_similarity": 0.0034,
+      "max_similarity": 0.881
     }
   }
 }

@@ -168,6 +168,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 .idea/
+conv_whatsapp.json
 
 # Abstra
 # Abstra is an AI-powered process automation framework.
