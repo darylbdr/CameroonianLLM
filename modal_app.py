@@ -163,7 +163,7 @@ HTML_CONTENT = """
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Camfranglais LLM</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect width='300' height='600' fill='%23007a5e'/%3E%3Crect x='300' width='300' height='600' fill='%23ce1126'/%3E%3Crect x='600' width='300' height='600' fill='%23fcd116'/%3E%3Cpolygon points='450,230 468,285 526,285 479,319 497,374 450,340 403,374 421,319 374,285 432,285' fill='%23fcd116'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -173,6 +173,8 @@ HTML_CONTENT = """
             background-color: #131314;
             color: #e3e3e3;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            height: 100vh;
+            height: 100dvh;
         }
 
         
@@ -241,7 +243,7 @@ HTML_CONTENT = """
         }
     </style>
 </head>
-<body class="flex h-screen overflow-hidden bg-[#131314]">
+<body class="flex overflow-hidden bg-[#131314]">
 
     <!-- Barre latérale -->
     <aside id="sidebar" class="w-64 bg-[#1e1f20]/50 flex flex-col border-r border-[#282a2c] z-20 shrink-0">
@@ -272,7 +274,7 @@ HTML_CONTENT = """
     </aside>
 
     <!-- Zone Principale -->
-    <main class="flex-1 flex flex-col relative bg-[#131314] overflow-hidden">
+    <main class="flex-1 min-w-0 flex flex-col relative bg-[#131314] overflow-hidden">
         <!-- Halo Vert-Rouge-Jaune avec étoile d'or Cameroun -->
         <div id="ambientGlow" class="ambient-glow">
             <div class="ambient-star" title="Cameroun">
@@ -304,7 +306,7 @@ HTML_CONTENT = """
         </div>
 
         <!-- Barre de saisie en bas (Style Gemini) -->
-        <div class="p-4 md:px-32 z-10">
+        <div class="p-4 md:px-32 z-10 shrink-0" style="padding-bottom: max(1rem, env(safe-area-inset-bottom));">
             <form id="chatForm" class="max-w-3xl mx-auto bg-[#1e1f20] hover:bg-[#232426] focus-within:bg-[#232426] rounded-full px-5 py-2.5 flex items-center gap-3 transition border border-[#282a2c]/60">
                 <input id="userInput" type="text" placeholder="Waye tu veux quoi bro?..." autocomplete="off" required
                        class="flex-1 bg-transparent text-sm text-neutral-100 placeholder-neutral-400 focus:outline-none py-1">
@@ -331,6 +333,9 @@ HTML_CONTENT = """
         const chatContainer = document.getElementById("chatContainer");
 
         function init() {
+            if (window.innerWidth < 768) {
+                sidebar.classList.add("collapsed");
+            }
             if (sessions.length === 0) {
                 createNewChat();
             } else {
