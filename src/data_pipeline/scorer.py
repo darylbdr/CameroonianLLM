@@ -22,6 +22,13 @@ def load_lexicon(lexicon_path: Path) -> Dict:
         return json.load(f)
 
 
+_EMOJI_CLUSTER_RE = re.compile(
+    r"((?:[\U0001F1E6-\U0001FAFF\u2600-\u27BF]"
+    r"[\uFE0F\u20E3\U0001F3FB-\U0001F3FF]?"
+    r"(?:\u200D[\U0001F1E6-\U0001FAFF\u2600-\u27BF][\uFE0F\u20E3\U0001F3FB-\U0001F3FF]?)*))\1+"
+)
+
+
 def normalize_and_tokenize(text: str) -> Tuple[str, List[str]]:
     if not text:
         return "", []
@@ -29,6 +36,7 @@ def normalize_and_tokenize(text: str) -> Tuple[str, List[str]]:
     cleaned = re.sub(r'http\S+|www\.\S+', '', cleaned)
     cleaned = re.sub(r'@\s*[^\s@]+', '', cleaned)
     cleaned = re.sub(r'#\S+', '', cleaned)
+    cleaned = _EMOJI_CLUSTER_RE.sub(r'\1', cleaned)
     cleaned = re.sub(r'(.)\1{2,}', r'\1\1', cleaned)
     cleaned = re.sub(r'\s+', ' ', cleaned).strip()
 

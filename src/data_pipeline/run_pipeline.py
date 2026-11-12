@@ -1,4 +1,4 @@
-"""Orchestrateur de toute la Pipeline Locale (YouTube + conv_whatsapp.json)."""
+"""Orchestrateur de toute la Pipeline Locale (YouTube + conv_whatsapp.json + conv.json)."""
 
 import json
 import os
@@ -20,7 +20,7 @@ from src.data_pipeline.scraper import (
     fetch_youtube_video_comments,
     split_trees_and_isolated,
 )
-from src.data_pipeline.scorer import load_lexicon, score_camfranglais
+from src.data_pipeline.scorer import load_lexicon, normalize_and_tokenize, score_camfranglais
 from src.data_pipeline.builder import (
     is_good_sft_dialogue_pair,
     create_sft_entry,
@@ -135,15 +135,38 @@ def main():
     for text in tqdm(whatsapp_cpt, desc="Fusion CPT WhatsApp"):
         _add_cpt_text(cpt_texts, seen_cpt, text)
 
-    # SFT : uniquement paires YouTube + paires WhatsApp (conv_whatsapp.json).
+    # SFT : paires YouTube + paires WhatsApp (conv_whatsapp.json) + conv.json.
     sft_entries = []
+
+    conv_path = project_root / "conv.json"
+    if conv_path.exists():
+        manual_convs = json.loads(conv_path.read_text(encoding="utf-8"))
+        added_manual = 0
+        for entry in manual_convs:
+            conv = entry.get("conversations", [])
+            if (
+                isinstance(conv, list)
+                and len(conv) >= 2
+                and conv[0].get("content", "").strip()
+                and conv[1].get("content", "").strip()
+            ):
+                sft_entries.append(
+                    {
+                        "conversations": conv,
+                        "source": entry.get("source", "manual"),
+                    }
+                )
+                added_manual += 1
+        print(f"   -> {added_manual} conversations chargées depuis {conv_path.name}.")
 
     for pair in tqdm(sft_candidate_pairs, desc="Filtrage SFT YouTube"):
         result = score_camfranglais(pair["assistant"], lexicon, high_threshold=0.06)
         if is_good_sft_dialogue_pair(pair["user"], result["cleaned_text"], result["score"], min_score=0.06):
-            sft_entries.append(
-                create_sft_entry(pair["user"], result["cleaned_text"], source=pair.get("source", "youtube"))
-            )
+            cleaned_user, _ = normalize_and_tokenize(pair["user"])
+            if cleaned_user:
+                sft_entries.append(
+                    create_sft_entry(cleaned_user, result["cleaned_text"], source=pair.get("source", "youtube"))
+                )
 
     for pair in tqdm(whatsapp_sft_pairs, desc="Filtrage SFT WhatsApp"):
         result = score_camfranglais(pair["assistant"], lexicon, high_threshold=0.06)

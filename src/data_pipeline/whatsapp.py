@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import re
+import zlib
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -46,6 +47,10 @@ _MEDIA_PLACEHOLDERS = re.compile(
 _REACTION_EVENT = re.compile(
     r"(?:reacted\s+.{0,30}\s+to\s+|a\s+réagi\s+.{0,30}\s+à\s+|"
     r"a\s+réagi\s+avec\s+.{0,30}\s+à\s+)",
+    re.IGNORECASE,
+)
+_EDITED_MARKER_RE = re.compile(
+    r"<\s*(?:ce message a été modifié|this message was edited)\s*>",
     re.IGNORECASE,
 )
 _URL_RE = re.compile(r"(?:https?://|www\.)\S+", re.IGNORECASE)
@@ -320,6 +325,10 @@ def _looks_like_non_text_payload(text: str) -> bool:
     stripped = text.strip()
     if not stripped:
         return True
+    if "🆚" in stripped:
+        return True
+    if re.search(r"(?:https?://)?(?:t\.me|telegram\.me|telegram\.dog)/\S+", stripped, re.IGNORECASE):
+        return True
     if _MEDIA_PLACEHOLDERS.match(stripped):
         return True
     if _REACTION_EVENT.search(stripped):
@@ -334,6 +343,45 @@ def _looks_like_non_text_payload(text: str) -> bool:
 
 
 _PARTICIPANT_PATTERN_CACHE: Dict[Tuple[str, ...], List[Tuple[re.Pattern, str]]] = {}
+
+_KNOWN_FIRST_NAMES = (
+    "Ibrahima Poukone", "Mbarga paul", "La Moutass", "Denis_mks",
+    "La pensée", "Etouu Fr", "Eteincel", "Francine", "Wilfried",
+    "Soumelong", "Cyr FR", "Franky", "khaleb", "Nolwen", "Pancha",
+    "Piatch", "Chloé", "Ethan", "Fosso", "Kamal", "Marco", "Nlend",
+    "Steph", "Ziada", "amsa", "Beti", "Jaël", "Mich", "Mike", "Moka",
+    "Nico", "Cyr", "Dan",
+)
+_KNOWN_FIRST_NAMES_RE = re.compile(
+    r"@?\s*(?<!\w)(?:" + "|".join(re.escape(n) for n in sorted(_KNOWN_FIRST_NAMES, key=len, reverse=True)) + r")(?!\w)",
+    re.IGNORECASE,
+)
+_FRIEND_ALIASES = ("mon gars", "bro", "frérot", "le sang")
+
+
+def _replace_known_first_names(text: str) -> str:
+    """Replace known first names deterministically across natural Cameroonian aliases."""
+    used_in_msg: set[str] = set()
+
+    def _pick_alias(match: re.Match[str]) -> str:
+        raw = match.group(0).lstrip("@ ").casefold()
+        start_idx = zlib.crc32(raw.encode("utf-8")) % len(_FRIEND_ALIASES)
+        trailing = text[match.end():].lstrip().lower()
+        chosen = None
+        for offset in range(len(_FRIEND_ALIASES)):
+            candidate = _FRIEND_ALIASES[(start_idx + offset) % len(_FRIEND_ALIASES)]
+            if candidate == "mon gars" and re.match(r"^(?:gar|gars)\b", trailing):
+                continue
+            if candidate not in used_in_msg:
+                chosen = candidate
+                break
+        if chosen is None:
+            chosen = _FRIEND_ALIASES[start_idx]
+        used_in_msg.add(chosen)
+        prefix = " " if match.start() > 0 and not text[match.start() - 1].isspace() else ""
+        return f"{prefix}{chosen}"
+
+    return _KNOWN_FIRST_NAMES_RE.sub(_pick_alias, text)
 
 
 def _get_participant_patterns(participant_names: Sequence[str]) -> List[Tuple[re.Pattern, str]]:
@@ -353,21 +401,25 @@ def _get_participant_patterns(participant_names: Sequence[str]) -> List[Tuple[re
 def clean_message(text: str, participant_names: Sequence[str] = ()) -> str:
     """Remove links, emoji, tags and common personal identifiers."""
     cleaned = re.sub(r"[\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]", "", str(text or ""))
+    cleaned = _EDITED_MARKER_RE.sub(" ", cleaned)
     if _looks_like_non_text_payload(cleaned):
         return ""
 
     cleaned = _URL_RE.sub(" ", cleaned)
     cleaned = _EMAIL_RE.sub(" [EMAIL] ", cleaned)
     cleaned = _PHONE_RE.sub(" [NUMERO] ", cleaned)
+    cleaned = _EMOJI_RE.sub(" ", cleaned)
 
-    # Replace known group-member names wherever they occur, including tagged mentions.
+    # Replace explicit first names / nicknames (without emojis) with natural aliases.
+    cleaned = _replace_known_first_names(cleaned)
+
+    # Replace remaining known group-member names wherever they occur, including tagged mentions.
     for pattern, replacement in _get_participant_patterns(participant_names):
         cleaned = pattern.sub(replacement, cleaned)
 
     cleaned = re.sub(r"@\s*(?=\[(?:PERSONNE_\d+|NUMERO|EMAIL)\])", "", cleaned)
     cleaned = _MENTION_RE.sub(" [MENTION] ", cleaned)
     cleaned = _HASH_TAG_RE.sub(" ", cleaned)
-    cleaned = _EMOJI_RE.sub(" ", cleaned)
     cleaned = re.sub(r"(.)\1{3,}", r"\1\1", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
 
@@ -422,7 +474,7 @@ def load_whatsapp_dataset(
     lexicon: Dict[str, Any],
     *,
     cpt_threshold: float = 0.03,
-    cpt_min_words: int = 3,
+    cpt_min_words: int = 1,
     sft_threshold: float = 0.06,
     max_gap_minutes: int = 3,
 ) -> Tuple[List[str], List[Dict[str, str]], Dict[str, int]]:
@@ -495,6 +547,8 @@ def load_whatsapp_dataset(
     cpt_texts: List[str] = []
     seen_texts = set()
     for message in messages:
+        if "[PERSONNE_" in message.text:
+            continue
         score = score_camfranglais(
             message.text,
             lexicon,
@@ -508,7 +562,10 @@ def load_whatsapp_dataset(
             seen_texts.add(key)
             cpt_texts.append(cleaned)
 
-    sft_pairs = _build_sft_pairs(messages, clean_direct_pairs, max_gap_minutes)
+    sft_pairs = [
+        pair for pair in _build_sft_pairs(messages, clean_direct_pairs, max_gap_minutes)
+        if "[PERSONNE_" not in pair["user"] and "[PERSONNE_" not in pair["assistant"]
+    ]
     stats["cpt_kept"] = len(cpt_texts)
     stats["sft_candidates"] = len(sft_pairs)
     return cpt_texts, sft_pairs, stats
