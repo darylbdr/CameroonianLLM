@@ -25,7 +25,7 @@ def load_lexicon(lexicon_path: Path) -> Dict:
 def normalize_and_tokenize(text: str) -> Tuple[str, List[str]]:
     if not text:
         return "", []
-    cleaned = str(text)
+    cleaned = re.sub(r'[\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]', '', str(text))
     cleaned = re.sub(r'http\S+|www\.\S+', '', cleaned)
     cleaned = re.sub(r'@\s*[^\s@]+', '', cleaned)
     cleaned = re.sub(r'#\S+', '', cleaned)

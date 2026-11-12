@@ -69,6 +69,10 @@ _EMOJI_RE = re.compile(
 _SYSTEM_TEXT = (
     "messages and calls are end-to-end encrypted",
     "les messages et les appels sont chiffrés de bout en bout",
+    "ce message a été supprimé",
+    "vous avez supprimé ce message",
+    "this message was deleted",
+    "you deleted this message",
 )
 
 
@@ -155,7 +159,6 @@ def _normalise_timestamp(value: Any) -> Optional[datetime]:
             return datetime.fromisoformat(candidate).replace(tzinfo=None)
         except ValueError:
             pass
-        # Common export-style date strings.
         for fmt in (
             "%d/%m/%Y, %H:%M:%S", "%d/%m/%Y, %H:%M", "%d/%m/%y, %H:%M",
             "%m/%d/%Y, %H:%M", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M",
@@ -241,7 +244,7 @@ def _extract_json_records(data: Any) -> Tuple[List[Dict[str, Any]], List[Tuple[s
                             add_message_tree(child, order * 1000 + child_index + 1, current_id)
 
     if isinstance(data, dict):
-        # Existing repo-style SFT record(s).
+        # Existing repo-style SFT records.
         conversations = data.get("conversations")
         if isinstance(conversations, list) and conversations:
             user_text = None
@@ -257,7 +260,6 @@ def _extract_json_records(data: Any) -> Tuple[List[Dict[str, Any]], List[Tuple[s
                     assistant_text = content
             if user_text and assistant_text:
                 direct_pairs.append((user_text, assistant_text))
-                # Both messages also contribute to CPT.
                 raw_records.extend([
                     {"id": f"conv-user-{len(direct_pairs)}", "sender": "user", "text": user_text},
                     {"id": f"conv-assistant-{len(direct_pairs)}", "sender": "assistant", "text": assistant_text},
@@ -277,7 +279,6 @@ def _extract_json_records(data: Any) -> Tuple[List[Dict[str, Any]], List[Tuple[s
                 ])
             return raw_records, direct_pairs
 
-        # A standard wrapper object.
         for key in ("messages", "chat", "data", "items", "results"):
             if isinstance(data.get(key), list):
                 return _extract_json_records(data[key])
@@ -351,7 +352,7 @@ def _get_participant_patterns(participant_names: Sequence[str]) -> List[Tuple[re
 
 def clean_message(text: str, participant_names: Sequence[str] = ()) -> str:
     """Remove links, emoji, tags and common personal identifiers."""
-    cleaned = str(text or "")
+    cleaned = re.sub(r"[\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]", "", str(text or ""))
     if _looks_like_non_text_payload(cleaned):
         return ""
 
@@ -363,11 +364,10 @@ def clean_message(text: str, participant_names: Sequence[str] = ()) -> str:
     for pattern, replacement in _get_participant_patterns(participant_names):
         cleaned = pattern.sub(replacement, cleaned)
 
-    cleaned = re.sub(r"@(?=\[PERSONNE_\d+\])", "", cleaned)
+    cleaned = re.sub(r"@\s*(?=\[(?:PERSONNE_\d+|NUMERO|EMAIL)\])", "", cleaned)
     cleaned = _MENTION_RE.sub(" [MENTION] ", cleaned)
     cleaned = _HASH_TAG_RE.sub(" ", cleaned)
     cleaned = _EMOJI_RE.sub(" ", cleaned)
-    cleaned = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", cleaned)
     cleaned = re.sub(r"(.)\1{3,}", r"\1\1", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
 
@@ -466,7 +466,6 @@ def load_whatsapp_dataset(
             continue
         stats["messages_cleaned"] += 1
         message_id = str(record.get("id") or f"wa-{order}")
-        # Duplicate ids are malformed in some JSON exports; keep stable unique fallbacks.
         if message_id in seen_ids:
             message_id = f"{message_id}-{order}"
         seen_ids.add(message_id)
@@ -482,7 +481,7 @@ def load_whatsapp_dataset(
             )
         )
 
-    # Sanitize direct pairs with the same participant/PII rules, including mentions.
+    # Sanitize direct pairs, including mentions.
     clean_direct_pairs = [
         (clean_message(parent, participant_names), clean_message(child, participant_names))
         for parent, child in direct_pairs
