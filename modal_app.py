@@ -39,15 +39,9 @@ image = (
     secrets=[modal.Secret.from_dotenv()]
 )
 def preload():
-    import glob
     from huggingface_hub import hf_hub_download
 
     hf_cache_volume.reload()
-    existing = glob.glob(f"{CACHE_DIR}/**/{MODEL_FILENAME}", recursive=True)
-    if existing:
-        print(f"--> Le modèle est déjà présent dans le volume : {existing[0]}")
-        return existing[0]
-
     print(f"--> Vérification / Téléchargement de {MODEL_FILENAME} ({MODEL_REPO})...")
     path = hf_hub_download(
         repo_id=MODEL_REPO,
@@ -56,7 +50,7 @@ def preload():
         token=os.environ.get("HF_TOKEN")
     )
     hf_cache_volume.commit()
-    print(f"--> Fichier en cache avec succès : {path}")
+    print(f"--> Fichier en cache à jour : {path}")
     return path
 
 
@@ -73,38 +67,27 @@ def preload():
 class ModelInference:
     @modal.enter()
     def load_model(self):
-        import glob
         from huggingface_hub import hf_hub_download
         from llama_cpp import Llama
 
         hf_cache_volume.reload()
-        model_path = None
-
-        # Vérification directe sur disque dans le volume
-        candidates = glob.glob(f"{CACHE_DIR}/**/{MODEL_FILENAME}", recursive=True)
-        if candidates:
-            model_path = candidates[0]
-            print(f"--> Modèle trouvé directement sur disque local : {model_path}")
-        else:
-            try:
-                print("--> Recherche du modèle dans le cache local du volume...")
-                model_path = hf_hub_download(
-                    repo_id=MODEL_REPO,
-                    filename=MODEL_FILENAME,
-                    cache_dir=CACHE_DIR,
-                    local_files_only=True
-                )
-                print(f"--> Modèle trouvé en cache local : {model_path}")
-            except Exception as e:
-                print(f"--> Modèle absent du cache ({e}), téléchargement depuis Hugging Face...")
-                model_path = hf_hub_download(
-                    repo_id=MODEL_REPO,
-                    filename=MODEL_FILENAME,
-                    cache_dir=CACHE_DIR,
-                    token=os.environ.get("HF_TOKEN")
-                )
-                hf_cache_volume.commit()
-                print(f"--> Modèle téléchargé et persisté dans le volume : {model_path}")
+        try:
+            print(f"--> Vérification du modèle {MODEL_FILENAME} ({MODEL_REPO}) sur Hugging Face...")
+            model_path = hf_hub_download(
+                repo_id=MODEL_REPO,
+                filename=MODEL_FILENAME,
+                cache_dir=CACHE_DIR,
+                token=os.environ.get("HF_TOKEN")
+            )
+            hf_cache_volume.commit()
+        except Exception as e:
+            print(f"--> Vérification HF impossible ({e}), repli sur le cache local...")
+            model_path = hf_hub_download(
+                repo_id=MODEL_REPO,
+                filename=MODEL_FILENAME,
+                cache_dir=CACHE_DIR,
+                local_files_only=True
+            )
 
         print(f"--> Chargement du modèle {model_path} dans llama-cpp-python (GPU)...")
         self.llm = Llama(
@@ -115,35 +98,63 @@ class ModelInference:
         )
         print("--> Modèle chargé avec succès et prêt !")
 
+    @staticmethod
+    def _format_mistral_prompt(messages: list, system_prompt: str) -> str:
+        """Formate les messages exactement comme le template Unsloth 'mistral' utilisé en SFT."""
+        sys_text = system_prompt
+        convo = []
+        for msg in messages:
+            role = msg.get("role")
+            content = (msg.get("content") or "").strip()
+            if role == "system" and content:
+                sys_text = content
+            elif role in ("user", "assistant"):
+                convo.append({"role": role, "content": content})
+
+        parts = []
+        first_user = True
+        for msg in convo:
+            if msg["role"] == "user":
+                user_content = f"{sys_text}\n\n{msg['content']}" if (first_user and sys_text) else msg["content"]
+                first_user = False
+                parts.append(f"[INST] {user_content} [/INST]")
+            else:
+                parts.append(f" {msg['content']}</s>")
+
+        return "".join(parts)
+
     @modal.method()
     def generate_stream(
         self,
         messages: list,
-        max_tokens: int = 2048,
+        max_tokens: int = 512,
         temperature: float = 0.7,
+        top_p: float = 1.0,
+        top_k: int = 50,
+        min_p: float = 0.0,
         repeat_penalty: float = 1.1,
     ):
         SYSTEM_PROMPT = "Tu parles comme un camerounais"
         STOP_TOKENS = ["[INST]", "[/INST]", "</s>"]
 
-        # Insertion du prompt système si pas déjà présent
-        formatted_messages = list(messages)
-        if not formatted_messages or formatted_messages[0].get("role") != "system":
-            formatted_messages.insert(0, {"role": "system", "content": SYSTEM_PROMPT})
+        prompt = self._format_mistral_prompt(messages, SYSTEM_PROMPT)
 
-        stream = self.llm.create_chat_completion(
-            messages=formatted_messages,
+        stream = self.llm.create_completion(
+            prompt=prompt,
             max_tokens=max_tokens,
             temperature=temperature,
+            top_p=top_p,
+            top_k=top_k,
+            min_p=min_p,
             repeat_penalty=repeat_penalty,
             stop=STOP_TOKENS,
             stream=True
         )
 
         for chunk in stream:
-            delta = chunk["choices"][0].get("delta", {})
-            if "content" in delta and delta["content"]:
-                yield delta["content"]
+            text = chunk["choices"][0].get("text", "")
+            if text:
+                yield text
 
 
 # Interface Web 
