@@ -17,8 +17,7 @@ image = (
     .pip_install(
         "nvidia-cuda-runtime-cu12",
         "nvidia-cublas-cu12",
-        "huggingface_hub[hf_transfer]",
-        "hf-transfer",
+        "huggingface_hub",
         "fastapi[standard]",
         "pydantic",
         "llama-cpp-python",
@@ -27,7 +26,7 @@ image = (
     .env({
         "LD_LIBRARY_PATH": "/usr/local/lib/python3.11/site-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/site-packages/nvidia/cublas/lib",
         "HF_HOME": CACHE_DIR,
-        "HF_HUB_ENABLE_HF_TRANSFER": "1"
+        "HF_XET_HIGH_PERFORMANCE": "1"
     })
 )
 
