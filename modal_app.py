@@ -120,10 +120,10 @@ class ModelInference:
         self,
         messages: list,
         max_tokens: int = 2048,
-        temperature: float = 0.75,
-        repeat_penalty: float = 1.08,
+        temperature: float = 0.7,
+        repeat_penalty: float = 1.1,
     ):
-        SYSTEM_PROMPT = "Tu réponds comme un camerounais"
+        SYSTEM_PROMPT = "Tu parles comme un camerounais"
         STOP_TOKENS = ["[INST]", "[/INST]", "</s>"]
 
         # Insertion du prompt système si pas déjà présent
