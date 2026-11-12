@@ -36,28 +36,79 @@ def normalize_and_tokenize(text: str) -> Tuple[str, List[str]]:
     return cleaned, words
 
 
-def get_word_camfranglais_weight(word: str, lexicon: Dict) -> float:
+_LEXICON_CACHE = {}
+
+
+def _get_compiled_lexicon(lexicon: Dict):
+    key = (
+        id(lexicon),
+        len(lexicon.get("strong_markers", ())),
+        len(lexicon.get("medium_markers", ())),
+        len(lexicon.get("french_anchors", ())),
+        len(lexicon.get("pidgin_english_anchors", ())),
+    )
+    cached = _LEXICON_CACHE.get(key)
+    if cached is not None and cached["ref"] is lexicon:
+        return cached
+
     w_strong = lexicon.get("strong_markers_weight", 2.0)
     w_medium = lexicon.get("medium_markers_weight", 1.0)
     strong_set = set(m.strip().lower() for m in lexicon["strong_markers"])
     medium_set = set(m.strip().lower() for m in lexicon["medium_markers"])
     french_set = set(m.strip().lower() for m in lexicon["french_anchors"])
+    en_pid_set = set(a.strip().lower() for a in lexicon.get("pidgin_english_anchors", ()))
+    strong_roots = [r for r in strong_set if len(r) >= 4]
+    medium_roots = [r for r in medium_set if len(r) >= 4]
 
-    if word in french_set:
-        return 0.0
-    if word in strong_set:
-        return w_strong
-    if word in medium_set:
-        return w_medium
+    cached = {
+        "ref": lexicon,
+        "w_strong": w_strong,
+        "w_medium": w_medium,
+        "strong_set": strong_set,
+        "medium_set": medium_set,
+        "french_set": french_set,
+        "en_pid_set": en_pid_set,
+        "strong_roots": strong_roots,
+        "medium_roots": medium_roots,
+        "word_weights": {},
+    }
+    _LEXICON_CACHE[key] = cached
+    return cached
 
-    if len(word) >= 4:
-        for root in strong_set:
-            if len(root) >= 4 and (root in word or SequenceMatcher(None, word, root).ratio() >= 0.84):
-                return w_strong
-        for root in medium_set:
-            if len(root) >= 4 and (root in word or SequenceMatcher(None, word, root).ratio() >= 0.84):
-                return w_medium
-    return 0.0
+
+def get_word_camfranglais_weight(word: str, lexicon: Dict) -> float:
+    comp = _get_compiled_lexicon(lexicon)
+    word_weights = comp["word_weights"]
+    if word in word_weights:
+        return word_weights[word]
+
+    w_strong = comp["w_strong"]
+    w_medium = comp["w_medium"]
+
+    if word in comp["french_set"]:
+        weight = 0.0
+    elif word in comp["strong_set"]:
+        weight = w_strong
+    elif word in comp["medium_set"]:
+        weight = w_medium
+    else:
+        weight = 0.0
+        lw = len(word)
+        if lw >= 4:
+            for root in comp["strong_roots"]:
+                lr = len(root)
+                if root in word or (2 * min(lw, lr) >= 0.84 * (lw + lr) and SequenceMatcher(None, word, root).ratio() >= 0.84):
+                    weight = w_strong
+                    break
+            if weight == 0.0:
+                for root in comp["medium_roots"]:
+                    lr = len(root)
+                    if root in word or (2 * min(lw, lr) >= 0.84 * (lw + lr) and SequenceMatcher(None, word, root).ratio() >= 0.84):
+                        weight = w_medium
+                        break
+
+    word_weights[word] = weight
+    return weight
 
 
 def compute_d_cam(words: List[str], lexicon: Dict) -> float:
@@ -68,8 +119,9 @@ def compute_d_cam(words: List[str], lexicon: Dict) -> float:
 
 
 def compute_p_matrice(words: List[str], lexicon: Dict, epsilon: float = 1e-5) -> float:
-    fr_anchors = set(a.strip().lower() for a in lexicon["french_anchors"])
-    en_pid_anchors = set(a.strip().lower() for a in lexicon["pidgin_english_anchors"])
+    comp = _get_compiled_lexicon(lexicon)
+    fr_anchors = comp["french_set"]
+    en_pid_anchors = comp["en_pid_set"]
 
     c_fr = sum(1 for w in words if w in fr_anchors)
     c_en_pid = sum(1 for w in words if w in en_pid_anchors)
