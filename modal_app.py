@@ -164,7 +164,8 @@ HTML_CONTENT = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camfranglais</title>
+    <title>Camfranglais LLM</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect width='300' height='600' fill='%23007a5e'/%3E%3Crect x='300' width='300' height='600' fill='%23ce1126'/%3E%3Crect x='600' width='300' height='600' fill='%23fcd116'/%3E%3Cpolygon points='450,230 468,285 526,285 479,319 497,374 450,340 403,374 421,319 374,285 432,285' fill='%23fcd116'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -256,8 +257,13 @@ HTML_CONTENT = """
 
         <div class="p-3 border-t border-[#282a2c] text-xs text-neutral-400 flex items-center justify-between">
             <span class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                Camfranglais LLM 🇨🇲
+                <span>Camfranglais LLM</span>
+                <svg class="w-4 h-3 rounded-[2px] shadow-sm inline-block" viewBox="0 0 900 600" aria-label="Cameroun">
+                    <rect width="300" height="600" fill="#007a5e"/>
+                    <rect x="300" width="300" height="600" fill="#ce1126"/>
+                    <rect x="600" width="300" height="600" fill="#fcd116"/>
+                    <polygon points="450,230 468,285 526,285 479,319 497,374 450,340 403,374 421,319 374,285 432,285" fill="#fcd116"/>
+                </svg>
             </span>
             <button onclick="clearAllHistory()" title="Effacer l'historique" class="hover:text-red-400 transition p-1">
                 <i class="fa-regular fa-trash-can"></i>
