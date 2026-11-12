@@ -1,5 +1,6 @@
 import os
 import json
+import uuid
 import modal
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse, StreamingResponse
@@ -9,122 +10,125 @@ app = modal.App("camfranglais-llm-chat")
 hf_cache_volume = modal.Volume.from_name("hf-model-cache", create_if_missing=True)
 
 CACHE_DIR = "/root/hf_cache"
-MODEL_REPO = "Cmr237/Camfranglais"
-MODEL_FILENAME = "Camfranglais-Q8_0.gguf"
+BASE_MODEL_REPO = "unsloth/Mistral-Nemo-Instruct-2407-bnb-4bit"
+LORA_REPO = "Cmr237/Camfranglais"
 
-image = (
+# Image légère CPU uniquement pour l'interface Web FastAPI
+web_image = modal.Image.debian_slim(python_version="3.11").pip_install(
+    "fastapi[standard]",
+    "pydantic",
+)
+
+# Image GPU dédiée à vLLM + BitsAndBytes + LoRA
+vllm_image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
-        "nvidia-cuda-runtime-cu12",
-        "nvidia-cublas-cu12",
         "huggingface_hub",
-        "fastapi[standard]",
-        "pydantic",
-        "llama-cpp-python",
-        extra_index_url="https://abetlen.github.io/llama-cpp-python/whl/cu124"
+        "transformers",
+        "bitsandbytes>=0.45.0",
+        "vllm>=0.6.0",
     )
     .env({
-        "LD_LIBRARY_PATH": "/usr/local/lib/python3.11/site-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/site-packages/nvidia/cublas/lib",
         "HF_HOME": CACHE_DIR,
-        "HF_XET_HIGH_PERFORMANCE": "1"
+        "HF_XET_HIGH_PERFORMANCE": "1",
     })
 )
 
-# Fonction de préchargement du modèle dans le volume persistant
+# Fonction de préchargement du modèle de base + adaptateur LoRA dans le volume persistant
 @app.function(
-    image=image,
+    image=vllm_image,
     volumes={CACHE_DIR: hf_cache_volume},
     timeout=1800,
     secrets=[modal.Secret.from_dotenv()]
 )
 def preload():
-    from huggingface_hub import hf_hub_download
+    from huggingface_hub import snapshot_download
 
     hf_cache_volume.reload()
-    print(f"--> Vérification / Téléchargement de {MODEL_FILENAME} ({MODEL_REPO})...")
-    path = hf_hub_download(
-        repo_id=MODEL_REPO,
-        filename=MODEL_FILENAME,
+    token = os.environ.get("HF_TOKEN")
+    print(f"--> Préchargement du modèle de base {BASE_MODEL_REPO}...")
+    snapshot_download(repo_id=BASE_MODEL_REPO, cache_dir=CACHE_DIR, token=token)
+    print(f"--> Préchargement de l'adaptateur LoRA {LORA_REPO}...")
+    lora_path = snapshot_download(
+        repo_id=LORA_REPO,
         cache_dir=CACHE_DIR,
-        token=os.environ.get("HF_TOKEN")
+        ignore_patterns=["*.gguf"],
+        token=token,
     )
     hf_cache_volume.commit()
-    print(f"--> Fichier en cache à jour : {path}")
-    return path
+    print(f"--> Fichiers en cache à jour : {lora_path}")
+    return lora_path
 
 
-# Inférence GPU A10G 
+# Inférence GPU A10G avec vLLM + LoRA pour réduire les coûts
 @app.cls(
     gpu=["A10G"],
-    scaledown_window=120,
+    scaledown_window=60,
+    max_containers=3,
     timeout=600,
     startup_timeout=600,
-    image=image,
+    image=vllm_image,
     volumes={CACHE_DIR: hf_cache_volume},
     secrets=[modal.Secret.from_dotenv()]
 )
+@modal.concurrent(max_inputs=32)
 class ModelInference:
     @modal.enter()
     def load_model(self):
-        from huggingface_hub import hf_hub_download
-        from llama_cpp import Llama
+        from huggingface_hub import snapshot_download
+        from transformers import AutoTokenizer
+        from vllm import AsyncEngineArgs, AsyncLLMEngine
 
         hf_cache_volume.reload()
+        token = os.environ.get("HF_TOKEN")
         try:
-            print(f"--> Vérification du modèle {MODEL_FILENAME} ({MODEL_REPO}) sur Hugging Face...")
-            model_path = hf_hub_download(
-                repo_id=MODEL_REPO,
-                filename=MODEL_FILENAME,
+            print(f"--> Vérification du modèle {BASE_MODEL_REPO} et LoRA {LORA_REPO}...")
+            base_path = snapshot_download(
+                repo_id=BASE_MODEL_REPO,
                 cache_dir=CACHE_DIR,
-                token=os.environ.get("HF_TOKEN")
+                token=token,
+            )
+            self.lora_path = snapshot_download(
+                repo_id=LORA_REPO,
+                cache_dir=CACHE_DIR,
+                ignore_patterns=["*.gguf"],
+                token=token,
             )
             hf_cache_volume.commit()
         except Exception as e:
             print(f"--> Vérification HF impossible ({e}), repli sur le cache local...")
-            model_path = hf_hub_download(
-                repo_id=MODEL_REPO,
-                filename=MODEL_FILENAME,
+            base_path = snapshot_download(
+                repo_id=BASE_MODEL_REPO,
                 cache_dir=CACHE_DIR,
-                local_files_only=True
+                local_files_only=True,
+            )
+            self.lora_path = snapshot_download(
+                repo_id=LORA_REPO,
+                cache_dir=CACHE_DIR,
+                ignore_patterns=["*.gguf"],
+                local_files_only=True,
             )
 
-        print(f"--> Chargement du modèle {model_path} dans llama-cpp-python (GPU)...")
-        self.llm = Llama(
-            model_path=model_path,
-            n_gpu_layers=-1,
-            n_ctx=8192,
-            chat_format="mistral",
-            verbose=True
+        print(f"--> Chargement de vLLM (Base 4-bit + LoRA {self.lora_path})...")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.lora_path)
+        engine_args = AsyncEngineArgs(
+            model=base_path,
+            tokenizer=self.lora_path,
+            quantization="bitsandbytes",
+            load_format="bitsandbytes",
+            enable_lora=True,
+            max_loras=1,
+            max_lora_rank=32,
+            tensor_parallel_size=1,
+            gpu_memory_utilization=0.90,
+            max_model_len=4096,
+            enforce_eager=True,
         )
-        print("--> Modèle chargé avec succès et prêt !")
-
-    @staticmethod
-    def _format_mistral_prompt(messages: list, system_prompt: str) -> str:
-        """Formate les messages exactement comme le template Unsloth 'mistral' utilisé en SFT."""
-        sys_text = system_prompt
-        convo = []
-        for msg in messages:
-            role = msg.get("role")
-            content = (msg.get("content") or "").strip()
-            if role == "system" and content:
-                sys_text = content
-            elif role in ("user", "assistant"):
-                convo.append({"role": role, "content": content})
-
-        parts = []
-        first_user = True
-        for msg in convo:
-            if msg["role"] == "user":
-                user_content = f"{sys_text}\n\n{msg['content']}" if (first_user and sys_text) else msg["content"]
-                first_user = False
-                parts.append(f"[INST] {user_content} [/INST]")
-            else:
-                parts.append(f" {msg['content']}</s>")
-
-        return "".join(parts)
+        self.engine = AsyncLLMEngine.from_engine_args(engine_args)
+        print("--> Moteur vLLM + LoRA chargé avec succès et prêt !")
 
     @modal.method()
-    def generate_stream(
+    async def generate_stream(
         self,
         messages: list,
         max_tokens: int = 512,
@@ -132,29 +136,49 @@ class ModelInference:
         top_p: float = 1.0,
         top_k: int = 50,
         min_p: float = 0.0,
-        repeat_penalty: float = 1.1,
+        repetition_penalty: float = 1.1,
     ):
+        from vllm import SamplingParams
+        from vllm.lora.request import LoRARequest
+
         SYSTEM_PROMPT = "Tu parles comme un camerounais"
-        STOP_TOKENS = ["[INST]", "[/INST]", "</s>"]
 
-        prompt = self._format_mistral_prompt(messages, SYSTEM_PROMPT)
+        formatted_messages = list(messages)
+        if not formatted_messages or formatted_messages[0].get("role") != "system":
+            formatted_messages.insert(0, {"role": "system", "content": SYSTEM_PROMPT})
 
-        stream = self.llm.create_completion(
-            prompt=prompt,
+        prompt = self.tokenizer.apply_chat_template(
+            formatted_messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+
+        sampling_params = SamplingParams(
             max_tokens=max_tokens,
             temperature=temperature,
             top_p=top_p,
             top_k=top_k,
             min_p=min_p,
-            repeat_penalty=repeat_penalty,
-            stop=STOP_TOKENS,
-            stream=True
+            repetition_penalty=repetition_penalty,
+            stop=["[INST]", "[/INST]", "</s>"],
         )
 
-        for chunk in stream:
-            text = chunk["choices"][0].get("text", "")
-            if text:
-                yield text
+        lora_request = LoRARequest("camfranglais", 1, self.lora_path)
+        request_id = str(uuid.uuid4())
+        results_generator = self.engine.generate(
+            prompt,
+            sampling_params,
+            request_id,
+            lora_request=lora_request,
+        )
+
+        previous_text = ""
+        async for request_output in results_generator:
+            current_text = request_output.outputs[0].text
+            delta = current_text[len(previous_text):]
+            previous_text = current_text
+            if delta:
+                yield delta
 
 
 # Interface Web 
@@ -545,7 +569,8 @@ HTML_CONTENT = """
 class ChatRequest(BaseModel):
     messages: list
 
-@app.function(image=image, timeout=600)
+@app.function(image=web_image, timeout=600)
+@modal.concurrent(max_inputs=100)
 @modal.asgi_app()
 def ui():
     import asyncio
