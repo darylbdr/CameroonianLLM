@@ -578,18 +578,3 @@ def ui():
         )
 
     return web_app
-
-
-# Point d'entrée local pour tester ou précharger via `modal run modal_app.py`
-@app.local_entrypoint()
-def main(action: str = "preload"):
-    if action == "test":
-        print("=== Test d'inférence avec le modèle en cache ===")
-        messages = [{"role": "user", "content": "Bonjour mon frère, tu dis quoi ?"}]
-        for chunk in ModelInference().generate_stream.remote_gen(messages=messages):
-            print(chunk, end="", flush=True)
-        print("\n=== Test terminé avec succès ! ===")
-    else:
-        print("=== Préchargement du modèle Camfranglais dans le Volume Modal ===")
-        preload.remote()
-        print("=== Modèle prêt et en cache ! Vous pouvez lancer `modal serve modal_app.py` ===")
