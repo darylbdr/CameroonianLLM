@@ -131,17 +131,20 @@ class ModelInference:
     async def generate_stream(
         self,
         messages: list,
-        max_tokens: int = 512,
+        max_tokens: int = 256,
         temperature: float = 0.7,
-        top_p: float = 1.0,
+        top_p: float = 0.9,
         top_k: int = 50,
-        min_p: float = 0.0,
+        min_p: float = 0.06,
         repetition_penalty: float = 1.1,
     ):
         from vllm import SamplingParams
         from vllm.lora.request import LoRARequest
 
-        SYSTEM_PROMPT = "Tu parles comme un camerounais"
+        SYSTEM_PROMPT = """
+        Tu es un assistant IA camerounais. 
+        Tu réponds naturellement en camfranglais ou en français.(quand on te dit 'ca dit quoi ?' c'est pour te saluer)
+        """
 
         formatted_messages = list(messages)
         if not formatted_messages or formatted_messages[0].get("role") != "system":
